@@ -275,7 +275,7 @@ export default function AIChatbot() {
       const genAI = await getGenAI();
 
       const model = genAI.getGenerativeModel({
-        model: "gemini-2.5-flash",
+        model: "gemini-3.8-flash",
         systemInstruction: systemPrompt,
       });
 
@@ -486,7 +486,7 @@ export default function AIChatbot() {
                 </button>
               </div>
               <p className="mt-2 text-center font-mono text-[10px] text-muted-foreground/50">
-                prince's ai · gemini 2.5 flash
+                prince's ai · gemini 3.8 flash
               </p>
             </div>
           </motion.div>
