@@ -285,7 +285,7 @@ export const PlatformConnectionsPage: React.FC = () => {
             <div className="rounded-lg bg-muted/20 p-3 space-y-2 border border-border/40 font-mono text-[11px]">
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Active Model:</span>
-                <span className="text-primary font-bold">{status?.ai?.model || "gemini-1.5-flash"}</span>
+                <span className="text-primary font-bold">{status?.ai?.model || "gemini-3.8-flash"}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Free Rate Quota:</span>
