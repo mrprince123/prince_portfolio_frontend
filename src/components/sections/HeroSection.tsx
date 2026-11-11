@@ -73,7 +73,7 @@ export const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-20 lg:py-28">
         <div className="grid grid-cols-1 gap-0 md:grid-cols-[44px_1fr] md:gap-8">
           <div className="hidden md:block">
-            <span className="mt-1 inline-block rotate-180 font-mono text-[11px] tracking-[0.14em] text-purple-400 [writing-mode:vertical-rl]">
+            <span className="mt-1 inline-block rotate-180 font-mono text-[11px] tracking-[0.14em] text-[#4895ef] [writing-mode:vertical-rl]">
               PORTFOLIO / 2026
             </span>
           </div>
@@ -86,10 +86,10 @@ export const HeroSection = () => {
           >
             <motion.div
               variants={item}
-              className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-purple-400"
+              className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.12em] text-[#4895ef]"
             >
               <span>Software Engineer — {personalInfo.location}</span>
-              <span className="h-px w-14 bg-purple-500/40" />
+              <span className="h-px w-14 bg-[#4361ee]/40" />
             </motion.div>
 
             <motion.h1
@@ -102,8 +102,8 @@ export const HeroSection = () => {
             </motion.h1>
 
             <motion.p variants={item} className="mt-6 font-mono text-sm sm:text-base text-zinc-400">
-              <span className="text-purple-400 font-bold">$</span> {typed}
-              <span className="ml-1 inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-purple-500 align-middle motion-reduce:animate-none" />
+              <span className="text-[#4895ef] font-bold">$</span> {typed}
+              <span className="ml-1 inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-[#4361ee] align-middle motion-reduce:animate-none" />
             </motion.p>
 
             <motion.p
@@ -114,7 +114,7 @@ export const HeroSection = () => {
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-4">
-              <Button asChild variant="primary" className="shadow-lg shadow-purple-600/30">
+              <Button asChild variant="primary" className="bg-[#4361ee] hover:bg-[#3a56d4] text-white shadow-lg shadow-[#4361ee]/30 font-bold">
                 <Link to="/dashboard" className="flex items-center gap-2">
                   <LayoutDashboard className="h-4 w-4" />
                   <span>Open Cockpit Dashboard</span>
@@ -133,7 +133,7 @@ export const HeroSection = () => {
                   rel="noreferrer"
                   className="flex items-center gap-1.5"
                 >
-                  <FileDown className="h-4 w-4 text-purple-400" />
+                  <FileDown className="h-4 w-4 text-[#4895ef]" />
                   <span>Download résumé →</span>
                 </a>
               </Button>

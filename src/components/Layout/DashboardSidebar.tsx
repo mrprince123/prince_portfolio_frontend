@@ -55,8 +55,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   };
 
   const isActive = (path: string) => {
-    if (path === "/" && location.pathname === "/") return true;
-    if (path !== "/" && location.pathname.startsWith(path.split("#")[0])) {
+    if (path === "/dashboard" && location.pathname === "/dashboard") return true;
+    if (path !== "/" && path !== "/dashboard" && location.pathname.startsWith(path.split("#")[0])) {
       if (path.includes("#")) {
         return location.hash === path.substring(path.indexOf("#"));
       }
@@ -81,7 +81,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       )}
 
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-50 flex flex-col justify-between border-r border-white/5 bg-[#0a0a0f] text-zinc-300 transition-all duration-300 ${
+        className={`fixed top-0 left-0 bottom-0 z-50 flex flex-col justify-between border-r border-white/5 bg-[#090a10] text-zinc-300 transition-all duration-300 ${
           mobileOpen ? "translate-x-0 w-64" : "-translate-x-full lg:translate-x-0"
         } ${collapsed ? "lg:w-16" : "lg:w-64"}`}
         aria-label="Sidebar Navigation"
@@ -97,7 +97,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             >
               <span className="font-signature text-2xl font-bold tracking-wide whitespace-nowrap transition-transform group-hover:scale-105">
                 <span className="text-white">Prince</span>{" "}
-                <span className="text-[#a855f7] glow-purple-sm">Singh</span>
+                <span className="text-[#4361ee] glow-theme-sm">Singh</span>
               </span>
             </Link>
           )}
@@ -137,43 +137,44 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/dashboard")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
-                  title="Overview"
+                  title="Overview / Dashboard"
                 >
                   {isActive("/dashboard") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <LayoutDashboard
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/dashboard") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/dashboard") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Overview</span>}
                 </Link>
 
+                {/* Replaced Kurukshetr AI with Thor AI as requested */}
                 <Link
-                  to="/work"
+                  to="/projects?cat=ai"
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
-                    isActive("/work")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                    location.search.includes("cat=ai")
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
-                  title="Kurukshetr AI / Work Portfolio"
+                  title="Thor AI – Full-Stack RAG Assistant"
                 >
-                  {isActive("/work") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  {location.search.includes("cat=ai") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Bot
-                    className={`h-4 w-4 shrink-0 ${isActive("/work") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
                   {(!collapsed || mobileOpen) && (
                     <span className="flex items-center justify-between flex-1">
-                      <span>KurukshetrAI</span>
-                      <span className="rounded bg-purple-500/20 px-1.5 py-0.5 text-[9px] font-mono text-purple-300">
-                        LIVE
+                      <span>Thor AI</span>
+                      <span className="rounded bg-[#4361ee]/25 px-1.5 py-0.5 text-[9px] font-mono text-[#4895ef] border border-[#4361ee]/30">
+                        RAG
                       </span>
                     </span>
                   )}
@@ -202,18 +203,18 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   to="/projects"
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
-                    isActive("/projects")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                    isActive("/projects") && !location.search.includes("cat=ai")
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="AI Lab"
                 >
-                  {isActive("/projects") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  {isActive("/projects") && !location.search.includes("cat=ai") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Layers
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/projects") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/projects") && !location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>AI Lab</span>}
@@ -230,7 +231,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 </Link>
 
                 <Link
-                  to="/projects?cat=systems"
+                  to="/projects?cat=cloud"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
                   title="Engineering Systems"
@@ -259,7 +260,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             {openGroups.career && (
               <div className="mt-1 space-y-0.5">
                 <Link
-                  to="/work#experience"
+                  to="/about#experience"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
                   title="Experience Lab"
@@ -273,18 +274,18 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/about")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Founder (About)"
                 >
                   {isActive("/about") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <User
-                    className={`h-4 w-4 shrink-0 ${isActive("/about") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/about") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
-                  {(!collapsed || mobileOpen) && <span>Founder</span>}
+                  {(!collapsed || mobileOpen) && <span>Founder (About)</span>}
                 </Link>
 
                 <Link
@@ -292,17 +293,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/certificates")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Certificates"
                 >
                   {isActive("/certificates") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Award
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/certificates") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/certificates") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Certificates</span>}
@@ -313,16 +314,16 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/resume")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Resume"
                 >
                   {isActive("/resume") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <FileText
-                    className={`h-4 w-4 shrink-0 ${isActive("/resume") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/resume") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Resume</span>}
                 </Link>
@@ -347,12 +348,12 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             {openGroups.practice && (
               <div className="mt-1 space-y-0.5">
                 <Link
-                  to="/work#dsa"
+                  to="/about#impact"
                   onClick={handleLinkClick}
                   className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
                   title="DSA Lab"
                 >
-                  <Target className="h-4 w-4 shrink-0 text-purple-400" />
+                  <Target className="h-4 w-4 shrink-0 text-[#4895ef]" />
                   {(!collapsed || mobileOpen) && <span>DSA Lab</span>}
                 </Link>
 
@@ -361,16 +362,16 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/skills")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Tech Stack"
                 >
                   {isActive("/skills") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Grid
-                    className={`h-4 w-4 shrink-0 ${isActive("/skills") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/skills") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Tech Stack</span>}
                 </Link>
@@ -385,7 +386,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 onClick={() => toggleGroup("media")}
                 className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
               >
-                <span>MEDIA & LEARNING</span>
+                <span>MEDIA &amp; LEARNING</span>
                 <ChevronDown
                   className={`h-3 w-3 transition-transform ${openGroups.media ? "" : "-rotate-90"}`}
                 />
@@ -399,17 +400,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/articles")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Articles"
                 >
                   {isActive("/articles") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <BookOpen
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/articles") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/articles") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Articles</span>}
@@ -420,17 +421,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/courses")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Courses"
                 >
                   {isActive("/courses") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <GraduationCap
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/courses") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/courses") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Courses</span>}
@@ -441,16 +442,16 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/blog")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Blogs"
                 >
                   {isActive("/blog") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <FileText
-                    className={`h-4 w-4 shrink-0 ${isActive("/blog") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/blog") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Blogs</span>}
                 </Link>
@@ -460,17 +461,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/youtube")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="YouTube"
                 >
                   {isActive("/youtube") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Youtube
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/youtube") ? "text-red-400" : "text-zinc-400"
+                      isActive("/youtube") ? "text-red-500" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>YouTube</span>}
@@ -481,17 +482,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/photography")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Photography"
                 >
                   {isActive("/photography") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Camera
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/photography") ? "text-purple-400" : "text-zinc-400"
+                      isActive("/photography") ? "text-[#4895ef]" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Photography</span>}
@@ -502,16 +503,16 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/social")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Social Media Overview"
                 >
                   {isActive("/social") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Share2
-                    className={`h-4 w-4 shrink-0 ${isActive("/social") ? "text-purple-400" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/social") ? "text-[#4895ef]" : "text-zinc-400"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Social Media</span>}
                 </Link>
@@ -540,24 +541,24 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/opensource")
-                      ? "bg-purple-600/15 text-white font-semibold"
+                      ? "bg-[#4361ee]/20 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Open Source"
                 >
                   {isActive("/opensource") && (
-                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <GitBranch
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/opensource") ? "text-purple-400" : "text-purple-400"
+                      isActive("/opensource") ? "text-[#4895ef]" : "text-[#4895ef]"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && (
                     <span className="flex items-center justify-between flex-1">
                       <span>Open Source</span>
-                      <span className="rounded bg-purple-500/20 px-1.5 py-0.5 text-[9px] font-mono text-purple-300">
-                        78 REPOS
+                      <span className="rounded bg-[#4361ee]/20 px-1.5 py-0.5 text-[9px] font-mono text-[#4895ef]">
+                        COCKPIT
                       </span>
                     </span>
                   )}
@@ -567,29 +568,17 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           </div>
         </nav>
 
-        {/* 3. Sidebar Footer matching princesinghai.com exactly: Account & Hire Prince */}
-        <div className="p-3 border-t border-white/5 space-y-2">
-          <Link
-            to="/admin/login"
-            onClick={handleLinkClick}
-            className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-colors ${
-              collapsed && !mobileOpen ? "justify-center px-0" : ""
-            }`}
-            title="Account"
-          >
-            <User className="h-4 w-4 shrink-0 text-zinc-400" />
-            {(!collapsed || mobileOpen) && <span>Account</span>}
-          </Link>
-
+        {/* 3. Sidebar Footer (ACCOUNT REMOVED AS REQUESTED) */}
+        <div className="p-3 border-t border-white/5">
           <Link
             to="/contact"
             onClick={handleLinkClick}
-            className={`flex items-center justify-center gap-2 rounded-xl bg-purple-600/20 border border-purple-500/40 py-2.5 text-xs font-semibold text-purple-200 hover:bg-purple-600 hover:text-white transition-all shadow-md shadow-purple-600/10 ${
+            className={`flex items-center justify-center gap-2 rounded-xl bg-[#4361ee] py-2.5 text-xs font-semibold text-white hover:bg-[#3a56d4] transition-all shadow-md shadow-[#4361ee]/20 ${
               collapsed && !mobileOpen ? "px-0" : "px-3"
             }`}
             title="Hire Prince"
           >
-            <ArrowRight className="h-4 w-4 text-purple-400 shrink-0" />
+            <ArrowRight className="h-4 w-4 shrink-0" />
             {(!collapsed || mobileOpen) && <span>Hire Prince</span>}
           </Link>
         </div>

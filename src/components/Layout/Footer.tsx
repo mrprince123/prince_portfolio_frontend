@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-purple-500/20 bg-background/80 backdrop-blur-xl">
+    <footer className="border-t border-[#4361ee]/20 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 py-14 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Brand & Mission (5 cols) */}
@@ -26,14 +26,14 @@ const Footer = () => {
               <img
                 src={princelogo}
                 alt={personalInfo.name}
-                className="h-9 w-9 rounded-full object-cover ring-2 ring-purple-500/40"
+                className="h-9 w-9 rounded-full object-cover ring-2 ring-[#4361ee]/40"
               />
               <span className="font-display text-xl font-bold tracking-tight text-foreground">
-                Prince Sahni<span className="text-purple-500 font-black">.</span>
+                Prince Sahni<span className="text-[#4361ee] font-black">.</span>
               </span>
             </Link>
 
-            <p className="font-mono text-xs text-purple-400">
+            <p className="font-mono text-xs text-[#4895ef]">
               Software Engineer @ Webkul · Scalable Microservices & Cloud Systems
             </p>
 
@@ -41,7 +41,7 @@ const Footer = () => {
               Engineering high-concurrency backend services, modern frontends, and cloud infrastructures that power 100k+ users.
             </p>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-[11px] text-purple-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-[11px] text-[#4895ef]">
               <Activity className="h-3 w-3 text-emerald-400" />
               <span>All systems operational · New Delhi, IN</span>
             </div>
@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* Quick Navigation (3 cols) */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4895ef]">
               Navigation
             </h4>
             <ul className="space-y-2 font-mono text-xs">
@@ -57,14 +57,14 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-purple-300 transition-colors"
+                    className="text-muted-foreground hover:text-[#4895ef] transition-colors"
                   >
                     {link.name}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link to="/privacy" className="text-muted-foreground hover:text-purple-300 transition-colors">
+                <Link to="/privacy" className="text-muted-foreground hover:text-[#4895ef] transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -73,7 +73,7 @@ const Footer = () => {
 
           {/* Connect & Socials (4 cols) */}
           <div className="md:col-span-4 space-y-4">
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4895ef]">
               Network & Transmissions
             </h4>
             <p className="font-mono text-xs text-muted-foreground">
@@ -88,7 +88,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={name}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-black/40 text-muted-foreground hover:border-purple-500/50 hover:bg-purple-500/15 hover:text-purple-300 transition-all"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-black/40 text-muted-foreground hover:border-[#4361ee]/50 hover:bg-[#4361ee]/15 hover:text-[#4895ef] transition-all"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -98,7 +98,7 @@ const Footer = () => {
             <div className="pt-2">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="font-mono text-xs text-purple-400 hover:text-purple-300 underline underline-offset-2"
+                className="font-mono text-xs text-[#4895ef] hover:text-[#4895ef] underline underline-offset-2"
               >
                 {personalInfo.email}
               </a>
@@ -112,7 +112,7 @@ const Footer = () => {
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-black/30 px-3 py-1.5 text-zinc-400 hover:border-purple-500/40 hover:text-purple-300 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-black/30 px-3 py-1.5 text-zinc-400 hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-colors"
           >
             <span>Back to top</span>
             <ArrowUp className="h-3.5 w-3.5" />

@@ -71,7 +71,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "spring", damping: 28, stiffness: 300 }}
-            className="fixed top-0 left-0 bottom-0 z-50 w-80 sm:w-96 border-r border-purple-500/20 bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col justify-between overflow-hidden"
+            className="fixed top-0 left-0 bottom-0 z-50 w-80 sm:w-96 border-r border-[#4361ee]/20 bg-background/95 backdrop-blur-2xl shadow-2xl flex flex-col justify-between overflow-hidden"
           >
             {/* Top Header */}
             <div>
@@ -80,11 +80,11 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   <img
                     src={princelogo}
                     alt={personalInfo.name}
-                    className="h-9 w-9 rounded-full object-cover ring-2 ring-purple-500/40"
+                    className="h-9 w-9 rounded-full object-cover ring-2 ring-[#4361ee]/40"
                   />
                   <div>
                     <h3 className="font-display text-base font-bold text-foreground">
-                      Prince Sahni<span className="text-purple-500">.</span>
+                      Prince Sahni<span className="text-[#4361ee]">.</span>
                     </h3>
                     <p className="font-mono text-[10px] text-muted-foreground">
                       Software Engineer @ Webkul
@@ -102,9 +102,9 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </div>
 
               {/* Special Featured Tab: /work */}
-              <div className="p-4 border-b border-purple-500/15 bg-gradient-to-r from-purple-950/30 to-card/50">
-                <div className="font-mono text-[10px] uppercase text-purple-400 font-semibold tracking-wider mb-1.5 flex items-center gap-1">
-                  <Sparkles className="h-3 w-3 text-purple-400 animate-pulse" />
+              <div className="p-4 border-b border-[#4361ee]/15 bg-gradient-to-r from-purple-950/30 to-card/50">
+                <div className="font-mono text-[10px] uppercase text-[#4895ef] font-semibold tracking-wider mb-1.5 flex items-center gap-1">
+                  <Sparkles className="h-3 w-3 text-[#4895ef] animate-pulse" />
                   <span>Featured Work Experience</span>
                 </div>
                 <Link
@@ -112,21 +112,21 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   onClick={onClose}
                   className={`flex items-center justify-between rounded-xl border p-3 font-mono text-xs transition-all ${
                     location.pathname === "/work"
-                      ? "border-purple-500 bg-purple-500/20 text-white shadow-md shadow-purple-500/15"
-                      : "border-purple-500/30 bg-purple-500/10 text-purple-200 hover:border-purple-500/60 hover:bg-purple-500/20"
+                      ? "border-[#4361ee] bg-[#4361ee]/20 text-white shadow-md shadow-purple-500/15"
+                      : "border-[#4361ee]/30 bg-[#4361ee]/10 text-white hover:border-[#4361ee]/60 hover:bg-[#4361ee]/20"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Briefcase className="h-4 w-4 text-purple-400 shrink-0" />
+                    <Briefcase className="h-4 w-4 text-[#4895ef] shrink-0" />
                     <div>
                       <div className="font-bold text-foreground flex items-center gap-1.5">
                         Work Portfolio (/work)
-                        <span className="rounded bg-purple-500/30 text-purple-300 px-1 py-0.2 text-[9px]">NEW</span>
+                        <span className="rounded bg-[#4361ee]/30 text-[#4895ef] px-1 py-0.2 text-[9px]">NEW</span>
                       </div>
                       <div className="text-[10px] text-muted-foreground">Same as princesingh.work/#about</div>
                     </div>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-purple-400" />
+                  <ChevronRight className="h-4 w-4 text-[#4895ef]" />
                 </Link>
               </div>
 
@@ -147,22 +147,22 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                       onClick={onClose}
                       className={`flex items-center justify-between rounded-xl px-3 py-2 font-mono text-xs transition-all ${
                         active
-                          ? "bg-purple-500/20 text-purple-200 border border-purple-500/30 font-semibold shadow-sm"
-                          : "text-muted-foreground hover:bg-purple-500/10 hover:text-foreground border border-transparent"
+                          ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/30 font-semibold shadow-sm"
+                          : "text-muted-foreground hover:bg-[#4361ee]/10 hover:text-foreground border border-transparent"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span className="font-mono text-[10px] text-zinc-500 w-4">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
-                        <Icon className={`h-4 w-4 ${active ? "text-purple-400" : "text-zinc-400"}`} />
+                        <Icon className={`h-4 w-4 ${active ? "text-[#4895ef]" : "text-zinc-400"}`} />
                         <span className="truncate max-w-[170px]">{item.name}</span>
                       </div>
 
                       <span
                         className={`rounded px-1.5 py-0.5 text-[10px] font-mono ${
                           active
-                            ? "bg-purple-500/30 text-purple-200"
+                            ? "bg-[#4361ee]/30 text-white"
                             : "bg-black/30 text-zinc-500 border border-white/5"
                         }`}
                       >
@@ -181,7 +181,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   <Activity className="h-3 w-3 text-emerald-400" />
                   Systems Nominal
                 </span>
-                <span className="text-purple-400">New Delhi, IN</span>
+                <span className="text-[#4895ef]">New Delhi, IN</span>
               </div>
 
               <div className="flex items-center gap-2">
@@ -189,14 +189,14 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   href={personalInfo.resumeUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-purple-500/30 bg-purple-500/10 py-2 font-mono text-xs text-purple-300 hover:bg-purple-500/20 transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#4361ee]/30 bg-[#4361ee]/10 py-2 font-mono text-xs text-[#4895ef] hover:bg-[#4361ee]/20 transition-colors"
                 >
                   <FileDown className="h-3.5 w-3.5" /> Résumé PDF
                 </a>
                 <Link
                   to="/contact"
                   onClick={onClose}
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-purple-600 py-2 font-mono text-xs font-semibold text-white hover:bg-purple-500 transition-colors"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#4361ee] py-2 font-mono text-xs font-semibold text-white hover:bg-[#4361ee] transition-colors"
                 >
                   Contact →
                 </Link>

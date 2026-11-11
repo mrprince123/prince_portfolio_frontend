@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Flame, Target, Crown, Briefcase, LogIn, Menu, PanelLeft } from "lucide-react";
+import { Flame, Target, Crown, Briefcase, Menu, PanelLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/primitives/ThemeToggle";
 
 interface DashboardTopBarProps {
@@ -34,7 +34,7 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
   const { hrs, mins, secs } = formatTimer(secondsLeft);
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-white/5 bg-[#0a0a0f]/95 px-3 sm:px-4 backdrop-blur-xl transition-all duration-300 font-mono text-xs">
+    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-white/5 bg-[#090a10]/95 px-3 sm:px-4 backdrop-blur-xl transition-all duration-300 font-mono text-xs">
       {/* Left: Mobile Toggle + Brand (when collapsed) + Announcement Ticker */}
       <div className="flex items-center gap-2 overflow-hidden">
         {/* Mobile Hamburger / Toggle */}
@@ -51,7 +51,7 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
           <div className="hidden lg:flex items-center gap-2 pr-3 border-r border-white/10">
             <Link to="/" className="font-signature text-xl font-bold tracking-wide">
               <span className="text-white">Prince</span>{" "}
-              <span className="text-[#a855f7]">Singh</span>
+              <span className="text-[#4361ee]">Singh</span>
             </Link>
             <button
               onClick={onToggleSidebar}
@@ -63,13 +63,13 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
           </div>
         )}
 
-        {/* Live Announcement Pill matching screenshot */}
+        {/* Live Announcement Pill */}
         <div className="flex items-center gap-2 text-zinc-300 text-[11px] whitespace-nowrap overflow-hidden">
           <Link
-            to="/work"
+            to="/about"
             className="flex items-center gap-1.5 hover:opacity-90 transition-opacity"
           >
-            <strong className="font-bold text-purple-400">TRISHUL · FTM is Live</strong>
+            <strong className="font-bold text-[#4895ef]">TRISHUL · FTM is Live</strong>
             <span className="hidden sm:inline text-zinc-500 font-normal">
               Learn more. Build more.
             </span>
@@ -82,7 +82,7 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
           </span>
 
           <Link
-            to="/work"
+            to="/about"
             className="rounded bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 text-[10px] font-bold text-emerald-400 hover:bg-emerald-500/30 transition-colors"
           >
             Explore
@@ -107,11 +107,11 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
         </div>
       </div>
 
-      {/* Right: Streak, Problems, Pro, Hire, Theme, Sign in */}
+      {/* Right: Streak, Problems, Pro, Hire, Theme (NO SIGN IN / NO MULTI-USER ACCOUNT) */}
       <div className="flex items-center gap-2 sm:gap-3 shrink-0 text-zinc-300">
         {/* Streak Pill */}
         <Link
-          to="/work#dsa"
+          to="/about#experience"
           className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full text-amber-400 bg-amber-500/10 border border-amber-500/25 text-[11px] hover:bg-amber-500/20 transition-colors"
           title="Daily coding streak: 1710+ days"
         >
@@ -121,17 +121,17 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
 
         {/* Problems Solved Pill */}
         <Link
-          to="/work#dsa"
-          className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-full text-purple-300 bg-purple-500/10 border border-purple-500/25 text-[11px] hover:bg-purple-500/20 transition-colors"
+          to="/about#experience"
+          className="hidden md:flex items-center gap-1 px-2.5 py-1 rounded-full text-[#4895ef] bg-[#4361ee]/10 border border-[#4361ee]/30 text-[11px] hover:bg-[#4361ee]/20 transition-colors"
           title="5000+ problems solved"
         >
-          <Target className="h-3.5 w-3.5 text-purple-400" />
+          <Target className="h-3.5 w-3.5 text-[#4895ef]" />
           <span className="font-bold">5000+</span>
         </Link>
 
         {/* Pro Pill */}
         <Link
-          to="/work"
+          to="/about"
           className="flex items-center gap-1 px-2.5 py-1 rounded-full text-amber-300 bg-amber-500/15 border border-amber-500/30 text-[11px] hover:bg-amber-500/25 transition-colors"
         >
           <Crown className="h-3.5 w-3.5 fill-current" />
@@ -141,22 +141,13 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
         {/* Hire Button */}
         <Link
           to="/contact"
-          className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-600 text-white font-semibold text-[11px] shadow-sm hover:bg-purple-500 transition-colors"
+          className="flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#4361ee] hover:bg-[#3a56d4] text-white font-semibold text-[11px] shadow-sm shadow-[#4361ee]/30 transition-colors"
         >
           <Briefcase className="h-3.5 w-3.5" />
           <span>Hire</span>
         </Link>
 
         <ThemeToggle />
-
-        {/* Sign in */}
-        <Link
-          to="/admin/login"
-          className="hidden sm:flex items-center gap-1 text-zinc-400 hover:text-zinc-200 transition-colors text-[11px]"
-        >
-          <LogIn className="h-3.5 w-3.5" />
-          <span>Sign in</span>
-        </Link>
       </div>
     </header>
   );

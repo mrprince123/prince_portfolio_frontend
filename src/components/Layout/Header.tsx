@@ -32,9 +32,9 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Top Announcement Ticker */}
-      <div className="border-b border-purple-500/20 bg-black/60 backdrop-blur-md text-[11px] font-mono py-1.5 px-4 text-center text-muted-foreground">
+      <div className="border-b border-[#4361ee]/20 bg-black/60 backdrop-blur-md text-[11px] font-mono py-1.5 px-4 text-center text-muted-foreground">
         <div className="container mx-auto flex items-center justify-center gap-2">
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-400 border border-purple-500/30 font-semibold text-[10px]">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#4361ee]/15 text-[#4895ef] border border-[#4361ee]/30 font-semibold text-[10px]">
             <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-ping" />
             LIVE
           </span>
@@ -45,7 +45,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
           <span className="text-zinc-500">·</span>
           <Link
             to="/work"
-            className="inline-flex items-center gap-1 text-purple-400 hover:text-purple-300 transition-colors font-medium underline underline-offset-2"
+            className="inline-flex items-center gap-1 text-[#4895ef] hover:text-[#4895ef] transition-colors font-medium underline underline-offset-2"
           >
             Explore Work Portfolio (/work) <ArrowRight className="h-3 w-3" />
           </Link>
@@ -54,16 +54,16 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
 
       {/* Floating Capsule Nav */}
       <div className="container mx-auto px-4 py-3">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-purple-500/20 bg-background/85 px-4 py-2.5 backdrop-blur-xl shadow-lg shadow-purple-500/5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-[#4361ee]/20 bg-background/85 px-4 py-2.5 backdrop-blur-xl shadow-lg shadow-purple-500/5">
           {/* Brand Wordmark & Sidebar Trigger */}
           <div className="flex items-center gap-3">
             {onOpenSidebar && (
               <button
                 onClick={onOpenSidebar}
-                className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[11px] text-purple-300 hover:bg-purple-500/25 transition-all"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-2.5 py-1 font-mono text-[11px] text-[#4895ef] hover:bg-[#4361ee]/25 transition-all"
                 title="Open 12-item Sidebar Menu"
               >
-                <LayoutGrid className="h-3.5 w-3.5 text-purple-400" />
+                <LayoutGrid className="h-3.5 w-3.5 text-[#4895ef]" />
                 <span className="hidden sm:inline">Menu</span>
               </button>
             )}
@@ -73,13 +73,13 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                 <img
                   src={princelogo}
                   alt={personalInfo.name}
-                  className="h-8 w-8 rounded-full object-cover ring-2 ring-purple-500/30 group-hover:ring-purple-500 transition-all"
+                  className="h-8 w-8 rounded-full object-cover ring-2 ring-[#4361ee]/30 group-hover:ring-[#4361ee] transition-all"
                 />
-                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-purple-500 ring-2 ring-background" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-[#4361ee] ring-2 ring-background" />
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-sm font-bold tracking-tight text-foreground group-hover:text-purple-400 transition-colors flex items-center gap-1">
-                  Prince Sahni<span className="text-purple-500 font-black">.</span>
+                <span className="font-display text-sm font-bold tracking-tight text-foreground group-hover:text-[#4895ef] transition-colors flex items-center gap-1">
+                  Prince Sahni<span className="text-[#4361ee] font-black">.</span>
                 </span>
                 <span className="font-mono text-[10px] text-muted-foreground hidden lg:inline">
                   Software Engineer
@@ -100,16 +100,16 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                   to={item.href}
                   className={`relative rounded-full px-3.5 py-1.5 font-mono text-[12px] transition-all flex items-center gap-1.5 ${
                     active
-                      ? "text-purple-200 bg-purple-500/20 border border-purple-500/40 font-semibold shadow-sm"
+                      ? "text-white bg-[#4361ee]/20 border border-[#4361ee]/40 font-semibold shadow-sm"
                       : isWork
-                      ? "text-purple-300 bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20"
+                      ? "text-[#4895ef] bg-[#4361ee]/10 border border-[#4361ee]/20 hover:bg-[#4361ee]/20"
                       : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                   }`}
                 >
-                  {isWork && <Briefcase className="h-3 w-3 text-purple-400" />}
+                  {isWork && <Briefcase className="h-3 w-3 text-[#4895ef]" />}
                   <span>{item.name}</span>
                   {isWork && (
-                    <span className="rounded bg-purple-500/30 text-purple-200 px-1 py-0.2 text-[9px] font-bold">
+                    <span className="rounded bg-[#4361ee]/30 text-white px-1 py-0.2 text-[9px] font-bold">
                       TAB
                     </span>
                   )}
@@ -124,15 +124,15 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-xs text-muted-foreground hover:border-purple-500/40 hover:text-purple-300 transition-all"
+              className="hidden lg:inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-xs text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all"
             >
-              <FileDown className="h-3.5 w-3.5 text-purple-400" />
+              <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
               résumé
             </a>
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-3.5 py-1.5 font-mono text-xs font-medium text-white shadow-md shadow-purple-500/20 hover:from-purple-500 hover:to-indigo-500 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-3.5 py-1.5 font-mono text-xs font-medium text-white shadow-md shadow-[#4361ee]/20 hover:from-purple-500 hover:to-indigo-500 transition-all hover:scale-[1.02]"
             >
               <Sparkles className="h-3 w-3" />
               <span>Let's talk</span>
@@ -162,7 +162,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            className="overflow-hidden border-b border-purple-500/20 bg-background/95 backdrop-blur-2xl md:hidden"
+            className="overflow-hidden border-b border-[#4361ee]/20 bg-background/95 backdrop-blur-2xl md:hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -176,13 +176,13 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`rounded-lg px-3.5 py-2 transition-colors flex items-center justify-between ${
                     isActive(item.href)
-                      ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                      : "text-muted-foreground hover:bg-purple-500/10 hover:text-foreground"
+                      ? "bg-[#4361ee]/20 text-[#4895ef] border border-[#4361ee]/30"
+                      : "text-muted-foreground hover:bg-[#4361ee]/10 hover:text-foreground"
                   }`}
                 >
                   <span>{item.name}</span>
                   {item.href === "/work" && (
-                    <span className="text-[10px] text-purple-400 bg-purple-500/20 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] text-[#4895ef] bg-[#4361ee]/20 px-1.5 py-0.5 rounded">
                       NEW TAB
                     </span>
                   )}

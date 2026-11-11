@@ -85,28 +85,28 @@ export const Work = () => {
       />
 
       {/* Sticky Secondary Sub-Nav matching princesingh.work */}
-      <div className="sticky top-[72px] z-40 border-y border-purple-500/20 bg-background/90 backdrop-blur-xl">
+      <div className="sticky top-[72px] z-40 border-y border-[#4361ee]/20 bg-background/90 backdrop-blur-xl">
         <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between py-2.5 max-w-7xl overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-1 sm:gap-2 font-mono text-xs text-muted-foreground whitespace-nowrap">
-            <a href="#about" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#about" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               About
             </a>
-            <a href="#experience" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#experience" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Experience
             </a>
-            <a href="#impact" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#impact" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Impact
             </a>
-            <a href="#products" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#products" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Products
             </a>
-            <a href="#skills" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#skills" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Skills
             </a>
-            <a href="#reviews" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#reviews" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Reviews
             </a>
-            <a href="#contact" className="px-2.5 py-1 rounded-md hover:text-purple-300 hover:bg-purple-500/10 transition-colors">
+            <a href="#contact" className="px-2.5 py-1 rounded-md hover:text-[#4895ef] hover:bg-[#4361ee]/10 transition-colors">
               Contact
             </a>
           </div>
@@ -115,7 +115,7 @@ export const Work = () => {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-purple-600 px-3.5 py-1 font-mono text-xs font-semibold text-white hover:bg-purple-500 transition-colors shrink-0"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-[#4361ee] px-3.5 py-1 font-mono text-xs font-semibold text-white hover:bg-[#3a56d4] transition-colors shrink-0"
           >
             <FileDown className="h-3 w-3" /> Résumé
           </a>
@@ -127,14 +127,14 @@ export const Work = () => {
         <section id="top" className="pt-4">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-3xl space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef]">
                 <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
                 <span>BUILDING PRODUCTION SOFTWARE THAT SHIPS</span>
               </div>
               <h1 className="font-display text-4xl sm:text-6xl font-black text-foreground tracking-tight leading-[1.05]">
                 {personalInfo.name}
               </h1>
-              <p className="font-mono text-base text-purple-400">
+              <p className="font-mono text-base text-[#4895ef]">
                 Software Engineer @ Webkul Software · 2+ Years Production Experience
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
@@ -146,7 +146,7 @@ export const Work = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-purple-600 px-5 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-purple-600/30 hover:bg-purple-500 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#4361ee] px-5 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/30 hover:bg-[#3a56d4] transition-all"
               >
                 <span>Book a Technical Discussion</span>
                 <ArrowRight className="h-4 w-4" />
@@ -155,7 +155,7 @@ export const Work = () => {
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-purple-500/30 bg-card px-5 py-3 font-mono text-xs font-semibold text-purple-300 hover:bg-purple-500/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#4361ee]/30 bg-card px-5 py-3 font-mono text-xs font-semibold text-[#4895ef] hover:bg-[#4361ee]/10 transition-all"
               >
                 <FileDown className="h-4 w-4" /> Download Official CV
               </a>
@@ -165,17 +165,17 @@ export const Work = () => {
           {/* The Badge Wall (8 earned badges matching princesingh.work) */}
           <div className="mt-12">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300 flex items-center gap-2">
-                <Award className="h-4 w-4 text-purple-400" /> The Badge Wall · 8 Earned Validations
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4895ef] flex items-center gap-2">
+                <Award className="h-4 w-4 text-[#4895ef]" /> The Badge Wall · 8 Earned Validations
               </h3>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {BADGES.map((b) => (
                 <div
                   key={b.title}
-                  className="rounded-2xl border border-purple-500/20 bg-card/75 p-3.5 backdrop-blur-xl hover:border-purple-500/40 transition-all"
+                  className="rounded-2xl border border-[#4361ee]/20 bg-card/75 p-3.5 backdrop-blur-xl hover:border-[#4361ee]/40 transition-all"
                 >
-                  <div className="font-mono text-xs font-bold text-purple-400">{b.title}</div>
+                  <div className="font-mono text-xs font-bold text-[#4895ef]">{b.title}</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">{b.subtitle}</div>
                 </div>
               ))}
@@ -185,7 +185,7 @@ export const Work = () => {
 
         {/* Section #about (Full Story matching princesingh.work/#about) */}
         <section id="about" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Users className="h-4 w-4" /> § 01 · ABOUT ME
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -209,30 +209,30 @@ export const Work = () => {
               </p>
               <p>
                 Beyond code, I am an active creator, audiophile, and Google Maps Local Guide where my photos and reviews have crossed
-                over <span className="text-purple-400 font-semibold">600K+ views</span>.
+                over <span className="text-[#4895ef] font-semibold">600K+ views</span>.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs pt-4 border-t border-border">
                 <div className="rounded-xl border border-border bg-black/30 p-3">
-                  <div className="text-purple-400 font-bold">1. Impact First</div>
+                  <div className="text-[#4895ef] font-bold">1. Impact First</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Solve the business problem before writing code.</div>
                 </div>
                 <div className="rounded-xl border border-border bg-black/30 p-3">
-                  <div className="text-purple-400 font-bold">2. Resilient Scale</div>
+                  <div className="text-[#4895ef] font-bold">2. Resilient Scale</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Architect with isolation, timeouts and caching.</div>
                 </div>
                 <div className="rounded-xl border border-border bg-black/30 p-3">
-                  <div className="text-purple-400 font-bold">3. Pure Craft</div>
+                  <div className="text-[#4895ef] font-bold">3. Pure Craft</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Clean architecture and zero tech debt.</div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-4 rounded-2xl border border-purple-500/25 bg-card/80 overflow-hidden shadow-xl">
+            <div className="lg:col-span-4 rounded-2xl border border-[#4361ee]/25 bg-card/80 overflow-hidden shadow-xl">
               <img src={portrait} alt={personalInfo.name} className="aspect-[4/5] w-full object-cover" />
               <div className="p-4 font-mono text-xs text-center border-t border-border">
                 <span className="text-foreground font-bold">{personalInfo.name}</span>
-                <span className="block text-[11px] text-purple-400">Software Engineer · New Delhi, India</span>
+                <span className="block text-[11px] text-[#4895ef]">Software Engineer · New Delhi, India</span>
               </div>
             </div>
           </div>
@@ -240,7 +240,7 @@ export const Work = () => {
 
         {/* Section #experience */}
         <section id="experience" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Calendar className="h-4 w-4" /> § 02 · CAREER TIMELINE
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -251,14 +251,14 @@ export const Work = () => {
             {experiences.map((exp) => (
               <div
                 key={exp.company}
-                className="rounded-2xl border border-purple-500/20 bg-card/75 p-6 backdrop-blur-xl hover:border-purple-500/40 transition-all"
+                className="rounded-2xl border border-[#4361ee]/20 bg-card/75 p-6 backdrop-blur-xl hover:border-[#4361ee]/40 transition-all"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-border">
                   <div>
                     <h3 className="font-display text-xl font-bold text-foreground">{exp.title}</h3>
-                    <p className="font-mono text-xs text-purple-400">{exp.company} · {exp.location}</p>
+                    <p className="font-mono text-xs text-[#4895ef]">{exp.company} · {exp.location}</p>
                   </div>
-                  <span className="rounded-md border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 w-fit">
+                  <span className="rounded-md border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef] w-fit">
                     {exp.period}
                   </span>
                 </div>
@@ -268,7 +268,7 @@ export const Work = () => {
                 <ul className="mt-4 space-y-1.5 text-xs sm:text-sm text-foreground/90">
                   {exp.achievements.map((ach) => (
                     <li key={ach} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-purple-400 shrink-0 mt-1" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-[#4895ef] shrink-0 mt-1" />
                       <span>{ach}</span>
                     </li>
                   ))}
@@ -288,7 +288,7 @@ export const Work = () => {
 
         {/* Section #impact (Infrastructure & Impact matching princesingh.work) */}
         <section id="impact" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Activity className="h-4 w-4" /> § 03 · INFRASTRUCTURE & IMPACT
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -302,9 +302,9 @@ export const Work = () => {
             {IMPACT_METRICS.map((item) => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-purple-500/20 bg-card/75 p-5 backdrop-blur-xl hover:border-purple-500/50 transition-all"
+                className="rounded-2xl border border-[#4361ee]/20 bg-card/75 p-5 backdrop-blur-xl hover:border-[#4361ee]/50 transition-all"
               >
-                <div className="font-display text-2xl font-black text-purple-400">{item.metric}</div>
+                <div className="font-display text-2xl font-black text-[#4895ef]">{item.metric}</div>
                 <div className="font-mono text-xs font-bold text-foreground mt-1">{item.label}</div>
                 <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
@@ -314,7 +314,7 @@ export const Work = () => {
 
         {/* Section #products (Products built and run) */}
         <section id="products" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Layers className="h-4 w-4" /> § 04 · PRODUCTS I BUILT & RUN
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -325,10 +325,10 @@ export const Work = () => {
             {mockProjects.slice(0, 6).map((project, i) => (
               <div
                 key={project.id ?? i}
-                className="rounded-2xl border border-purple-500/20 bg-card/80 p-5 backdrop-blur-xl hover:border-purple-500/50 transition-all flex flex-col justify-between"
+                className="rounded-2xl border border-[#4361ee]/20 bg-card/80 p-5 backdrop-blur-xl hover:border-[#4361ee]/50 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-purple-400 pb-2 border-b border-border">
+                  <div className="flex items-center justify-between font-mono text-xs text-[#4895ef] pb-2 border-b border-border">
                     <span>SYS-0{i + 1}</span>
                     <span className="text-[10px] uppercase text-muted-foreground">{project.category}</span>
                   </div>
@@ -352,7 +352,7 @@ export const Work = () => {
 
         {/* Section #skills (Layered Production Stack) */}
         <section id="skills" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Cpu className="h-4 w-4" /> § 05 · PRODUCTION ARSENAL
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -363,10 +363,10 @@ export const Work = () => {
             {SKILL_LAYERS.map((layer) => (
               <div
                 key={layer.name}
-                className="rounded-xl border border-border bg-card/70 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-purple-500/30 transition-all"
+                className="rounded-xl border border-border bg-card/70 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-[#4361ee]/30 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <span className="rounded bg-purple-500/15 text-purple-300 px-2 py-0.5 font-bold text-[11px]">
+                  <span className="rounded bg-[#4361ee]/15 text-[#4895ef] px-2 py-0.5 font-bold text-[11px]">
                     {layer.layer}
                   </span>
                   <span className="font-bold text-foreground">{layer.name}</span>
@@ -385,13 +385,13 @@ export const Work = () => {
 
         {/* Section #reviews (Reviews & Feedback matching princesingh.work) */}
         <section id="reviews" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="flex items-center gap-2 font-mono text-xs text-purple-400 mb-2">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#4895ef] mb-2">
             <Star className="h-4 w-4" /> § 06 · VALIDATION & REVIEWS
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
             Peer & Leadership Feedback
           </h2>
-          <div className="mt-2 font-mono text-xs text-purple-300">
+          <div className="mt-2 font-mono text-xs text-[#4895ef]">
             ★ 4.9 / 5.0 Average Satisfaction across production deliveries
           </div>
 
@@ -399,7 +399,7 @@ export const Work = () => {
             {REVIEWS.map((rev) => (
               <div
                 key={rev.author}
-                className="rounded-2xl border border-purple-500/20 bg-card/80 p-5 backdrop-blur-xl flex flex-col justify-between"
+                className="rounded-2xl border border-[#4361ee]/20 bg-card/80 p-5 backdrop-blur-xl flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-1 text-amber-400 mb-3">
@@ -412,7 +412,7 @@ export const Work = () => {
                   </p>
                 </div>
                 <div className="mt-6 pt-3 border-t border-border font-mono text-xs">
-                  <div className="font-bold text-purple-300">{rev.author}</div>
+                  <div className="font-bold text-[#4895ef]">{rev.author}</div>
                   <div className="text-[11px] text-muted-foreground">{rev.role}</div>
                 </div>
               </div>
@@ -422,8 +422,8 @@ export const Work = () => {
 
         {/* Section #contact */}
         <section id="contact" className="scroll-mt-32 pt-8 border-t border-border">
-          <div className="rounded-3xl border border-purple-500/30 bg-gradient-to-r from-purple-950/40 via-card to-black/60 p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-2xl">
-            <span className="font-mono text-xs uppercase tracking-widest text-purple-300">
+          <div className="rounded-3xl border border-[#4361ee]/30 bg-gradient-to-r from-[#4361ee]/20 via-card to-black/60 p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-2xl">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#4895ef]">
               LET'S SOLVE PROBLEMS
             </span>
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-foreground mt-3">
@@ -437,7 +437,7 @@ export const Work = () => {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-purple-600/30 hover:bg-purple-500 transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/30 hover:bg-[#3a56d4] transition-all hover:scale-[1.02]"
               >
                 <Mail className="h-4 w-4" />
                 <span>Transmit Email</span>
@@ -446,7 +446,7 @@ export const Work = () => {
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 font-mono text-xs text-foreground hover:border-purple-500/40 hover:text-purple-300 transition-all"
+                className="inline-flex items-center gap-2 rounded-xl border border-border bg-card px-6 py-3 font-mono text-xs text-foreground hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all"
               >
                 <FileDown className="h-4 w-4" /> Download Official Résumé
               </a>

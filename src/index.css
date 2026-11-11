@@ -67,31 +67,35 @@
 
   /* ─── Text gradient ─── */
   .text-gradient {
-    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, #c084fc 50%, hsl(var(--foreground)) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, #4895ef 50%, hsl(var(--foreground)) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .text-purple-gradient {
-    background-image: linear-gradient(135deg, #e9d5ff 0%, #c084fc 40%, #a855f7 70%, #9333ea 100%);
+  .text-purple-gradient,
+  .text-theme-gradient {
+    background-image: linear-gradient(135deg, #e0e7ff 0%, #4895ef 40%, #4361ee 70%, #3f37c9 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  /* ─── Purple Glows ─── */
-  .glow-purple {
-    box-shadow: 0 0 35px -8px rgba(168, 85, 247, 0.45);
+  /* ─── Royal Blue (#4361ee) Theme Glows ─── */
+  .glow-purple,
+  .glow-theme {
+    box-shadow: 0 0 35px -8px rgba(67, 97, 238, 0.55);
   }
 
-  .glow-purple-sm {
-    box-shadow: 0 0 18px -4px rgba(168, 85, 247, 0.35);
+  .glow-purple-sm,
+  .glow-theme-sm {
+    box-shadow: 0 0 18px -4px rgba(67, 97, 238, 0.45);
   }
 
-  .border-purple-glow {
-    border-color: rgba(168, 85, 247, 0.4);
-    box-shadow: 0 0 20px -5px rgba(168, 85, 247, 0.25);
+  .border-purple-glow,
+  .border-theme-glow {
+    border-color: rgba(67, 97, 238, 0.45);
+    box-shadow: 0 0 20px -5px rgba(67, 97, 238, 0.35);
   }
 
   /* ─── Cockpit Card Container ─── */

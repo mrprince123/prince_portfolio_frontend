@@ -26,7 +26,7 @@ export const LandingNavbar = () => {
         >
           <span className="font-signature text-2xl sm:text-3xl font-bold tracking-wide">
             <span className="text-white">Prince</span>{" "}
-            <span className="text-[#a855f7] glow-purple-sm">Singh</span>
+            <span className="text-[#4361ee] glow-theme-sm">Singh</span>
           </span>
         </Link>
 
@@ -37,13 +37,13 @@ export const LandingNavbar = () => {
             to="/dashboard"
             className={`group flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
               isActive("/dashboard")
-                ? "bg-purple-600/20 text-white border border-purple-500/40 font-semibold shadow-sm"
+                ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
                 : "text-zinc-300 hover:text-white hover:bg-white/5"
             }`}
           >
-            <LayoutDashboard className="h-4 w-4 text-purple-400 group-hover:rotate-12 transition-transform" />
+            <LayoutDashboard className="h-4 w-4 text-[#4895ef] group-hover:rotate-12 transition-transform" />
             <span>Dashboard</span>
-            <span className="rounded-full bg-purple-500/20 px-1.5 py-0.2 text-[9px] font-mono text-purple-300 border border-purple-500/30">
+            <span className="rounded-full bg-[#4361ee]/20 px-1.5 py-0.2 text-[9px] font-mono text-[#4895ef] border border-[#4361ee]/30">
               COCKPIT
             </span>
           </Link>
@@ -53,11 +53,11 @@ export const LandingNavbar = () => {
             to="/about"
             className={`flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
               isActive("/about") || isActive("/work")
-                ? "bg-purple-600/20 text-white border border-purple-500/40 font-semibold shadow-sm"
+                ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
                 : "text-zinc-300 hover:text-white hover:bg-white/5"
             }`}
           >
-            <User className="h-4 w-4 text-purple-400" />
+            <User className="h-4 w-4 text-[#4895ef]" />
             <span>About</span>
           </Link>
         </nav>
@@ -68,15 +68,15 @@ export const LandingNavbar = () => {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-1.5 font-mono text-xs text-zinc-300 hover:border-purple-500/40 hover:text-purple-300 transition-all bg-white/[0.02]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-1.5 font-mono text-xs text-zinc-300 hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all bg-white/[0.02]"
           >
-            <FileDown className="h-3.5 w-3.5 text-purple-400" />
+            <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
             <span>résumé</span>
           </a>
 
           <Link
             to="/contact"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-1.5 font-mono text-xs font-semibold text-white shadow-md shadow-purple-500/20 hover:from-purple-500 hover:to-indigo-500 transition-all hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#4361ee] to-[#3a56d4] px-4 py-1.5 font-mono text-xs font-semibold text-white shadow-md shadow-[#4361ee]/25 hover:from-[#3a56d4] hover:to-[#4361ee] transition-all hover:scale-[1.02]"
           >
             <Sparkles className="h-3.5 w-3.5" />
             <span>Let's talk</span>
@@ -107,13 +107,13 @@ export const LandingNavbar = () => {
             <Link
               to="/dashboard"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl bg-purple-500/10 text-purple-200 border border-purple-500/30"
+              className="flex items-center justify-between p-3 rounded-xl bg-[#4361ee]/10 text-white border border-[#4361ee]/30"
             >
               <div className="flex items-center gap-2">
-                <LayoutDashboard className="h-4 w-4 text-purple-400" />
+                <LayoutDashboard className="h-4 w-4 text-[#4895ef]" />
                 <span>Dashboard</span>
               </div>
-              <span className="text-[10px] bg-purple-500/20 text-purple-300 px-1.5 py-0.5 rounded">
+              <span className="text-[10px] bg-[#4361ee]/20 text-[#4895ef] px-1.5 py-0.5 rounded">
                 COCKPIT
               </span>
             </Link>
@@ -123,7 +123,7 @@ export const LandingNavbar = () => {
               onClick={() => setMobileOpen(false)}
               className="flex items-center gap-2 p-3 rounded-xl text-zinc-300 hover:bg-white/5"
             >
-              <User className="h-4 w-4 text-purple-400" />
+              <User className="h-4 w-4 text-[#4895ef]" />
               <span>About</span>
             </Link>
 
@@ -134,14 +134,14 @@ export const LandingNavbar = () => {
                 rel="noreferrer"
                 className="flex items-center gap-1.5 text-zinc-400 hover:text-white"
               >
-                <FileDown className="h-3.5 w-3.5 text-purple-400" />
+                <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
                 <span>Download Résumé</span>
               </a>
 
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="text-purple-400 hover:underline flex items-center gap-1"
+                className="text-[#4895ef] hover:underline flex items-center gap-1"
               >
                 <span>Contact</span>
                 <ArrowRight className="h-3 w-3" />

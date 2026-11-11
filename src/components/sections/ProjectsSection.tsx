@@ -38,8 +38,8 @@ const ProjectsSection = () => {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 mb-2">
-            <Layers className="h-3.5 w-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef] mb-2">
+            <Layers className="h-3.5 w-3.5 text-[#4895ef]" />
             <span>FLAGSHIP SYSTEMS & LAB</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
 
         <Link
           to="/projects"
-          className="inline-flex items-center gap-1.5 font-mono text-xs text-purple-400 hover:text-purple-300 transition-colors font-medium"
+          className="inline-flex items-center gap-1.5 font-mono text-xs text-[#4895ef] hover:text-[#4895ef] transition-colors font-medium"
         >
           <span>See all {projects.length} systems</span>
           <ArrowRight className="h-3.5 w-3.5" />
@@ -67,8 +67,8 @@ const ProjectsSection = () => {
             onClick={() => setSelectedCategory(cat.id)}
             className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
               selectedCategory === cat.id
-                ? "bg-purple-600 text-white font-medium shadow-md shadow-purple-600/20"
-                : "border border-border bg-card/60 text-muted-foreground hover:border-purple-500/30 hover:text-foreground"
+                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-purple-600/20"
+                : "border border-border bg-card/60 text-muted-foreground hover:border-[#4361ee]/30 hover:text-foreground"
             }`}
           >
             {cat.label}
@@ -91,9 +91,9 @@ const ProjectsSection = () => {
       </div>
 
       {/* Bottom CTA Bar */}
-      <div className="mt-12 rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-950/30 via-card to-black/40 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mt-12 rounded-2xl border border-[#4361ee]/20 bg-gradient-to-r from-[#4361ee]/20 via-card to-black/40 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="rounded-xl bg-purple-500/20 p-2.5 text-purple-400 border border-purple-500/30">
+          <div className="rounded-xl bg-[#4361ee]/20 p-2.5 text-[#4895ef] border border-[#4361ee]/30">
             <Sparkles className="h-5 w-5" />
           </div>
           <div>
@@ -103,7 +103,7 @@ const ProjectsSection = () => {
         </div>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2 font-mono text-xs font-semibold text-white hover:bg-purple-500 transition-all shrink-0"
+          className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-4 py-2 font-mono text-xs font-semibold text-white hover:bg-[#4361ee] transition-all shrink-0"
         >
           Let's discuss architecture →
         </Link>

@@ -53,8 +53,8 @@ const SkillsSection = () => {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border">
         <div>
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 mb-2">
-            <Cpu className="h-3.5 w-3.5 text-purple-400" />
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef] mb-2">
+            <Cpu className="h-3.5 w-3.5 text-[#4895ef]" />
             <span>TECH STACK MATRIX · PRODUCTION ARSENAL</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
@@ -73,7 +73,7 @@ const SkillsSection = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search skills (e.g. Docker, React)..."
-            className="w-full rounded-xl border border-border bg-black/30 py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-purple-500 focus:outline-none"
+            className="w-full rounded-xl border border-border bg-black/30 py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none"
           />
         </div>
       </div>
@@ -92,8 +92,8 @@ const SkillsSection = () => {
             onClick={() => setActiveCategory(tab.id)}
             className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
               activeCategory === tab.id
-                ? "bg-purple-600 text-white font-medium shadow-md shadow-purple-600/20"
-                : "border border-border bg-card/60 text-muted-foreground hover:border-purple-500/30 hover:text-foreground"
+                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-purple-600/20"
+                : "border border-border bg-card/60 text-muted-foreground hover:border-[#4361ee]/30 hover:text-foreground"
             }`}
           >
             {tab.label}
@@ -106,10 +106,10 @@ const SkillsSection = () => {
         {filteredCategories.map((cat) => (
           <div
             key={cat.name}
-            className="rounded-2xl border border-purple-500/20 bg-card/70 p-6 backdrop-blur-xl hover:border-purple-500/40 transition-all shadow-md shadow-purple-500/5"
+            className="rounded-2xl border border-[#4361ee]/20 bg-card/70 p-6 backdrop-blur-xl hover:border-[#4361ee]/40 transition-all shadow-md shadow-purple-500/5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-border">
-              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4895ef]">
                 {cat.name}
               </h3>
               <span className="font-mono text-[10px] text-muted-foreground">
@@ -124,7 +124,7 @@ const SkillsSection = () => {
               {cat.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="group flex items-center gap-2 rounded-xl border border-border bg-black/40 px-3 py-1.5 font-mono text-xs text-zinc-200 transition-all hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-white"
+                  className="group flex items-center gap-2 rounded-xl border border-border bg-black/40 px-3 py-1.5 font-mono text-xs text-zinc-200 transition-all hover:border-[#4361ee]/50 hover:bg-[#4361ee]/10 hover:text-white"
                 >
                   <span
                     className="h-2 w-2 rounded-full shrink-0"
@@ -139,16 +139,16 @@ const SkillsSection = () => {
       </div>
 
       {/* Currently Exploring / Next Horizon */}
-      <div className="mt-10 rounded-2xl border border-purple-500/20 bg-black/40 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5 font-mono text-xs text-purple-300">
-          <Sparkles className="h-4 w-4 text-purple-400 animate-pulse" />
+      <div className="mt-10 rounded-2xl border border-[#4361ee]/20 bg-black/40 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 font-mono text-xs text-[#4895ef]">
+          <Sparkles className="h-4 w-4 text-[#4895ef] animate-pulse" />
           <span className="font-semibold uppercase tracking-wider">Active Explorations:</span>
         </div>
         <div className="flex flex-wrap gap-2">
           {learningTech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-purple-500/30 bg-purple-500/15 px-3 py-0.5 font-mono text-xs text-purple-200"
+              className="rounded-full border border-[#4361ee]/30 bg-[#4361ee]/15 px-3 py-0.5 font-mono text-xs text-white"
             >
               {tech}
             </span>
