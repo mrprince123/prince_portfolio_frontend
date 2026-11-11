@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
 @import "./styles/tokens.css";
 
 @tailwind base;
@@ -47,6 +48,7 @@
   /* ─── Typography ─── */
   .font-display { font-family: 'Bricolage Grotesque Variable', 'Inter Variable', system-ui, sans-serif; }
   .font-mono { font-family: 'Space Mono', ui-monospace, monospace; }
+  .font-signature { font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive; }
 
   /* ─── Backgrounds ─── */
   .bg-dots {

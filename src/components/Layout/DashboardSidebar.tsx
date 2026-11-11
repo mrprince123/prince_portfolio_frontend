@@ -1,0 +1,599 @@
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  ChevronDown,
+  LayoutDashboard,
+  Bot,
+  Layers,
+  Cpu,
+  Boxes,
+  Briefcase,
+  User,
+  Award,
+  FileText,
+  Target,
+  Grid,
+  Users,
+  GitBranch,
+  Camera,
+  Share2,
+  BookOpen,
+  GraduationCap,
+  Youtube,
+  PanelLeft,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react";
+
+interface DashboardSidebarProps {
+  collapsed: boolean;
+  onToggle: () => void;
+  mobileOpen?: boolean;
+  onCloseMobile?: () => void;
+}
+
+export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
+  collapsed,
+  onToggle,
+  mobileOpen = false,
+  onCloseMobile,
+}) => {
+  const location = useLocation();
+
+  // Collapsible category groups state
+  const [openGroups, setOpenGroups] = useState({
+    overview: true,
+    build: true,
+    career: true,
+    practice: true,
+    media: true,
+    community: true,
+  });
+
+  const toggleGroup = (key: keyof typeof openGroups) => {
+    setOpenGroups((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const isActive = (path: string) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname.startsWith(path.split("#")[0])) {
+      if (path.includes("#")) {
+        return location.hash === path.substring(path.indexOf("#"));
+      }
+      return true;
+    }
+    return false;
+  };
+
+  const handleLinkClick = () => {
+    if (onCloseMobile) onCloseMobile();
+  };
+
+  return (
+    <>
+      {/* Mobile Backdrop */}
+      {mobileOpen && (
+        <div
+          onClick={onCloseMobile}
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden transition-opacity"
+          aria-hidden="true"
+        />
+      )}
+
+      <aside
+        className={`fixed top-0 left-0 bottom-0 z-50 flex flex-col justify-between border-r border-white/5 bg-[#0a0a0f] text-zinc-300 transition-all duration-300 ${
+          mobileOpen ? "translate-x-0 w-64" : "-translate-x-full lg:translate-x-0"
+        } ${collapsed ? "lg:w-16" : "lg:w-64"}`}
+        aria-label="Sidebar Navigation"
+      >
+        {/* 1. Sidebar Header: Elegant Handwritten Signature & Panel Toggle */}
+        <div className="flex h-14 items-center justify-between px-4 border-b border-white/5">
+          {(!collapsed || mobileOpen) && (
+            <Link
+              to="/"
+              onClick={handleLinkClick}
+              className="flex items-center gap-1 overflow-hidden group"
+              aria-label="Prince Singh Home"
+            >
+              <span className="font-signature text-2xl font-bold tracking-wide whitespace-nowrap transition-transform group-hover:scale-105">
+                <span className="text-white">Prince</span>{" "}
+                <span className="text-[#a855f7] glow-purple-sm">Singh</span>
+              </span>
+            </Link>
+          )}
+
+          <button
+            onClick={onToggle}
+            className={`rounded-lg p-1.5 text-zinc-400 hover:bg-white/10 hover:text-white transition-colors ${
+              collapsed && !mobileOpen ? "mx-auto" : ""
+            }`}
+            title="Toggle sidebar (Alt+B)"
+            aria-label="Toggle sidebar"
+          >
+            <PanelLeft className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* 2. Navigation Scroll Area */}
+        <nav className="flex-1 overflow-y-auto px-2.5 py-3 space-y-4 text-xs font-sans scrollbar-none">
+          {/* GROUP 1: OVERVIEW */}
+          <div className="border-b border-white/5 pb-2">
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("overview")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>OVERVIEW</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.overview ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.overview && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/") && location.pathname === "/"
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Overview"
+                >
+                  {isActive("/") && location.pathname === "/" && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <LayoutDashboard
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/") && location.pathname === "/" ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Overview</span>}
+                </Link>
+
+                <Link
+                  to="/work"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/work")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Kurukshetr AI / Work Portfolio"
+                >
+                  {isActive("/work") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Bot
+                    className={`h-4 w-4 shrink-0 ${isActive("/work") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && (
+                    <span className="flex items-center justify-between flex-1">
+                      <span>KurukshetrAI</span>
+                      <span className="rounded bg-purple-500/20 px-1.5 py-0.5 text-[9px] font-mono text-purple-300">
+                        LIVE
+                      </span>
+                    </span>
+                  )}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* GROUP 2: BUILD */}
+          <div className="border-b border-white/5 pb-2">
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("build")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>BUILD</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.build ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.build && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/projects"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/projects")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="AI Lab"
+                >
+                  {isActive("/projects") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Layers
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/projects") ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>AI Lab</span>}
+                </Link>
+
+                <Link
+                  to="/projects?cat=ai"
+                  onClick={handleLinkClick}
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  title="AI Systems"
+                >
+                  <Cpu className="h-4 w-4 shrink-0 text-zinc-400" />
+                  {(!collapsed || mobileOpen) && <span>AI Systems</span>}
+                </Link>
+
+                <Link
+                  to="/projects?cat=systems"
+                  onClick={handleLinkClick}
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  title="Engineering Systems"
+                >
+                  <Boxes className="h-4 w-4 shrink-0 text-zinc-400" />
+                  {(!collapsed || mobileOpen) && <span>Engineering Systems</span>}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* GROUP 3: CAREER */}
+          <div className="border-b border-white/5 pb-2">
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("career")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>CAREER</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.career ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.career && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/work#experience"
+                  onClick={handleLinkClick}
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  title="Experience Lab"
+                >
+                  <Briefcase className="h-4 w-4 shrink-0 text-zinc-400" />
+                  {(!collapsed || mobileOpen) && <span>Experience Lab</span>}
+                </Link>
+
+                <Link
+                  to="/about"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/about")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Founder (About)"
+                >
+                  {isActive("/about") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <User
+                    className={`h-4 w-4 shrink-0 ${isActive("/about") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Founder</span>}
+                </Link>
+
+                <Link
+                  to="/certificates"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/certificates")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Certificates"
+                >
+                  {isActive("/certificates") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Award
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/certificates") ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Certificates</span>}
+                </Link>
+
+                <Link
+                  to="/resume"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/resume")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Resume"
+                >
+                  {isActive("/resume") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <FileText
+                    className={`h-4 w-4 shrink-0 ${isActive("/resume") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Resume</span>}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* GROUP 4: PRACTICE */}
+          <div className="border-b border-white/5 pb-2">
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("practice")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>PRACTICE</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.practice ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.practice && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/work#dsa"
+                  onClick={handleLinkClick}
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  title="DSA Lab"
+                >
+                  <Target className="h-4 w-4 shrink-0 text-purple-400" />
+                  {(!collapsed || mobileOpen) && <span>DSA Lab</span>}
+                </Link>
+
+                <Link
+                  to="/skills"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/skills")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Tech Stack"
+                >
+                  {isActive("/skills") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Grid
+                    className={`h-4 w-4 shrink-0 ${isActive("/skills") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Tech Stack</span>}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* GROUP 5: MEDIA & LEARNING (User 12 Menu Items) */}
+          <div className="border-b border-white/5 pb-2">
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("media")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>MEDIA & LEARNING</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.media ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.media && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/articles"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/articles")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Articles"
+                >
+                  {isActive("/articles") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <BookOpen
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/articles") ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Articles</span>}
+                </Link>
+
+                <Link
+                  to="/courses"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/courses")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Courses"
+                >
+                  {isActive("/courses") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <GraduationCap
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/courses") ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Courses</span>}
+                </Link>
+
+                <Link
+                  to="/blog"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/blog")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Blogs"
+                >
+                  {isActive("/blog") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <FileText
+                    className={`h-4 w-4 shrink-0 ${isActive("/blog") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Blogs</span>}
+                </Link>
+
+                <Link
+                  to="/youtube"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/youtube")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="YouTube"
+                >
+                  {isActive("/youtube") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Youtube
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/youtube") ? "text-red-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>YouTube</span>}
+                </Link>
+
+                <Link
+                  to="/photography"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/photography")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Photography"
+                >
+                  {isActive("/photography") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Camera
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/photography") ? "text-purple-400" : "text-zinc-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Photography</span>}
+                </Link>
+
+                <Link
+                  to="/social"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/social")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Social Media Overview"
+                >
+                  {isActive("/social") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <Share2
+                    className={`h-4 w-4 shrink-0 ${isActive("/social") ? "text-purple-400" : "text-zinc-400"}`}
+                  />
+                  {(!collapsed || mobileOpen) && <span>Social Media</span>}
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* GROUP 6: COMMUNITY & OPENSOURCE */}
+          <div>
+            {(!collapsed || mobileOpen) && (
+              <button
+                onClick={() => toggleGroup("community")}
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+              >
+                <span>COMMUNITY</span>
+                <ChevronDown
+                  className={`h-3 w-3 transition-transform ${openGroups.community ? "" : "-rotate-90"}`}
+                />
+              </button>
+            )}
+
+            {openGroups.community && (
+              <div className="mt-1 space-y-0.5">
+                <Link
+                  to="/opensource"
+                  onClick={handleLinkClick}
+                  className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
+                    isActive("/opensource")
+                      ? "bg-purple-600/15 text-white font-semibold"
+                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                  }`}
+                  title="Open Source"
+                >
+                  {isActive("/opensource") && (
+                    <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+                  )}
+                  <GitBranch
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive("/opensource") ? "text-purple-400" : "text-purple-400"
+                    }`}
+                  />
+                  {(!collapsed || mobileOpen) && (
+                    <span className="flex items-center justify-between flex-1">
+                      <span>Open Source</span>
+                      <span className="rounded bg-purple-500/20 px-1.5 py-0.5 text-[9px] font-mono text-purple-300">
+                        78 REPOS
+                      </span>
+                    </span>
+                  )}
+                </Link>
+              </div>
+            )}
+          </div>
+        </nav>
+
+        {/* 3. Sidebar Footer matching princesinghai.com exactly: Account & Hire Prince */}
+        <div className="p-3 border-t border-white/5 space-y-2">
+          <Link
+            to="/admin/login"
+            onClick={handleLinkClick}
+            className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-colors ${
+              collapsed && !mobileOpen ? "justify-center px-0" : ""
+            }`}
+            title="Account"
+          >
+            <User className="h-4 w-4 shrink-0 text-zinc-400" />
+            {(!collapsed || mobileOpen) && <span>Account</span>}
+          </Link>
+
+          <Link
+            to="/contact"
+            onClick={handleLinkClick}
+            className={`flex items-center justify-center gap-2 rounded-xl bg-purple-600/20 border border-purple-500/40 py-2.5 text-xs font-semibold text-purple-200 hover:bg-purple-600 hover:text-white transition-all shadow-md shadow-purple-600/10 ${
+              collapsed && !mobileOpen ? "px-0" : "px-3"
+            }`}
+            title="Hire Prince"
+          >
+            <ArrowRight className="h-4 w-4 text-purple-400 shrink-0" />
+            {(!collapsed || mobileOpen) && <span>Hire Prince</span>}
+          </Link>
+        </div>
+      </aside>
+    </>
+  );
+};
