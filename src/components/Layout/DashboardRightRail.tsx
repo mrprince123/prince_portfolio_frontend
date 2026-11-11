@@ -4,7 +4,7 @@ import { Crown, Flame, ArrowRight, ChevronRight } from "lucide-react";
 
 export const DashboardRightRail: React.FC = () => {
   return (
-    <aside className="hidden xl:flex flex-col w-80 shrink-0 p-4 space-y-4 border-l border-border bg-card text-card-foreground font-mono text-xs">
+    <aside className="hidden xl:flex flex-col w-80 shrink-0 px-4 pt-2.5 sm:pt-3 pb-6 space-y-3.5 bg-card text-card-foreground font-mono text-xs">
       {/* 1. TRISHUL & FTM Mentorship Card */}
       <div className="rounded-2xl border border-amber-500/40 bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-card dark:from-amber-950/30 dark:via-[#10121d] dark:to-[#090a10] p-4 relative overflow-hidden shadow-md">
         <div className="flex items-start justify-between">
