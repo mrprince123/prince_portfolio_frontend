@@ -1,9 +1,7 @@
+import { useState, useMemo } from "react";
 import { skillCategories, learningTech } from "@/data/portfolioData";
 import { useResource } from "@/hooks/useResource";
-import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
-import { Chip } from "@/components/ui/primitives/Chip";
-import { Skeleton } from "@/components/ui/primitives/Skeleton";
-import { Reveal } from "@/components/ui/primitives/Reveal";
+import { Cpu, Search, Sparkles, Code2, Server, Cloud, Database, Wrench } from "lucide-react";
 
 interface RawSkill {
   name: string;
@@ -16,7 +14,6 @@ interface RawCategory {
   skillsList?: RawSkill[];
 }
 
-// The API returns categories with `skillsList`; the local fallback uses `skills`.
 const normalize = (categories: RawCategory[]) =>
   categories.map((c) => ({
     name: c.name,
@@ -25,63 +22,137 @@ const normalize = (categories: RawCategory[]) =>
   }));
 
 const SkillsSection = () => {
-  const { data, isLoading } = useResource<RawCategory[]>(
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  const { data = skillCategories } = useResource<RawCategory[]>(
     ["skills"],
     import.meta.env.VITE_SKILL_URL,
     { fallback: skillCategories, timeoutMs: 2000 },
   );
+
   const categories = normalize(data);
 
+  const filteredCategories = useMemo(() => {
+    return categories
+      .filter((cat) => {
+        if (activeCategory === "all") return true;
+        return cat.name.toLowerCase().includes(activeCategory.toLowerCase());
+      })
+      .map((cat) => ({
+        ...cat,
+        skills: cat.skills.filter((s) =>
+          s.name.toLowerCase().includes(searchQuery.toLowerCase().trim()),
+        ),
+      }))
+      .filter((cat) => cat.skills.length > 0);
+  }, [categories, activeCategory, searchQuery]);
+
   return (
-    <section id="skills-section" className="py-20">
-      <div className="container mx-auto px-6">
-        <SectionHeader index="03" title="Stack" />
+    <section id="skills" className="container mx-auto px-4 sm:px-6 py-20 max-w-7xl">
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border">
+        <div>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 mb-2">
+            <Cpu className="h-3.5 w-3.5 text-purple-400" />
+            <span>TECH STACK MATRIX · PRODUCTION ARSENAL</span>
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Technologies & Tools in Production
+          </h2>
+          <p className="mt-1 font-mono text-xs text-muted-foreground">
+            Every language, framework, database, and cloud tool used to build scalable architectures.
+          </p>
+        </div>
+
+        {/* Search Bar */}
+        <div className="relative w-full md:w-64">
+          <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search skills (e.g. Docker, React)..."
+            className="w-full rounded-xl border border-border bg-black/30 py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-purple-500 focus:outline-none"
+          />
+        </div>
       </div>
 
-      <div className="container mx-auto mt-8 px-6">
-        {isLoading ? (
-          <Skeleton variant="card" count={3} />
-        ) : (
-          <div className="grid gap-x-8 gap-y-10 md:grid-cols-2">
-            {categories.map((category, i) => (
-              <Reveal key={category.name} delay={(i % 2) * 0.06}>
-                <div>
-                  <h3 className="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">
-                    {category.name}
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <Chip
-                        key={skill.name}
-                        className="text-foreground transition-colors hover:border-primary/50 hover:text-primary"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="mr-2 inline-block h-1.5 w-1.5 rounded-full"
-                          style={{ backgroundColor: skill.color ?? "hsl(var(--primary))" }}
-                        />
-                        {skill.name}
-                      </Chip>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        )}
+      {/* Filter Tabs */}
+      <div className="mt-8 flex flex-wrap items-center gap-2">
+        {[
+          { id: "all", label: "All Stack" },
+          { id: "frontend", label: "Frontend" },
+          { id: "backend", label: "Backend" },
+          { id: "cloud", label: "Cloud & DevOps" },
+          { id: "database", label: "Databases" },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveCategory(tab.id)}
+            className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
+              activeCategory === tab.id
+                ? "bg-purple-600 text-white font-medium shadow-md shadow-purple-600/20"
+                : "border border-border bg-card/60 text-muted-foreground hover:border-purple-500/30 hover:text-foreground"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-        <div className="mt-12">
-          <h3 className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary motion-reduce:animate-none" />
-            Currently exploring
-          </h3>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {learningTech.map((tech) => (
-              <Chip key={tech} className="text-primary">
-                {tech}
-              </Chip>
-            ))}
+      {/* Skills Grid */}
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {filteredCategories.map((cat) => (
+          <div
+            key={cat.name}
+            className="rounded-2xl border border-purple-500/20 bg-card/70 p-6 backdrop-blur-xl hover:border-purple-500/40 transition-all shadow-md shadow-purple-500/5"
+          >
+            <div className="flex items-center justify-between pb-3 border-b border-border">
+              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-300">
+                {cat.name}
+              </h3>
+              <span className="font-mono text-[10px] text-muted-foreground">
+                {cat.skills.length} technologies
+              </span>
+            </div>
+            {cat.description && (
+              <p className="mt-2 text-xs text-muted-foreground">{cat.description}</p>
+            )}
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {cat.skills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="group flex items-center gap-2 rounded-xl border border-border bg-black/40 px-3 py-1.5 font-mono text-xs text-zinc-200 transition-all hover:border-purple-500/50 hover:bg-purple-500/10 hover:text-white"
+                >
+                  <span
+                    className="h-2 w-2 rounded-full shrink-0"
+                    style={{ backgroundColor: skill.color || "#a855f7" }}
+                  />
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
+        ))}
+      </div>
+
+      {/* Currently Exploring / Next Horizon */}
+      <div className="mt-10 rounded-2xl border border-purple-500/20 bg-black/40 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 font-mono text-xs text-purple-300">
+          <Sparkles className="h-4 w-4 text-purple-400 animate-pulse" />
+          <span className="font-semibold uppercase tracking-wider">Active Explorations:</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {learningTech.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-purple-500/30 bg-purple-500/15 px-3 py-0.5 font-mono text-xs text-purple-200"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </div>
     </section>

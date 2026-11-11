@@ -1,43 +1,66 @@
 :root {
-  --background: 48 24% 94%;
-  --foreground: 48 18% 7%;
-  --card: 48 30% 98%;
-  --card-foreground: 48 18% 7%;
-  --popover: 48 30% 98%;
-  --popover-foreground: 48 18% 7%;
-  --primary: 231 72% 45%;
-  --primary-foreground: 48 30% 98%;
-  --secondary: 45 18% 90%;
-  --secondary-foreground: 48 14% 20%;
-  --muted: 45 18% 90%;
-  --muted-foreground: 43 8% 45%;
-  --accent: 44 24% 91%;
-  --accent-foreground: 48 18% 12%;
+  --background: 0 0% 100%;
+  --foreground: 240 10% 6%;
+  --card: 250 20% 98%;
+  --card-foreground: 240 10% 6%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 6%;
+  --primary: 271 81% 56%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 260 25% 94%;
+  --secondary-foreground: 271 70% 35%;
+  --muted: 260 20% 95%;
+  --muted-foreground: 240 4% 45%;
+  --accent: 260 30% 94%;
+  --accent-foreground: 271 81% 40%;
   --destructive: 0 72% 45%;
   --destructive-foreground: 0 0% 98%;
-  --border: 44 20% 83%;
-  --input: 44 20% 83%;
-  --ring: 231 72% 45%;
+  --border: 250 15% 88%;
+  --input: 250 15% 88%;
+  --ring: 271 81% 56%;
   --radius: 0.75rem;
+
+  /* Reference site style variables - Purple theme */
+  --acc: #7c3aed;
+  --acc-rgb: 124, 58, 237;
+  --acc-2: #a855f7;
+  --acc-glow: rgba(124, 58, 237, 0.25);
+  --acc-ink: #ffffff;
+  --panel: #ffffff;
+  --panel-2: #f8f7fd;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-2: rgba(124, 58, 237, 0.18);
 }
+
 .dark {
-  --background: 225 14% 6%;
-  --foreground: 45 16% 91%;
-  --card: 224 16% 9%;
-  --card-foreground: 45 16% 91%;
-  --popover: 224 16% 9%;
-  --popover-foreground: 45 16% 91%;
-  --primary: 231 100% 75%;
-  --primary-foreground: 225 20% 10%;
-  --secondary: 225 14% 13%;
-  --secondary-foreground: 45 12% 85%;
-  --muted: 225 14% 12%;
-  --muted-foreground: 225 6% 55%;
-  --accent: 225 16% 15%;
-  --accent-foreground: 45 16% 91%;
+  --background: 240 10% 4%;
+  --foreground: 240 5% 96%;
+  --card: 240 10% 7%;
+  --card-foreground: 240 5% 96%;
+  --popover: 240 10% 7%;
+  --popover-foreground: 240 5% 96%;
+  --primary: 271 91% 65%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 8% 12%;
+  --secondary-foreground: 240 5% 90%;
+  --muted: 240 8% 12%;
+  --muted-foreground: 240 5% 65%;
+  --accent: 271 70% 18%;
+  --accent-foreground: 271 95% 75%;
   --destructive: 0 63% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 228 12% 16%;
-  --input: 228 12% 16%;
-  --ring: 231 100% 75%;
+  --border: 240 6% 16%;
+  --input: 240 6% 16%;
+  --ring: 271 91% 65%;
+
+  /* Reference site style variables - Purple theme */
+  --acc: #a855f7;
+  --acc-rgb: 168, 85, 247;
+  --acc-2: #c084fc;
+  --acc-glow: rgba(168, 85, 247, 0.35);
+  --acc-ink: #ffffff;
+  --panel: #111117;
+  --panel-2: #161522;
+  --line: rgba(255, 255, 255, 0.07);
+  --line-2: rgba(168, 85, 247, 0.22);
 }

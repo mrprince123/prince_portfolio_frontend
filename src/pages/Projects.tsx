@@ -144,11 +144,11 @@ const Projects = () => {
                   {active ? (
                     <motion.span
                       layoutId="proj-filter-pill"
-                      className="absolute inset-0 rounded-lg bg-foreground"
+                      className="absolute inset-0 rounded-lg bg-purple-600 shadow-md shadow-purple-600/25"
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   ) : null}
-                  <span className={cn("relative z-10", active ? "text-background" : "text-muted-foreground")}>
+                  <span className={cn("relative z-10", active ? "text-white font-medium" : "text-muted-foreground hover:text-foreground")}>
                     {category.label}
                   </span>
                 </button>

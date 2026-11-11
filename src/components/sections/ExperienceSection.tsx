@@ -1,44 +1,99 @@
+import { useState } from "react";
 import { experiences } from "@/data/portfolioData";
-import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
-import { Reveal } from "@/components/ui/primitives/Reveal";
+import { Briefcase, Calendar, MapPin, CheckCircle2, ChevronRight, Award } from "lucide-react";
 
-const ExperienceSection = () => (
-  <section id="experience" className="container mx-auto px-6 py-20">
-    <SectionHeader index="02" title="Experience" />
-    <div className="mt-10">
-      {experiences.map((exp, i) => (
-        <Reveal key={exp.company} delay={i * 0.05}>
-          <div className="group relative grid gap-4 border-l border-border py-8 pl-8 md:grid-cols-[190px_1fr] md:gap-10">
-            <span className="absolute -left-[5px] top-9 h-2.5 w-2.5 rounded-full border-2 border-background bg-border transition-colors group-hover:bg-primary" />
-            <div>
-              <p className="font-mono text-xs text-primary">{exp.period}</p>
-              <p className="mt-1 font-mono text-xs text-muted-foreground">{exp.location}</p>
+const ExperienceSection = () => {
+  return (
+    <section id="experience" className="container mx-auto px-4 sm:px-6 py-20 max-w-7xl">
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border">
+        <div>
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 mb-2">
+            <Briefcase className="h-3.5 w-3.5 text-purple-400" />
+            <span>EXPERIENCE LAB · 3 ORGANIZATIONS</span>
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+            Where I've built & shipped software
+          </h2>
+          <p className="mt-1 font-mono text-xs text-muted-foreground">
+            A track record of driving measurable business impact, scaling systems, and mentoring teams.
+          </p>
+        </div>
+
+        <div className="font-mono text-xs text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-xl px-4 py-2">
+          ⚡ 2+ Years Production Experience
+        </div>
+      </div>
+
+      {/* Timeline Stream */}
+      <div className="mt-12 space-y-8 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-purple-500 before:via-purple-500/30 before:to-transparent">
+        {experiences.map((exp, i) => (
+          <div key={exp.company} className="relative flex items-start gap-4 sm:gap-8 group">
+            {/* Timeline Node Icon */}
+            <div className="relative z-10 flex h-7 w-7 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border-2 border-purple-500 bg-black text-purple-400 shadow-md shadow-purple-500/30 group-hover:scale-110 group-hover:border-purple-400 transition-all">
+              <span className="h-2.5 w-2.5 rounded-full bg-purple-400 group-hover:animate-ping" />
             </div>
-            <div>
-              <h3 className="font-display text-xl text-foreground md:text-2xl">{exp.title}</h3>
-              <p className="mt-0.5 font-mono text-sm text-muted-foreground">{exp.company}</p>
-              <p className="mt-3 max-w-2xl text-muted-foreground">{exp.description}</p>
-              <ul className="mt-4 space-y-1.5">
-                {exp.achievements.slice(0, 3).map((a) => (
-                  <li key={a} className="flex gap-2.5 text-sm text-foreground/80">
-                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-primary" />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+
+            {/* Content Card */}
+            <div className="flex-1 rounded-2xl border border-purple-500/20 bg-card/75 p-6 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-border">
+                <div>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground group-hover:text-purple-300 transition-colors">
+                    {exp.title}
+                  </h3>
+                  <div className="mt-1 flex flex-wrap items-center gap-2 font-mono text-xs">
+                    <span className="font-semibold text-purple-400">{exp.company}</span>
+                    <span className="text-zinc-500">·</span>
+                    <span className="flex items-center gap-1 text-muted-foreground">
+                      <MapPin className="h-3 w-3 text-zinc-500" /> {exp.location}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-1.5 rounded-lg border border-purple-500/20 bg-purple-500/10 px-3 py-1 font-mono text-xs text-purple-300 w-fit">
+                  <Calendar className="h-3 w-3" />
+                  <span>{exp.period}</span>
+                </div>
+              </div>
+
+              {/* Role Summary */}
+              <p className="mt-4 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                {exp.description}
+              </p>
+
+              {/* Achievements Checklist */}
+              <div className="mt-5 space-y-2">
+                <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
+                  <Award className="h-3.5 w-3.5 text-purple-400" /> Key Engineering Accomplishments:
+                </span>
+                <ul className="space-y-2 mt-2">
+                  {exp.achievements.map((ach) => (
+                    <li key={ach} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/90">
+                      <CheckCircle2 className="h-4 w-4 text-purple-400 shrink-0 mt-0.5" />
+                      <span>{ach}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div className="mt-6 pt-4 border-t border-border flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[11px] text-muted-foreground mr-1">Stack:</span>
                 {exp.technologies.map((t) => (
-                  <span key={t} className="font-mono text-[11px] text-muted-foreground">
+                  <span
+                    key={t}
+                    className="rounded-lg border border-border bg-black/30 px-2.5 py-1 font-mono text-xs text-zinc-300 group-hover:border-purple-500/30 group-hover:text-purple-200 transition-colors"
+                  >
                     {t}
                   </span>
                 ))}
               </div>
             </div>
           </div>
-        </Reveal>
-      ))}
-    </div>
-  </section>
-);
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default ExperienceSection;

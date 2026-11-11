@@ -355,7 +355,7 @@ export default function AIChatbot() {
           <motion.div
             key="ai-chat-panel"
             {...panelMotionProps}
-            className="fixed bottom-24 right-5 z-50 flex h-[500px] w-[360px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-lg border border-border bg-card shadow-lg"
+            className="fixed bottom-24 right-5 z-50 flex h-[520px] w-[370px] max-w-[calc(100vw-40px)] flex-col overflow-hidden rounded-2xl border border-purple-500/30 bg-card/95 backdrop-blur-2xl shadow-2xl shadow-purple-500/15"
           >
             {/* Header */}
             <div className="flex shrink-0 items-center justify-between border-b border-border bg-background px-4 py-3">
@@ -496,14 +496,14 @@ export default function AIChatbot() {
       {/* Floating Toggle Button */}
       <motion.button
         onClick={toggleOpen}
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-primary text-primary-foreground shadow-lg transition-colors hover:opacity-90"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-purple-500/30 bg-gradient-to-tr from-purple-600 to-indigo-600 text-white shadow-xl shadow-purple-600/30 transition-all hover:scale-105"
         aria-label={isOpen ? "Close AI chatbot" : "Open AI chatbot"}
         whileHover={prefersReducedMotion ? undefined : { scale: 1.05 }}
         whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
       >
         {/* Pulse ring */}
         {!isOpen && (
-          <span className="absolute inset-0 rounded-full bg-primary opacity-30 motion-safe:animate-ping motion-reduce:hidden" />
+          <span className="absolute inset-0 rounded-full bg-purple-500 opacity-40 motion-safe:animate-ping motion-reduce:hidden" />
         )}
         <AnimatePresence mode="wait" initial={false}>
           {isOpen ? (

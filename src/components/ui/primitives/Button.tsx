@@ -6,13 +6,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-mono text-[13px] px-4 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-mono text-[13px] px-4 py-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "rounded-lg bg-foreground text-background hover:bg-foreground/90",
-        link: "rounded-none border-b-2 border-primary px-0 py-0.5 text-primary hover:text-primary/80",
-        ghost: "rounded-lg border border-border bg-card hover:bg-accent",
+        primary:
+          "rounded-xl bg-purple-600 text-white font-semibold shadow-lg shadow-purple-600/25 hover:bg-purple-500 hover:shadow-purple-500/40",
+        purple:
+          "rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold shadow-lg shadow-purple-600/30 hover:from-purple-500 hover:to-indigo-500",
+        link: "rounded-none border-b-2 border-purple-500 px-0 py-0.5 text-purple-400 hover:text-purple-300",
+        ghost:
+          "rounded-xl border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20",
+        outline:
+          "rounded-xl border border-border bg-card/60 text-foreground hover:border-purple-500/40 hover:text-purple-300",
       },
     },
     defaultVariants: {
@@ -21,9 +27,6 @@ const buttonVariants = cva(
   },
 );
 
-// `onDrag`/`onDragStart`/`onDragEnd`/`onAnimation*` conflict between React's DOM
-// event typings and framer-motion's gesture/animation typings on the same prop
-// names — omit the DOM versions so the props resolve to framer-motion's.
 type ConflictingMotionProps =
   | "onDrag"
   | "onDragStart"
