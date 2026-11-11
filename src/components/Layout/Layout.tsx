@@ -38,7 +38,7 @@ export const Layout = ({ children }: LayoutProps) => {
     return <div className="min-h-screen bg-background text-foreground">{children}</div>;
   }
 
-  // 1. Landing View for Homepage (/) and About (/about, /work)
+  // 1. Landing View for Homepage (/) and About (/about)
   // Has top Navbar with (Dashboard, About), NO sidebars
   if (!isDashboardView) {
     return (

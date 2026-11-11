@@ -27,7 +27,6 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Expanded Pages matching User Sidebar & References
-const Work = lazy(() => import("./pages/Work"));
 const YouTube = lazy(() => import("./pages/YouTube"));
 const Photography = lazy(() => import("./pages/Photography"));
 const SocialOverview = lazy(() => import("./pages/SocialOverview"));
@@ -116,7 +115,7 @@ const App = () => (
                   <Route path="/resume" element={<Resume />} />
                   <Route path="/certificates" element={<Certificates />} />
                   <Route path="/opensource" element={<Opensource />} />
-                  <Route path="/work" element={<Work />} />
+                  <Route path="/work" element={<Navigate to="/about" replace />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
 

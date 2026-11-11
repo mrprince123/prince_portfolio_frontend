@@ -101,37 +101,8 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 </button>
               </div>
 
-              {/* Special Featured Tab: /work */}
-              <div className="p-4 border-b border-[#4361ee]/15 bg-gradient-to-r from-[#4361ee]/15 to-card/50">
-                <div className="font-mono text-[10px] uppercase text-[#4895ef] font-semibold tracking-wider mb-1.5 flex items-center gap-1">
-                  <Sparkles className="h-3 w-3 text-[#4895ef] animate-pulse" />
-                  <span>Featured Work Experience</span>
-                </div>
-                <Link
-                  to="/work"
-                  onClick={onClose}
-                  className={`flex items-center justify-between rounded-xl border p-3 font-mono text-xs transition-all ${
-                    location.pathname === "/work"
-                      ? "border-[#4361ee] bg-[#4361ee]/20 text-foreground shadow-md shadow-[#4361ee]/15"
-                      : "border-[#4361ee]/30 bg-[#4361ee]/10 text-foreground hover:border-[#4361ee]/60 hover:bg-[#4361ee]/20"
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Briefcase className="h-4 w-4 text-[#4895ef] shrink-0" />
-                    <div>
-                      <div className="font-bold text-foreground flex items-center gap-1.5">
-                        Work Portfolio (/work)
-                        <span className="rounded bg-[#4361ee]/30 text-[#4895ef] px-1 py-0.2 text-[9px]">NEW</span>
-                      </div>
-                      <div className="text-[10px] text-muted-foreground">Same as princesingh.work/#about</div>
-                    </div>
-                  </div>
-                  <ChevronRight className="h-4 w-4 text-[#4895ef]" />
-                </Link>
-              </div>
-
               {/* 12 Menu Items */}
-              <div className="p-3 max-h-[calc(100vh-280px)] overflow-y-auto space-y-1">
+              <div className="p-3 max-h-[calc(100vh-200px)] overflow-y-auto space-y-1">
                 <div className="px-3 py-1 font-mono text-[10px] uppercase text-muted-foreground font-semibold tracking-wider">
                   Menu Navigation (12 Sections)
                 </div>

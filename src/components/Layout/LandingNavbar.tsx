@@ -52,7 +52,7 @@ export const LandingNavbar = () => {
           <Link
             to="/about"
             className={`flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
-              isActive("/about") || isActive("/work")
+              isActive("/about")
                 ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}

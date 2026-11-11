@@ -12,7 +12,6 @@ interface HeaderProps {
 
 const PRIMARY_LINKS = [
   { name: "About", href: "/about" },
-  { name: "Work", href: "/work", badge: "princesingh.work" },
   { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/projects" },
   { name: "Articles", href: "/articles" },
@@ -44,10 +43,10 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
           <span className="sm:hidden text-foreground">Software Engineer @ Webkul</span>
           <span className="text-muted-foreground/50">·</span>
           <Link
-            to="/work"
+            to="/about"
             className="inline-flex items-center gap-1 text-[#4895ef] hover:text-[#4895ef] transition-colors font-medium underline underline-offset-2"
           >
-            Explore Work Portfolio (/work) <ArrowRight className="h-3 w-3" />
+            Explore Career & Work (/about) <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
       </div>
@@ -92,7 +91,6 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
           <nav className="hidden items-center gap-1 md:flex">
             {PRIMARY_LINKS.map((item) => {
               const active = isActive(item.href);
-              const isWork = item.href === "/work";
 
               return (
                 <Link
@@ -101,18 +99,10 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                   className={`relative rounded-full px-3.5 py-1.5 font-mono text-[12px] transition-all flex items-center gap-1.5 ${
                     active
                       ? "text-white bg-[#4361ee]/20 border border-[#4361ee]/40 font-semibold shadow-sm"
-                      : isWork
-                      ? "text-[#4895ef] bg-[#4361ee]/10 border border-[#4361ee]/20 hover:bg-[#4361ee]/20"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
-                  {isWork && <Briefcase className="h-3 w-3 text-[#4895ef]" />}
                   <span>{item.name}</span>
-                  {isWork && (
-                    <span className="rounded bg-[#4361ee]/30 text-white px-1 py-0.2 text-[9px] font-bold">
-                      TAB
-                    </span>
-                  )}
                 </Link>
               );
             })}
@@ -181,11 +171,6 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                   }`}
                 >
                   <span>{item.name}</span>
-                  {item.href === "/work" && (
-                    <span className="text-[10px] text-[#4895ef] bg-[#4361ee]/20 px-1.5 py-0.5 rounded">
-                      NEW TAB
-                    </span>
-                  )}
                 </Link>
               ))}
             </div>
