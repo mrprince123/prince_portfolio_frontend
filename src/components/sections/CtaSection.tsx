@@ -95,11 +95,11 @@ export const CtaSection = () => {
 
             {/* Quick stats / guarantees */}
             <div className="grid grid-cols-2 gap-3 font-mono text-xs">
-              <div className="rounded-xl border border-border bg-black/30 p-3">
+              <div className="rounded-xl border border-border bg-muted/40 p-3">
                 <span className="text-[#4895ef] font-bold">&lt; 24h</span>
                 <p className="text-[11px] text-muted-foreground mt-0.5">Average response turnaround</p>
               </div>
-              <div className="rounded-xl border border-border bg-black/30 p-3">
+              <div className="rounded-xl border border-border bg-muted/40 p-3">
                 <span className="text-[#4895ef] font-bold">Remote / Hybrid</span>
                 <p className="text-[11px] text-muted-foreground mt-0.5">Open to global roles</p>
               </div>
@@ -121,7 +121,7 @@ export const CtaSection = () => {
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-black/30 text-muted-foreground hover:border-[#4361ee]/50 hover:bg-[#4361ee]/10 hover:text-[#4895ef] transition-all"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-background text-muted-foreground hover:border-[#4361ee]/50 hover:bg-[#4361ee]/10 hover:text-[#4895ef] transition-all shadow-2xs"
                     aria-label={name}
                   >
                     <Icon className="h-4 w-4" />
@@ -144,62 +144,62 @@ export const CtaSection = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-mono text-xs text-zinc-400 mb-1.5 block">Your Name *</label>
+                  <label className="font-mono text-xs text-muted-foreground mb-1.5 block">Your Name *</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full rounded-xl border border-border bg-black/40 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
+                    className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
                   />
                 </div>
                 <div>
-                  <label className="font-mono text-xs text-zinc-400 mb-1.5 block">Email Address *</label>
+                  <label className="font-mono text-xs text-muted-foreground mb-1.5 block">Email Address *</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full rounded-xl border border-border bg-black/40 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
+                    className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="font-mono text-xs text-zinc-400 mb-1.5 block">Phone / WhatsApp</label>
+                  <label className="font-mono text-xs text-muted-foreground mb-1.5 block">Phone / WhatsApp</label>
                   <input
                     type="text"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91..."
-                    className="w-full rounded-xl border border-border bg-black/40 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
+                    className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
                   />
                 </div>
                 <div>
-                  <label className="font-mono text-xs text-zinc-400 mb-1.5 block">Subject *</label>
+                  <label className="font-mono text-xs text-muted-foreground mb-1.5 block">Subject *</label>
                   <input
                     type="text"
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Opportunity / Collaboration"
-                    className="w-full rounded-xl border border-border bg-black/40 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
+                    className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-mono text-xs text-zinc-400 mb-1.5 block">Message / Scope *</label>
+                <label className="font-mono text-xs text-muted-foreground mb-1.5 block">Message / Scope *</label>
                 <textarea
                   required
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about the role, project architecture, or timeline..."
-                  className="w-full rounded-xl border border-border bg-card/70 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee] resize-none"
+                  className="w-full rounded-xl border border-border bg-background px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee] resize-none"
                 />
               </div>
 

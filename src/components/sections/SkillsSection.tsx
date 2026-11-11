@@ -73,7 +73,7 @@ const SkillsSection = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search skills (e.g. Docker, React)..."
-            className="w-full rounded-xl border border-border bg-black/30 py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none"
+            className="w-full rounded-xl border border-border bg-background py-2 pl-9 pr-4 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none"
           />
         </div>
       </div>
@@ -124,11 +124,11 @@ const SkillsSection = () => {
               {cat.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="group flex items-center gap-2 rounded-xl border border-border bg-black/40 px-3 py-1.5 font-mono text-xs text-zinc-200 transition-all hover:border-[#4361ee]/50 hover:bg-[#4361ee]/10 hover:text-white"
+                  className="group flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-1.5 font-mono text-xs text-foreground transition-all hover:border-[#4361ee]/50 hover:bg-[#4361ee]/10 hover:text-[#4361ee] dark:hover:text-white"
                 >
                   <span
                     className="h-2 w-2 rounded-full shrink-0"
-                    style={{ backgroundColor: skill.color || "#a855f7" }}
+                    style={{ backgroundColor: skill.color || "#4361ee" }}
                   />
                   <span>{skill.name}</span>
                 </div>
@@ -139,8 +139,8 @@ const SkillsSection = () => {
       </div>
 
       {/* Currently Exploring / Next Horizon */}
-      <div className="mt-10 rounded-2xl border border-[#4361ee]/20 bg-black/40 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5 font-mono text-xs text-[#4895ef]">
+      <div className="mt-10 rounded-2xl border border-border bg-card p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 font-mono text-xs text-[#4361ee] dark:text-[#4895ef]">
           <Sparkles className="h-4 w-4 text-[#4895ef] animate-pulse" />
           <span className="font-semibold uppercase tracking-wider">Active Explorations:</span>
         </div>
@@ -148,7 +148,7 @@ const SkillsSection = () => {
           {learningTech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-[#4361ee]/30 bg-[#4361ee]/15 px-3 py-0.5 font-mono text-xs text-white"
+              className="rounded-full border border-[#4361ee]/30 bg-[#4361ee]/15 px-3 py-0.5 font-mono text-xs text-foreground"
             >
               {tech}
             </span>

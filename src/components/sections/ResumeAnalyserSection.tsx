@@ -48,7 +48,7 @@ export const ResumeAnalyserSection = () => {
               className={`rounded-2xl border p-5 cursor-pointer transition-all ${
                 activeTab === "startup"
                   ? "border-[#4361ee] bg-[#4361ee]/10 shadow-lg shadow-[#4361ee]/10"
-                  : "border-border bg-black/20 hover:border-[#4361ee]/30"
+                  : "border-border bg-card hover:border-[#4361ee]/30"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -64,7 +64,7 @@ export const ResumeAnalyserSection = () => {
                     <span>Fast Shipping & Delivery</span>
                     <span className="text-[#4895ef]">98%</span>
                   </div>
-                  <div className="mt-1 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+                  <div className="mt-1 h-1.5 w-full rounded-full bg-muted overflow-hidden">
                     <div className="h-full rounded-full bg-[#4361ee]" style={{ width: "98%" }} />
                   </div>
                 </div>
@@ -73,7 +73,7 @@ export const ResumeAnalyserSection = () => {
                     <span>End-to-End Ownership</span>
                     <span className="text-[#4895ef]">95%</span>
                   </div>
-                  <div className="mt-1 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+                  <div className="mt-1 h-1.5 w-full rounded-full bg-muted overflow-hidden">
                     <div className="h-full rounded-full bg-[#4361ee]" style={{ width: "95%" }} />
                   </div>
                 </div>
@@ -86,7 +86,7 @@ export const ResumeAnalyserSection = () => {
               className={`rounded-2xl border p-5 cursor-pointer transition-all ${
                 activeTab === "mnc"
                   ? "border-[#4361ee] bg-[#4361ee]/10 shadow-lg shadow-[#4361ee]/10"
-                  : "border-border bg-black/20 hover:border-[#4361ee]/30"
+                  : "border-border bg-card hover:border-[#4361ee]/30"
               }`}
             >
               <div className="flex items-center justify-between">
@@ -102,7 +102,7 @@ export const ResumeAnalyserSection = () => {
                     <span>CS Fundamentals & Architecture</span>
                     <span className="text-[#4895ef]">94%</span>
                   </div>
-                  <div className="mt-1 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+                  <div className="mt-1 h-1.5 w-full rounded-full bg-muted overflow-hidden">
                     <div className="h-full rounded-full bg-[#4361ee]" style={{ width: "94%" }} />
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export const ResumeAnalyserSection = () => {
                     <span>Distributed Systems & Scaling</span>
                     <span className="text-[#4895ef]">90%</span>
                   </div>
-                  <div className="mt-1 h-1.5 w-full rounded-full bg-black/40 overflow-hidden">
+                  <div className="mt-1 h-1.5 w-full rounded-full bg-muted overflow-hidden">
                     <div className="h-full rounded-full bg-[#4361ee]" style={{ width: "90%" }} />
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export const ResumeAnalyserSection = () => {
 
           {/* Right Cards: Skills Demand Radar & Role Fit (7 cols) */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="rounded-2xl border border-border bg-black/30 p-5">
+            <div className="rounded-2xl border border-border bg-card p-5">
               <h3 className="font-mono text-xs font-semibold text-[#4895ef] uppercase tracking-wider mb-4 flex items-center gap-2">
                 <BarChart3 className="h-4 w-4 text-[#4895ef]" /> Evidence vs Hiring Demand (2026 Core Skills)
               </h3>
@@ -135,7 +135,7 @@ export const ResumeAnalyserSection = () => {
                   { skill: "System Architecture", score: "94%", status: "Zero Downtime" },
                   { skill: "High-Throughput APIs", score: "96%", status: "100k+ Users" },
                 ].map((item) => (
-                  <div key={item.skill} className="rounded-xl border border-border bg-black/40 p-3">
+                  <div key={item.skill} className="rounded-xl border border-border bg-background p-3 hover:border-[#4361ee]/40 transition-colors shadow-xs">
                     <div className="text-[#4895ef] font-bold text-base">{item.score}</div>
                     <div className="font-semibold text-foreground text-xs mt-0.5">{item.skill}</div>
                     <div className="text-[10px] text-muted-foreground mt-1">{item.status}</div>
@@ -145,7 +145,7 @@ export const ResumeAnalyserSection = () => {
             </div>
 
             {/* Role Fit Matches */}
-            <div className="rounded-2xl border border-border bg-black/30 p-5">
+            <div className="rounded-2xl border border-border bg-card p-5">
               <h3 className="font-mono text-xs font-semibold text-[#4895ef] uppercase tracking-wider mb-3 flex items-center gap-2">
                 <TrendingUp className="h-4 w-4 text-[#4895ef]" /> Highest Confidence Role Matches
               </h3>
@@ -157,7 +157,7 @@ export const ResumeAnalyserSection = () => {
                 ].map((r) => (
                   <div
                     key={r.role}
-                    className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-3.5 py-2.5 text-xs font-mono"
+                    className="flex items-center justify-between rounded-xl border border-border bg-background px-3.5 py-2.5 text-xs font-mono hover:border-[#4361ee]/30 transition-colors"
                   >
                     <span className="text-foreground font-medium">{r.role}</span>
                     <div className="flex items-center gap-2">

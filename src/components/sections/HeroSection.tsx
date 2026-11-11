@@ -108,7 +108,7 @@ export const HeroSection = () => {
 
             <motion.p
               variants={item}
-              className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-zinc-300 font-sans"
+              className="mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground font-sans"
             >
               {personalInfo.bio}
             </motion.p>

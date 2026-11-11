@@ -258,7 +258,7 @@ export const YouTube = () => {
                   <div className="p-4 space-y-2">
                     <h3
                       onClick={() => setSelectedVideo(video)}
-                      className="font-display text-sm font-bold text-white line-clamp-2 cursor-pointer hover:text-[#4895ef] transition-colors"
+                      className="font-display text-sm font-bold text-foreground line-clamp-2 cursor-pointer hover:text-[#4361ee] dark:hover:text-[#4895ef] transition-colors"
                     >
                       {videoTitle}
                     </h3>
@@ -276,7 +276,7 @@ export const YouTube = () => {
                     href={videoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-[#4895ef] hover:underline"
+                    className="inline-flex items-center gap-1 text-[#4361ee] dark:text-[#4895ef] hover:underline"
                   >
                     <span>Watch</span>
                     <ExternalLink className="h-3 w-3" />
@@ -290,9 +290,9 @@ export const YouTube = () => {
 
       {/* Video Modal Player */}
       <Dialog open={!!selectedVideo} onOpenChange={() => setSelectedVideo(null)}>
-        <DialogContent className="max-w-3xl bg-card border-border text-white p-6">
+        <DialogContent className="max-w-3xl bg-card border-border text-foreground p-6">
           <DialogHeader>
-            <DialogTitle className="font-display text-lg font-bold text-white">
+            <DialogTitle className="font-display text-lg font-bold text-foreground">
               {selectedVideo?.name || selectedVideo?.title}
             </DialogTitle>
           </DialogHeader>

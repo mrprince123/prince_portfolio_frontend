@@ -249,7 +249,7 @@ export const Opensource = () => {
           </div>
 
           {/* Visual Percentage Bar */}
-          <div className="h-3 w-full rounded-full overflow-hidden flex bg-white/5">
+          <div className="h-3 w-full rounded-full overflow-hidden flex bg-muted">
             {LANGUAGE_BREAKDOWN.map((lang) => (
               <div
                 key={lang.name}
@@ -342,7 +342,7 @@ export const Opensource = () => {
                 placeholder="Search repos or tech..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-border bg-card border-border pl-9 pr-4 py-2 text-foreground placeholder:text-zinc-600 focus:border-[#4361ee] focus:outline-none"
+                className="w-full rounded-xl border border-border bg-card border-border pl-9 pr-4 py-2 text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none"
               />
             </div>
           </div>
@@ -412,7 +412,7 @@ export const Opensource = () => {
                     {repo.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground border border-border"
+                        className="rounded-md bg-muted/60 dark:bg-muted/30 px-2 py-0.5 text-[10px] text-muted-foreground border border-border"
                       >
                         {t}
                       </span>

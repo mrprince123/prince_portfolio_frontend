@@ -66,7 +66,7 @@ export const Certificates = () => {
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-lg border border-border bg-black/30 px-2.5 py-0.5 font-mono text-[11px] text-zinc-300 group-hover:border-[#4361ee]/30 group-hover:text-white transition-colors"
+                      className="rounded-lg border border-border bg-muted/50 dark:bg-muted/30 px-2.5 py-0.5 font-mono text-[11px] text-muted-foreground group-hover:border-[#4361ee]/40 group-hover:text-[#4361ee] dark:group-hover:text-white transition-colors"
                     >
                       {skill}
                     </span>
@@ -76,7 +76,7 @@ export const Certificates = () => {
 
               {/* Credential ID & Verify Link */}
               <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-mono">
-                <span className="text-zinc-500">ID: {cert.credentialId}</span>
+                <span className="text-muted-foreground">ID: {cert.credentialId}</span>
                 <a
                   href={cert.verifyUrl}
                   target="_blank"

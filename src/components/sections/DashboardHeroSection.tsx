@@ -67,7 +67,7 @@ export const DashboardHeroSection = () => {
 
               <Link
                 to="/about"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-muted/40 px-4 py-2.5 text-muted-foreground hover:text-white hover:border-[#4361ee]/40 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-muted/40 px-4 py-2.5 text-muted-foreground hover:text-foreground hover:bg-muted hover:border-[#4361ee]/40 transition-colors"
               >
                 <span>Know more</span>
               </Link>
@@ -75,7 +75,7 @@ export const DashboardHeroSection = () => {
           </div>
 
           {/* Right Interactive Constellation Box */}
-          <div className="lg:col-span-5 rounded-2xl border border-[#4361ee]/20 bg-card border-border p-6 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[220px]">
+          <div className="lg:col-span-5 rounded-2xl border border-[#4361ee]/20 bg-gradient-to-br from-[#4361ee]/5 via-background to-card dark:from-[#4361ee]/10 dark:via-card dark:to-card border-border p-6 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[220px]">
             {/* Constellation grid background with connecting lines */}
             <svg
               className="absolute inset-0 h-full w-full opacity-40 pointer-events-none"
@@ -95,12 +95,12 @@ export const DashboardHeroSection = () => {
                 <span className="h-3.5 w-3.5 rounded-full bg-[#4361ee] shadow-[0_0_12px_#4361ee]" />
               </div>
 
-              <div className="font-mono text-xs font-bold text-white">
-                Ask about my <span className="text-[#4895ef] underline decoration-[#4361ee]/50">experience</span>
+              <div className="font-mono text-xs font-bold text-foreground">
+                Ask about my <span className="text-[#4361ee] dark:text-[#4895ef] underline decoration-[#4361ee]/50">experience</span>
               </div>
 
               <p className="text-[11px] font-mono text-muted-foreground max-w-[220px]">
-                Grounded in <span className="text-foreground font-semibold bg-muted px-1 py-0.5 rounded">real work</span>, streamed in real time
+                Grounded in <span className="text-foreground font-semibold bg-muted px-1.5 py-0.5 rounded">real work</span>, streamed in real time
               </p>
             </div>
           </div>
@@ -109,33 +109,33 @@ export const DashboardHeroSection = () => {
 
       {/* 4. Six Metric Cards Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono">
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">600K+</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">600K+</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">users on features built</div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">6</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">6</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">live AI products</div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">15</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">15</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">systems in production</div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">5000+</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">5000+</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">DSA problems</div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">40,000+</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">40,000+</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">engineers mentored</div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
-          <div className="font-display text-2xl font-black text-[#4895ef]">3000</div>
+        <div className="rounded-2xl border border-border bg-card p-3.5 hover:border-[#4361ee]/40 transition-all shadow-xs">
+          <div className="font-display text-2xl font-black text-[#4361ee] dark:text-[#4895ef]">3000</div>
           <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">GitHub contributions</div>
         </div>
       </div>

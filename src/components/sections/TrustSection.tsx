@@ -21,7 +21,7 @@ export const TrustSection = () => {
 
         {/* 3 Pillar Stats */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-border bg-black/30 p-5 hover:border-[#4361ee]/40 transition-all">
+          <div className="rounded-2xl border border-border bg-background p-5 hover:border-[#4361ee]/40 transition-all shadow-xs">
             <div className="flex items-center gap-2 text-[#4895ef] font-mono text-xs font-semibold uppercase">
               <Users className="h-4 w-4" /> 100K+ Users Served
             </div>
@@ -31,7 +31,7 @@ export const TrustSection = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-border bg-black/30 p-5 hover:border-[#4361ee]/40 transition-all">
+          <div className="rounded-2xl border border-border bg-background p-5 hover:border-[#4361ee]/40 transition-all shadow-xs">
             <div className="flex items-center gap-2 text-[#4895ef] font-mono text-xs font-semibold uppercase">
               <Zap className="h-4 w-4" /> 40% Latency Reduction
             </div>
@@ -41,7 +41,7 @@ export const TrustSection = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-border bg-black/30 p-5 hover:border-[#4361ee]/40 transition-all">
+          <div className="rounded-2xl border border-border bg-background p-5 hover:border-[#4361ee]/40 transition-all shadow-xs">
             <div className="flex items-center gap-2 text-[#4895ef] font-mono text-xs font-semibold uppercase">
               <Building2 className="h-4 w-4" /> $2M Seed MVP
             </div>
@@ -53,8 +53,8 @@ export const TrustSection = () => {
         </div>
 
         {/* Company logos / badges bar */}
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
-          <span className="text-zinc-400 uppercase text-[11px] tracking-wider">Organizations:</span>
+        <div className="mt-8 pt-6 border-t border-border flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
+          <span className="text-muted-foreground uppercase text-[11px] tracking-wider">Organizations:</span>
           <div className="flex flex-wrap items-center gap-4 sm:gap-8">
             <span className="font-semibold text-foreground hover:text-[#4895ef] transition-colors">
               Webkul Software Pvt Ltd

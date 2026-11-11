@@ -68,7 +68,7 @@ export const LandingNavbar = () => {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 font-mono text-xs text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all bg-white/[0.02]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 font-mono text-xs text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4361ee] dark:hover:text-[#4895ef] transition-all bg-card"
           >
             <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
             <span>résumé</span>

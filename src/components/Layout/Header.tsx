@@ -32,17 +32,17 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       {/* Top Announcement Ticker */}
-      <div className="border-b border-[#4361ee]/20 bg-black/60 backdrop-blur-md text-[11px] font-mono py-1.5 px-4 text-center text-muted-foreground">
+      <div className="border-b border-border bg-card/90 backdrop-blur-md text-[11px] font-mono py-1.5 px-4 text-center text-muted-foreground">
         <div className="container mx-auto flex items-center justify-center gap-2">
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#4361ee]/15 text-[#4895ef] border border-[#4361ee]/30 font-semibold text-[10px]">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#4361ee]/15 text-[#4361ee] dark:text-[#4895ef] border border-[#4361ee]/30 font-semibold text-[10px]">
             <span className="h-1.5 w-1.5 rounded-full bg-[#4895ef] animate-ping" />
             LIVE
           </span>
-          <span className="hidden sm:inline text-zinc-300">
+          <span className="hidden sm:inline text-foreground">
             Software Engineer @ Webkul · Scalable Microservices & Cloud Systems
           </span>
-          <span className="sm:hidden text-zinc-300">Software Engineer @ Webkul</span>
-          <span className="text-zinc-500">·</span>
+          <span className="sm:hidden text-foreground">Software Engineer @ Webkul</span>
+          <span className="text-muted-foreground/50">·</span>
           <Link
             to="/work"
             className="inline-flex items-center gap-1 text-[#4895ef] hover:text-[#4895ef] transition-colors font-medium underline underline-offset-2"
@@ -103,7 +103,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
                       ? "text-white bg-[#4361ee]/20 border border-[#4361ee]/40 font-semibold shadow-sm"
                       : isWork
                       ? "text-[#4895ef] bg-[#4361ee]/10 border border-[#4361ee]/20 hover:bg-[#4361ee]/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                 >
                   {isWork && <Briefcase className="h-3 w-3 text-[#4895ef]" />}

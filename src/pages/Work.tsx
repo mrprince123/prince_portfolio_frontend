@@ -274,7 +274,7 @@ export const Work = () => {
                   ))}
                 </ul>
 
-                <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-1.5 font-mono text-xs text-zinc-400">
+                <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-1.5 font-mono text-xs text-muted-foreground">
                   {exp.technologies.map((t) => (
                     <span key={t} className="rounded-md bg-card/70 px-2 py-0.5 border border-border">
                       {t}

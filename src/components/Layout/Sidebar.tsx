@@ -94,7 +94,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
                 <button
                   onClick={onClose}
-                  className="rounded-full p-1.5 text-muted-foreground hover:bg-white/5 hover:text-foreground transition-colors"
+                  className="rounded-full p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                   aria-label="Close sidebar"
                 >
                   <X className="h-5 w-5" />
@@ -132,7 +132,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
               {/* 12 Menu Items */}
               <div className="p-3 max-h-[calc(100vh-280px)] overflow-y-auto space-y-1">
-                <div className="px-3 py-1 font-mono text-[10px] uppercase text-zinc-500 font-semibold tracking-wider">
+                <div className="px-3 py-1 font-mono text-[10px] uppercase text-muted-foreground font-semibold tracking-wider">
                   Menu Navigation (12 Sections)
                 </div>
 
@@ -152,18 +152,18 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-[10px] text-zinc-500 w-4">
+                        <span className="font-mono text-[10px] text-muted-foreground w-4">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
-                        <Icon className={`h-4 w-4 ${active ? "text-[#4895ef]" : "text-zinc-400"}`} />
+                        <Icon className={`h-4 w-4 ${active ? "text-[#4895ef]" : "text-muted-foreground"}`} />
                         <span className="truncate max-w-[170px]">{item.name}</span>
                       </div>
 
                       <span
                         className={`rounded px-1.5 py-0.5 text-[10px] font-mono ${
                           active
-                            ? "bg-[#4361ee]/30 text-white"
-                            : "bg-black/30 text-zinc-500 border border-white/5"
+                            ? "bg-[#4361ee]/30 text-[#4361ee] dark:text-white"
+                            : "bg-muted text-muted-foreground border border-border"
                         }`}
                       >
                         {item.badge}
@@ -175,7 +175,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </div>
 
             {/* Bottom Status & Actions */}
-            <div className="p-4 border-t border-border bg-black/40">
+            <div className="p-4 border-t border-border bg-card">
               <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground mb-3">
                 <span className="flex items-center gap-1.5">
                   <Activity className="h-3 w-3 text-emerald-400" />

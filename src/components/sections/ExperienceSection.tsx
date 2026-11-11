@@ -43,9 +43,9 @@ const ExperienceSection = () => {
                   </h3>
                   <div className="mt-1 flex flex-wrap items-center gap-2 font-mono text-xs">
                     <span className="font-semibold text-[#4895ef]">{exp.company}</span>
-                    <span className="text-zinc-500">·</span>
+                    <span className="text-muted-foreground">·</span>
                     <span className="flex items-center gap-1 text-muted-foreground">
-                      <MapPin className="h-3 w-3 text-zinc-500" /> {exp.location}
+                      <MapPin className="h-3 w-3 text-muted-foreground" /> {exp.location}
                     </span>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const ExperienceSection = () => {
                 {exp.technologies.map((t) => (
                   <span
                     key={t}
-                    className="rounded-lg border border-border bg-black/30 px-2.5 py-1 font-mono text-xs text-zinc-300 group-hover:border-[#4361ee]/30 group-hover:text-white transition-colors"
+                    className="rounded-lg border border-border bg-background px-2.5 py-1 font-mono text-xs text-muted-foreground group-hover:border-[#4361ee]/40 group-hover:text-[#4361ee] dark:group-hover:text-white transition-colors shadow-2xs"
                   >
                     {t}
                   </span>

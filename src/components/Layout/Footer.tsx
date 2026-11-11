@@ -88,7 +88,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={name}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-black/40 text-muted-foreground hover:border-[#4361ee]/50 hover:bg-[#4361ee]/15 hover:text-[#4895ef] transition-all"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:border-[#4361ee]/50 hover:bg-[#4361ee]/15 hover:text-[#4361ee] dark:hover:text-[#4895ef] transition-all shadow-2xs"
                 >
                   <Icon className="h-4 w-4" />
                 </a>

@@ -56,7 +56,7 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
           </div>
 
           {/* Key Impact Metric Callout */}
-          <div className="mt-4 rounded-xl border border-[#4361ee]/15 bg-black/30 p-2.5 font-mono text-xs text-zinc-300 flex items-center gap-2">
+          <div className="mt-4 rounded-xl border border-[#4361ee]/20 bg-[#4361ee]/5 dark:bg-[#4361ee]/10 p-2.5 font-mono text-xs text-foreground flex items-center gap-2">
             <CheckCircle2 className="h-3.5 w-3.5 text-[#4895ef] shrink-0" />
             <span className="truncate">
               {project.impact || "Production-grade architecture with real-time responsive workflows"}
@@ -68,7 +68,7 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
             {(project.technologies ?? []).slice(0, 5).map((t) => (
               <span
                 key={t}
-                className="rounded-lg border border-border bg-black/25 px-2 py-0.5 font-mono text-[11px] text-zinc-400 group-hover:border-[#4361ee]/30 group-hover:text-white transition-colors"
+                className="rounded-lg border border-border bg-muted/60 dark:bg-muted/30 px-2 py-0.5 font-mono text-[11px] text-muted-foreground group-hover:border-[#4361ee]/40 group-hover:text-[#4361ee] dark:group-hover:text-white transition-colors"
               >
                 {t}
               </span>
@@ -140,9 +140,9 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
               <p className="text-muted-foreground leading-relaxed">{project.description}</p>
             </div>
 
-            <div className="rounded-xl border border-[#4361ee]/20 bg-black/40 p-3.5">
+            <div className="rounded-xl border border-border bg-muted/40 p-3.5">
               <h4 className="font-mono text-xs font-semibold uppercase text-[#4895ef] mb-2">Technical Highlights</h4>
-              <ul className="space-y-1.5 text-zinc-300 font-mono text-xs">
+              <ul className="space-y-1.5 text-foreground font-mono text-xs">
                 <li className="flex items-start gap-2">
                   <span className="text-[#4895ef] font-bold">▸</span>
                   <span>Impact: {project.impact || "High throughput, sub-second latency, zero downtime deploys"}</span>
