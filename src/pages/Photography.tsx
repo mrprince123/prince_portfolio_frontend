@@ -29,16 +29,16 @@ export const Photography = () => {
               <span>VISUAL CRAFT · 600K+ PHOTO VIEWS</span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-              Through the <span className="text-purple-gradient">Lens</span>
+              Through the <span className="text-theme-gradient">Lens</span>
             </h1>
             <p className="mt-2 font-mono text-xs text-muted-foreground max-w-xl">
               Exploring urban architecture, street geometry, and quiet landscapes through high-precision mirrorless optics.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#4361ee]/20 bg-black/40 p-3.5 font-mono text-xs text-muted-foreground">
+          <div className="rounded-2xl border border-[#4361ee]/20 bg-card/70 p-3.5 font-mono text-xs text-muted-foreground">
             <span className="text-[#4895ef] font-semibold block">Primary Rig:</span>
-            <span className="text-zinc-200">{photographyData.stats.camera}</span>
+            <span className="text-foreground">{photographyData.stats.camera}</span>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export const Photography = () => {
               onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
                 activeCategory === cat
-                  ? "bg-[#4361ee] text-white font-medium shadow-md shadow-purple-600/20"
+                  ? "bg-[#4361ee] text-white font-medium shadow-md shadow-[#4361ee]/20"
                   : "border border-border bg-card/60 text-muted-foreground hover:border-[#4361ee]/30 hover:text-foreground"
               }`}
             >
@@ -127,7 +127,7 @@ export const Photography = () => {
 
       {/* Full-view Modal */}
       <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
-        <DialogContent className="max-w-4xl border-[#4361ee]/30 bg-black/95 p-2 overflow-hidden">
+        <DialogContent className="max-w-4xl border-border bg-card p-2 overflow-hidden text-foreground">
           {selectedPhoto && (
             <div>
               <div className="aspect-[16/10] w-full overflow-hidden rounded-xl bg-black">
@@ -139,14 +139,14 @@ export const Photography = () => {
               </div>
               <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
                 <div>
-                  <h4 className="font-display text-base font-bold text-white">{selectedPhoto.title}</h4>
-                  <p className="text-zinc-400 flex items-center gap-1 mt-0.5">
+                  <h4 className="font-display text-base font-bold text-foreground">{selectedPhoto.title}</h4>
+                  <p className="text-muted-foreground flex items-center gap-1 mt-0.5">
                     <MapPin className="h-3 w-3 text-[#4895ef]" /> {selectedPhoto.location}
                   </p>
                 </div>
                 <div className="text-[#4895ef] sm:text-right">
                   <span className="block">{selectedPhoto.camera}</span>
-                  <span className="text-[11px] text-zinc-500">{selectedPhoto.views} on Google Maps</span>
+                  <span className="text-[11px] text-muted-foreground">{selectedPhoto.views} on Google Maps</span>
                 </div>
               </div>
             </div>

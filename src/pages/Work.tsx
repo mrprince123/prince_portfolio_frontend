@@ -128,7 +128,7 @@ export const Work = () => {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-3xl space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef]">
-                <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
+                <span className="h-2 w-2 rounded-full bg-[#4895ef] animate-pulse" />
                 <span>BUILDING PRODUCTION SOFTWARE THAT SHIPS</span>
               </div>
               <h1 className="font-display text-4xl sm:text-6xl font-black text-foreground tracking-tight leading-[1.05]">
@@ -213,15 +213,15 @@ export const Work = () => {
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs pt-4 border-t border-border">
-                <div className="rounded-xl border border-border bg-black/30 p-3">
+                <div className="rounded-xl border border-border bg-card/70 p-3">
                   <div className="text-[#4895ef] font-bold">1. Impact First</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Solve the business problem before writing code.</div>
                 </div>
-                <div className="rounded-xl border border-border bg-black/30 p-3">
+                <div className="rounded-xl border border-border bg-card/70 p-3">
                   <div className="text-[#4895ef] font-bold">2. Resilient Scale</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Architect with isolation, timeouts and caching.</div>
                 </div>
-                <div className="rounded-xl border border-border bg-black/30 p-3">
+                <div className="rounded-xl border border-border bg-card/70 p-3">
                   <div className="text-[#4895ef] font-bold">3. Pure Craft</div>
                   <div className="text-[11px] text-muted-foreground mt-0.5">Clean architecture and zero tech debt.</div>
                 </div>
@@ -276,7 +276,7 @@ export const Work = () => {
 
                 <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-1.5 font-mono text-xs text-zinc-400">
                   {exp.technologies.map((t) => (
-                    <span key={t} className="rounded-md bg-black/40 px-2 py-0.5 border border-white/5">
+                    <span key={t} className="rounded-md bg-card/70 px-2 py-0.5 border border-border">
                       {t}
                     </span>
                   ))}
@@ -340,7 +340,7 @@ export const Work = () => {
 
                 <div className="mt-5 pt-3 border-t border-border flex flex-wrap gap-1">
                   {project.technologies.slice(0, 4).map((t) => (
-                    <span key={t} className="rounded bg-black/40 px-2 py-0.5 font-mono text-[10px] text-zinc-300">
+                    <span key={t} className="rounded bg-card/70 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
                       {t}
                     </span>
                   ))}
@@ -373,7 +373,7 @@ export const Work = () => {
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {layer.skills.map((s) => (
-                    <span key={s} className="rounded bg-black/30 border border-white/5 px-2 py-0.5 text-zinc-300 text-[11px]">
+                    <span key={s} className="rounded bg-card/70 border border-border px-2 py-0.5 text-muted-foreground text-[11px]">
                       {s}
                     </span>
                   ))}
@@ -428,7 +428,7 @@ export const Work = () => {
             </span>
             <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-foreground mt-3">
               You bring the problem. <br />
-              <span className="text-purple-gradient">I bring production code.</span>
+              <span className="text-theme-gradient">I bring production code.</span>
             </h2>
             <p className="mt-4 font-mono text-xs sm:text-sm text-muted-foreground max-w-lg mx-auto">
               Open to high-impact software engineering roles, microservices architecture, and scalable system consulting.

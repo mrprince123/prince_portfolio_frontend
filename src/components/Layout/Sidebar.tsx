@@ -102,7 +102,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </div>
 
               {/* Special Featured Tab: /work */}
-              <div className="p-4 border-b border-[#4361ee]/15 bg-gradient-to-r from-purple-950/30 to-card/50">
+              <div className="p-4 border-b border-[#4361ee]/15 bg-gradient-to-r from-[#4361ee]/15 to-card/50">
                 <div className="font-mono text-[10px] uppercase text-[#4895ef] font-semibold tracking-wider mb-1.5 flex items-center gap-1">
                   <Sparkles className="h-3 w-3 text-[#4895ef] animate-pulse" />
                   <span>Featured Work Experience</span>
@@ -112,8 +112,8 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   onClick={onClose}
                   className={`flex items-center justify-between rounded-xl border p-3 font-mono text-xs transition-all ${
                     location.pathname === "/work"
-                      ? "border-[#4361ee] bg-[#4361ee]/20 text-white shadow-md shadow-purple-500/15"
-                      : "border-[#4361ee]/30 bg-[#4361ee]/10 text-white hover:border-[#4361ee]/60 hover:bg-[#4361ee]/20"
+                      ? "border-[#4361ee] bg-[#4361ee]/20 text-foreground shadow-md shadow-[#4361ee]/15"
+                      : "border-[#4361ee]/30 bg-[#4361ee]/10 text-foreground hover:border-[#4361ee]/60 hover:bg-[#4361ee]/20"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">

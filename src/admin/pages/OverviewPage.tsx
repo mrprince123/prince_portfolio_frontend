@@ -90,7 +90,7 @@ export const OverviewPage: React.FC = () => {
       subtext: `${counts.blogs.visible} published articles`,
       icon: FileText,
       href: "/admin/blogs",
-      color: "text-purple-500",
+      color: "text-[#4361ee]",
     },
     {
       title: "Courses",
@@ -295,7 +295,7 @@ export const OverviewPage: React.FC = () => {
               </Button>
               <Button variant="outline" size="sm" asChild className="h-8 text-xs justify-start border-border/60">
                 <Link to="/admin/blogs">
-                  <FileText className="mr-1.5 h-3.5 w-3.5 text-purple-500" />
+                  <FileText className="mr-1.5 h-3.5 w-3.5 text-[#4361ee]" />
                   Blogs
                 </Link>
               </Button>

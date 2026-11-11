@@ -97,11 +97,11 @@ export const HeroSection = () => {
               className="text-balance font-display text-4xl sm:text-5xl md:text-7xl font-black leading-[1.02] tracking-tight text-foreground"
             >
               I build software that{" "}
-              <em className="not-italic text-purple-gradient">solves the problem</em> first, then writes
+              <em className="not-italic text-theme-gradient">solves the problem</em> first, then writes
               clean code.
             </motion.h1>
 
-            <motion.p variants={item} className="mt-6 font-mono text-sm sm:text-base text-zinc-400">
+            <motion.p variants={item} className="mt-6 font-mono text-sm sm:text-base text-muted-foreground">
               <span className="text-[#4895ef] font-bold">$</span> {typed}
               <span className="ml-1 inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-[#4361ee] align-middle motion-reduce:animate-none" />
             </motion.p>

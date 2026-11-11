@@ -67,7 +67,7 @@ const ProjectsSection = () => {
             onClick={() => setSelectedCategory(cat.id)}
             className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
               selectedCategory === cat.id
-                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-purple-600/20"
+                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-[#4361ee]/20"
                 : "border border-border bg-card/60 text-muted-foreground hover:border-[#4361ee]/30 hover:text-foreground"
             }`}
           >

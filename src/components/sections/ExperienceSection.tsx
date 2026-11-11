@@ -26,16 +26,16 @@ const ExperienceSection = () => {
       </div>
 
       {/* Timeline Stream */}
-      <div className="mt-12 space-y-8 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-purple-500 before:via-purple-500/30 before:to-transparent">
+      <div className="mt-12 space-y-8 relative before:absolute before:inset-0 before:left-3.5 sm:before:left-5 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[#4361ee] before:via-[#4361ee]/30 before:to-transparent">
         {experiences.map((exp, i) => (
           <div key={exp.company} className="relative flex items-start gap-4 sm:gap-8 group">
             {/* Timeline Node Icon */}
-            <div className="relative z-10 flex h-7 w-7 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#4361ee] bg-black text-[#4895ef] shadow-md shadow-purple-500/30 group-hover:scale-110 group-hover:border-purple-400 transition-all">
-              <span className="h-2.5 w-2.5 rounded-full bg-purple-400 group-hover:animate-ping" />
+            <div className="relative z-10 flex h-7 w-7 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#4361ee] bg-background text-[#4895ef] shadow-md shadow-[#4361ee]/30 group-hover:scale-110 group-hover:border-[#4895ef] transition-all">
+              <span className="h-2.5 w-2.5 rounded-full bg-[#4895ef] group-hover:animate-ping" />
             </div>
 
             {/* Content Card */}
-            <div className="flex-1 rounded-2xl border border-[#4361ee]/20 bg-card/75 p-6 backdrop-blur-xl transition-all duration-300 hover:border-[#4361ee]/40 hover:shadow-xl hover:shadow-purple-500/5">
+            <div className="flex-1 rounded-2xl border border-[#4361ee]/20 bg-card/75 p-6 backdrop-blur-xl transition-all duration-300 hover:border-[#4361ee]/40 hover:shadow-xl hover:shadow-[#4361ee]/10">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-border">
                 <div>
                   <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground group-hover:text-[#4895ef] transition-colors">

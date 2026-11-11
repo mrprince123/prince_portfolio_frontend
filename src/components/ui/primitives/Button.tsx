@@ -11,14 +11,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "rounded-xl bg-purple-600 text-white font-semibold shadow-lg shadow-purple-600/25 hover:bg-purple-500 hover:shadow-purple-500/40",
+          "rounded-xl bg-[#4361ee] text-white font-semibold shadow-lg shadow-[#4361ee]/25 hover:bg-[#3a56d4] hover:shadow-[#4361ee]/40",
         purple:
-          "rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold shadow-lg shadow-purple-600/30 hover:from-purple-500 hover:to-indigo-500",
-        link: "rounded-none border-b-2 border-purple-500 px-0 py-0.5 text-purple-400 hover:text-purple-300",
+          "rounded-xl bg-gradient-to-r from-[#4361ee] to-[#3a56d4] text-white font-semibold shadow-lg shadow-[#4361ee]/30 hover:from-[#3a56d4] hover:to-[#4361ee]",
+        link: "rounded-none border-b-2 border-[#4361ee] px-0 py-0.5 text-[#4361ee] dark:text-[#4895ef] hover:opacity-80",
         ghost:
-          "rounded-xl border border-purple-500/30 bg-purple-500/10 text-purple-300 hover:bg-purple-500/20",
+          "rounded-xl border border-[#4361ee]/30 bg-[#4361ee]/10 text-[#4361ee] dark:text-[#4895ef] hover:bg-[#4361ee]/20",
         outline:
-          "rounded-xl border border-border bg-card/60 text-foreground hover:border-purple-500/40 hover:text-purple-300",
+          "rounded-xl border border-border bg-card/60 text-foreground hover:border-[#4361ee]/40 hover:text-[#4361ee] dark:hover:text-[#4895ef]",
       },
     },
     defaultVariants: {

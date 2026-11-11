@@ -7,7 +7,7 @@ export const ResumeAnalyserSection = () => {
 
   return (
     <section id="resume-analyser" className="container mx-auto px-4 sm:px-6 py-20 max-w-7xl">
-      <div className="rounded-3xl border border-[#4361ee]/30 bg-gradient-to-b from-card via-card to-purple-950/20 p-6 sm:p-10 shadow-2xl overflow-hidden relative">
+      <div className="rounded-3xl border border-[#4361ee]/30 bg-gradient-to-b from-card via-card to-[#4361ee]/10 p-6 sm:p-10 shadow-2xl overflow-hidden relative">
         <div aria-hidden="true" className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#4361ee]/15 blur-3xl" />
 
         {/* Header */}
@@ -30,7 +30,7 @@ export const ResumeAnalyserSection = () => {
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-4 py-2 font-mono text-xs font-semibold text-white shadow-md shadow-purple-600/20 hover:bg-[#4361ee] transition-all"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-4 py-2 font-mono text-xs font-semibold text-white shadow-md shadow-[#4361ee]/20 hover:bg-[#3a56d4] transition-all"
             >
               <FileDown className="h-4 w-4" />
               <span>Download Official Résumé</span>
@@ -157,9 +157,9 @@ export const ResumeAnalyserSection = () => {
                 ].map((r) => (
                   <div
                     key={r.role}
-                    className="flex items-center justify-between rounded-xl border border-white/5 bg-black/40 px-3.5 py-2.5 text-xs font-mono"
+                    className="flex items-center justify-between rounded-xl border border-border bg-card/70 px-3.5 py-2.5 text-xs font-mono"
                   >
-                    <span className="text-zinc-200 font-medium">{r.role}</span>
+                    <span className="text-foreground font-medium">{r.role}</span>
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] text-muted-foreground hidden sm:inline">{r.tag}</span>
                       <span className="rounded-md bg-[#4361ee]/20 px-2 py-0.5 text-[#4895ef] font-bold">

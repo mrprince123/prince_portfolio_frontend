@@ -34,13 +34,13 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
   const { hrs, mins, secs } = formatTimer(secondsLeft);
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-white/5 bg-[#090a10]/95 px-3 sm:px-4 backdrop-blur-xl transition-all duration-300 font-mono text-xs">
+    <header className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-border bg-background/95 px-3 sm:px-4 backdrop-blur-xl transition-all duration-300 font-mono text-xs text-foreground shrink-0">
       {/* Left: Mobile Toggle + Brand (when collapsed) + Announcement Ticker */}
       <div className="flex items-center gap-2 overflow-hidden">
         {/* Mobile Hamburger / Toggle */}
         <button
           onClick={onOpenMobile}
-          className="lg:hidden p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="lg:hidden p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           aria-label="Open sidebar"
         >
           <Menu className="h-5 w-5" />
@@ -48,14 +48,14 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
 
         {/* If desktop sidebar is collapsed, show signature wordmark in Topbar */}
         {collapsed && (
-          <div className="hidden lg:flex items-center gap-2 pr-3 border-r border-white/10">
+          <div className="hidden lg:flex items-center gap-2 pr-3 border-r border-border">
             <Link to="/" className="font-signature text-xl font-bold tracking-wide">
-              <span className="text-white">Prince</span>{" "}
-              <span className="text-[#4361ee]">Singh</span>
+              <span className="text-foreground">Prince</span>{" "}
+              <span className="text-[#4361ee]">Sahni</span>
             </Link>
             <button
               onClick={onToggleSidebar}
-              className="p-1 rounded-md text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               title="Expand sidebar"
             >
               <PanelLeft className="h-3.5 w-3.5" />
@@ -64,20 +64,20 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
         )}
 
         {/* Live Announcement Pill */}
-        <div className="flex items-center gap-2 text-zinc-300 text-[11px] whitespace-nowrap overflow-hidden">
+        <div className="flex items-center gap-2 text-muted-foreground text-[11px] whitespace-nowrap overflow-hidden">
           <Link
             to="/about"
             className="flex items-center gap-1.5 hover:opacity-90 transition-opacity"
           >
             <strong className="font-bold text-[#4895ef]">TRISHUL · FTM is Live</strong>
-            <span className="hidden sm:inline text-zinc-500 font-normal">
+            <span className="hidden sm:inline text-muted-foreground/80 font-normal">
               Learn more. Build more.
             </span>
           </Link>
 
-          <span className="hidden md:inline text-zinc-700">|</span>
+          <span className="hidden md:inline text-muted-foreground/40">|</span>
 
-          <span className="hidden md:inline text-zinc-400 text-[11px]">
+          <span className="hidden md:inline text-muted-foreground text-[11px]">
             Industrial Paradox Preparation
           </span>
 
@@ -90,25 +90,25 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
         </div>
 
         {/* Live countdown timer blocks */}
-        <div className="hidden 2xl:flex items-center gap-1 text-[11px] text-zinc-500 ml-2">
-          <span className="text-zinc-600">|</span>
-          <span className="text-zinc-500 pl-1">Data updates in</span>
+        <div className="hidden 2xl:flex items-center gap-1 text-[11px] text-muted-foreground ml-2">
+          <span className="text-muted-foreground/50">|</span>
+          <span className="text-muted-foreground pl-1">Data updates in</span>
           <div className="flex items-center gap-0.5">
-            <span className="rounded bg-black/80 border border-white/10 px-1.5 py-0.5 text-[10px] text-zinc-200 font-bold">
-              {hrs} <i className="text-[8px] text-zinc-500 not-italic">HRS</i>
+            <span className="rounded bg-card border border-border px-1.5 py-0.5 text-[10px] text-foreground font-bold shadow-sm">
+              {hrs} <i className="text-[8px] text-muted-foreground not-italic">HRS</i>
             </span>
-            <span className="rounded bg-black/80 border border-white/10 px-1.5 py-0.5 text-[10px] text-zinc-200 font-bold">
-              {mins} <i className="text-[8px] text-zinc-500 not-italic">MINS</i>
+            <span className="rounded bg-card border border-border px-1.5 py-0.5 text-[10px] text-foreground font-bold shadow-sm">
+              {mins} <i className="text-[8px] text-muted-foreground not-italic">MINS</i>
             </span>
-            <span className="rounded bg-black/80 border border-white/10 px-1.5 py-0.5 text-[10px] text-zinc-200 font-bold">
-              {secs} <i className="text-[8px] text-zinc-500 not-italic">SECS</i>
+            <span className="rounded bg-card border border-border px-1.5 py-0.5 text-[10px] text-foreground font-bold shadow-sm">
+              {secs} <i className="text-[8px] text-muted-foreground not-italic">SECS</i>
             </span>
           </div>
         </div>
       </div>
 
       {/* Right: Streak, Problems, Pro, Hire, Theme (NO SIGN IN / NO MULTI-USER ACCOUNT) */}
-      <div className="flex items-center gap-2 sm:gap-3 shrink-0 text-zinc-300">
+      <div className="flex items-center gap-2 sm:gap-3 shrink-0 text-muted-foreground">
         {/* Streak Pill */}
         <Link
           to="/about#experience"

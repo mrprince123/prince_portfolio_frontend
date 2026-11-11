@@ -7,7 +7,7 @@ export const DashboardHeroSection = () => {
   return (
     <section className="p-4 sm:p-6 lg:p-8 space-y-8 max-w-6xl">
       {/* 1. Top Alert Pill matching screenshot */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-2xl border border-[#4361ee]/20 bg-[#4361ee]/10 px-4 py-2.5 font-mono text-xs text-zinc-300 backdrop-blur-xl">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-2xl border border-[#4361ee]/20 bg-[#4361ee]/10 px-4 py-2.5 font-mono text-xs text-muted-foreground backdrop-blur-xl">
         <div className="flex items-center gap-2">
           <Flame className="h-4 w-4 text-[#4895ef] shrink-0 fill-current" />
           <span>
@@ -30,7 +30,7 @@ export const DashboardHeroSection = () => {
           <span>Long day?</span>
           <span className="text-xl">🕊️</span>
         </h2>
-        <p className="font-mono text-xs text-zinc-400 mt-1">
+        <p className="font-mono text-xs text-muted-foreground mt-1">
           One last push before calling it a day.
         </p>
       </div>
@@ -48,10 +48,10 @@ export const DashboardHeroSection = () => {
             </div>
 
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight leading-[1.08]">
-              An AI lab that <span className="text-purple-gradient">explains itself</span>
+              An AI lab that <span className="text-theme-gradient">explains itself</span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans max-w-xl">
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-sans max-w-xl">
               Live AI products and production systems, orchestrated across frontier models.
               Ask Thor AI how any of them was built and get the answer from the real architecture.
             </p>
@@ -67,7 +67,7 @@ export const DashboardHeroSection = () => {
 
               <Link
                 to="/about"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-black/40 px-4 py-2.5 text-zinc-300 hover:text-white hover:border-[#4361ee]/40 transition-colors"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-muted/40 px-4 py-2.5 text-muted-foreground hover:text-white hover:border-[#4361ee]/40 transition-colors"
               >
                 <span>Know more</span>
               </Link>
@@ -75,7 +75,7 @@ export const DashboardHeroSection = () => {
           </div>
 
           {/* Right Interactive Constellation Box */}
-          <div className="lg:col-span-5 rounded-2xl border border-[#4361ee]/20 bg-black/60 p-6 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[220px]">
+          <div className="lg:col-span-5 rounded-2xl border border-[#4361ee]/20 bg-card border-border p-6 flex flex-col justify-center items-center text-center relative overflow-hidden min-h-[220px]">
             {/* Constellation grid background with connecting lines */}
             <svg
               className="absolute inset-0 h-full w-full opacity-40 pointer-events-none"
@@ -99,8 +99,8 @@ export const DashboardHeroSection = () => {
                 Ask about my <span className="text-[#4895ef] underline decoration-[#4361ee]/50">experience</span>
               </div>
 
-              <p className="text-[11px] font-mono text-zinc-400 max-w-[220px]">
-                Grounded in <span className="text-zinc-200 font-semibold bg-white/5 px-1 py-0.5 rounded">real work</span>, streamed in real time
+              <p className="text-[11px] font-mono text-muted-foreground max-w-[220px]">
+                Grounded in <span className="text-foreground font-semibold bg-muted px-1 py-0.5 rounded">real work</span>, streamed in real time
               </p>
             </div>
           </div>
@@ -109,34 +109,34 @@ export const DashboardHeroSection = () => {
 
       {/* 4. Six Metric Cards Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono">
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">600K+</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">users on features built</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">users on features built</div>
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">6</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">live AI products</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">live AI products</div>
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">15</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">systems in production</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">systems in production</div>
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">5000+</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">DSA problems</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">DSA problems</div>
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">40,000+</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">engineers mentored</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">engineers mentored</div>
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-card/60 p-3.5 hover:border-[#4361ee]/40 transition-all">
+        <div className="rounded-2xl border border-border bg-card/90 p-3.5 hover:border-[#4361ee]/40 transition-all">
           <div className="font-display text-2xl font-black text-[#4895ef]">3000</div>
-          <div className="text-[10px] text-zinc-400 mt-0.5 uppercase tracking-wide">GitHub contributions</div>
+          <div className="text-[10px] text-muted-foreground mt-0.5 uppercase tracking-wide">GitHub contributions</div>
         </div>
       </div>
 
@@ -147,7 +147,7 @@ export const DashboardHeroSection = () => {
             <Sparkles className="h-4 w-4 text-[#4895ef]" />
             Explore product lines
           </h3>
-          <span className="text-zinc-500">9 lines</span>
+          <span className="text-muted-foreground/80">9 lines</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -163,11 +163,11 @@ export const DashboardHeroSection = () => {
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 FLAGSHIP PRODUCTS
               </span>
-              <p className="mt-2 text-xs text-zinc-300 leading-relaxed line-clamp-3">
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
                 Thor AI and standalone intelligent agents, live and open to try. Each one has its own page with architecture, stack and GitHub code.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-zinc-500 space-y-0.5">
+            <div className="mt-4 pt-3 border-t border-border font-mono text-[10px] text-muted-foreground/80 space-y-0.5">
               <div>• 6 products • 143 key concepts</div>
               <div>• 169 technologies</div>
             </div>
@@ -185,11 +185,11 @@ export const DashboardHeroSection = () => {
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 THOR AI &amp; CLAUDE CLI
               </span>
-              <p className="mt-2 text-xs text-zinc-300 leading-relaxed line-clamp-3">
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
                 FastAPI RAG pipelines and local agent browser interfaces designed with real-time streaming and vector retrieval.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-zinc-500 space-y-0.5">
+            <div className="mt-4 pt-3 border-t border-border font-mono text-[10px] text-muted-foreground/80 space-y-0.5">
               <div>• 6 AI systems • 50 impact points</div>
               <div>• 92 technologies</div>
             </div>
@@ -207,11 +207,11 @@ export const DashboardHeroSection = () => {
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 MAJOR CONTRIBUTIONS
               </span>
-              <p className="mt-2 text-xs text-zinc-300 leading-relaxed line-clamp-3">
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
                 The full set of major contributions: microservices refactoring, Dockerized AWS infrastructure, Redis caching, and APIs.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-zinc-500 space-y-0.5">
+            <div className="mt-4 pt-3 border-t border-border font-mono text-[10px] text-muted-foreground/80 space-y-0.5">
               <div>• 9 systems • 69 impact points</div>
               <div>• 105 technologies</div>
             </div>
@@ -229,11 +229,11 @@ export const DashboardHeroSection = () => {
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 COMPANY HISTORY
               </span>
-              <p className="mt-2 text-xs text-zinc-300 leading-relaxed line-clamp-3">
+              <p className="mt-2 text-xs text-muted-foreground leading-relaxed line-clamp-3">
                 Every company and role with the complete list of achievements, newest first: Webkul, Chetu, and Webbocket.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-white/5 font-mono text-[10px] text-zinc-500 space-y-0.5">
+            <div className="mt-4 pt-3 border-t border-border font-mono text-[10px] text-muted-foreground/80 space-y-0.5">
               <div>• 3 companies • 40 achievements</div>
               <div>• 5 years production experience</div>
             </div>

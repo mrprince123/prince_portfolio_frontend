@@ -16,17 +16,17 @@ export const LandingNavbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-[#0a0a0f]/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 text-foreground backdrop-blur-xl">
       <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Left: Brand Signature */}
         <Link
           to="/"
           className="group flex items-center gap-2 transition-transform hover:scale-105"
-          aria-label="Prince Singh Home"
+          aria-label="Prince Sahni Home"
         >
           <span className="font-signature text-2xl sm:text-3xl font-bold tracking-wide">
-            <span className="text-white">Prince</span>{" "}
-            <span className="text-[#4361ee] glow-theme-sm">Singh</span>
+            <span className="text-foreground">Prince</span>{" "}
+            <span className="text-[#4361ee] glow-theme-sm">Sahni</span>
           </span>
         </Link>
 
@@ -38,7 +38,7 @@ export const LandingNavbar = () => {
             className={`group flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
               isActive("/dashboard")
                 ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
-                : "text-zinc-300 hover:text-white hover:bg-white/5"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}
           >
             <LayoutDashboard className="h-4 w-4 text-[#4895ef] group-hover:rotate-12 transition-transform" />
@@ -54,7 +54,7 @@ export const LandingNavbar = () => {
             className={`flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
               isActive("/about") || isActive("/work")
                 ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
-                : "text-zinc-300 hover:text-white hover:bg-white/5"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}
           >
             <User className="h-4 w-4 text-[#4895ef]" />
@@ -68,7 +68,7 @@ export const LandingNavbar = () => {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3.5 py-1.5 font-mono text-xs text-zinc-300 hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all bg-white/[0.02]"
+            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 font-mono text-xs text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-all bg-white/[0.02]"
           >
             <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
             <span>résumé</span>
@@ -87,7 +87,7 @@ export const LandingNavbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-zinc-400 hover:text-white rounded-lg hover:bg-white/5"
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
             aria-label="Toggle Navigation Menu"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -102,12 +102,12 @@ export const LandingNavbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-white/5 bg-[#0a0a0f] px-4 py-4 space-y-2 font-mono text-xs"
+            className="md:hidden border-t border-border bg-background text-foreground px-4 py-4 space-y-2 font-mono text-xs"
           >
             <Link
               to="/dashboard"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl bg-[#4361ee]/10 text-white border border-[#4361ee]/30"
+              className="flex items-center justify-between p-3 rounded-xl bg-[#4361ee]/10 text-foreground border border-[#4361ee]/30"
             >
               <div className="flex items-center gap-2">
                 <LayoutDashboard className="h-4 w-4 text-[#4895ef]" />
@@ -121,18 +121,18 @@ export const LandingNavbar = () => {
             <Link
               to="/about"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 p-3 rounded-xl text-zinc-300 hover:bg-white/5"
+              className="flex items-center gap-2 p-3 rounded-xl text-muted-foreground hover:bg-muted"
             >
               <User className="h-4 w-4 text-[#4895ef]" />
               <span>About</span>
             </Link>
 
-            <div className="pt-2 flex items-center justify-between border-t border-white/5">
+            <div className="pt-2 flex items-center justify-between border-t border-border">
               <a
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-zinc-400 hover:text-white"
+                className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
               >
                 <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
                 <span>Download Résumé</span>

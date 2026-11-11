@@ -18,8 +18,8 @@ export function PostCard({ kind, readTime, title, description, tags, href, image
     <SmartLink
       href={href}
       className={cn(
-        "group flex flex-col justify-between rounded-2xl border border-purple-500/20 bg-card/75 p-6 backdrop-blur-xl no-underline transition-all duration-300",
-        "hover:-translate-y-1 hover:border-purple-500/50 hover:shadow-[0_15px_35px_-10px_rgba(168,85,247,0.3)] motion-reduce:transition-colors motion-reduce:hover:translate-y-0",
+        "group flex flex-col justify-between rounded-2xl border border-[#4361ee]/20 bg-card/75 p-6 backdrop-blur-xl no-underline transition-all duration-300",
+        "hover:-translate-y-1 hover:border-[#4361ee]/50 hover:shadow-[0_15px_35px_-10px_rgba(67,97,238,0.25)] motion-reduce:transition-colors motion-reduce:hover:translate-y-0",
       )}
     >
       <div>
@@ -33,14 +33,14 @@ export function PostCard({ kind, readTime, title, description, tags, href, image
           </div>
         )}
         <div className="flex items-center justify-between font-mono text-xs">
-          <span className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 text-purple-300 font-medium">
+          <span className="rounded-md border border-[#4361ee]/30 bg-[#4361ee]/10 px-2 py-0.5 text-[#4361ee] dark:text-[#4895ef] font-medium">
             {kind}
           </span>
           <span className="text-muted-foreground">{readTime}</span>
         </div>
-        <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-purple-300 transition-colors flex items-center justify-between">
+        <h3 className="mt-3 font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-[#4361ee] dark:group-hover:text-[#4895ef] transition-colors flex items-center justify-between">
           <span>{title}</span>
-          <ArrowUpRight className="h-4 w-4 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <ArrowUpRight className="h-4 w-4 text-[#4361ee] opacity-0 group-hover:opacity-100 transition-opacity" />
         </h3>
         <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
           {description}
@@ -52,7 +52,7 @@ export function PostCard({ kind, readTime, title, description, tags, href, image
           {tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-lg border border-border bg-black/30 px-2 py-0.5 font-mono text-[11px] text-zinc-400 group-hover:border-purple-500/30 group-hover:text-purple-200 transition-colors"
+              className="rounded-lg border border-border bg-card/60 px-2 py-0.5 font-mono text-[11px] text-muted-foreground group-hover:border-[#4361ee]/40 group-hover:text-[#4361ee] dark:group-hover:text-[#4895ef] transition-colors"
             >
               #{tag}
             </span>

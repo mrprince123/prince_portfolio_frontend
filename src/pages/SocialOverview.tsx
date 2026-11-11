@@ -20,7 +20,7 @@ export const SocialOverview = () => {
               <span>DIGITAL FOOTPRINT & CHANNELS</span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-              Social Media <span className="text-purple-gradient">Overview</span>
+              Social Media <span className="text-theme-gradient">Overview</span>
             </h1>
             <p className="mt-2 font-mono text-xs text-muted-foreground max-w-xl">
               Where I publish technical deep dives, open source systems, visual stories, and engineering thought leadership.
@@ -29,7 +29,7 @@ export const SocialOverview = () => {
 
           <a
             href={`mailto:${personalInfo.email}`}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-5 py-2.5 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/25 hover:bg-[#4361ee] transition-all hover:scale-[1.02] shrink-0"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-5 py-2.5 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/25 hover:bg-[#3a56d4] transition-all hover:scale-[1.02] shrink-0"
           >
             <MessageSquare className="h-4 w-4" />
             <span>Direct Email Transmission</span>
@@ -88,14 +88,14 @@ export const SocialOverview = () => {
                   {channel.role}
                 </p>
 
-                <div className="mt-4 rounded-xl border border-border bg-black/40 p-3 flex items-center justify-between font-mono text-xs">
+                <div className="mt-4 rounded-xl border border-border bg-card/60 p-3 flex items-center justify-between font-mono text-xs">
                   <span className="text-muted-foreground text-[11px]">{channel.metric}</span>
                   <span className="text-[#4895ef] font-bold">{channel.value}</span>
                 </div>
               </div>
 
               <div className="mt-5 pt-3 border-t border-border flex items-center justify-between text-xs font-mono">
-                <span className="text-zinc-500">@{channel.handle}</span>
+                <span className="text-muted-foreground">@{channel.handle}</span>
                 <span className="text-[#4895ef] group-hover:underline flex items-center gap-1 font-medium">
                   Connect <ArrowRight className="h-3 w-3" />
                 </span>

@@ -108,11 +108,11 @@ const Footer = () => {
 
         {/* Bottom Bar with Back to Top */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border pt-6 font-mono text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Prince Kumar Sahni — Engineered with clean code & purple energy.</p>
+          <p>© {new Date().getFullYear()} Prince Kumar Sahni — Engineered with clean code &amp; craft.</p>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-black/30 px-3 py-1.5 text-zinc-400 hover:border-[#4361ee]/40 hover:text-[#4895ef] transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card/60 px-3 py-1.5 text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4361ee] transition-colors"
           >
             <span>Back to top</span>
             <ArrowUp className="h-3.5 w-3.5" />

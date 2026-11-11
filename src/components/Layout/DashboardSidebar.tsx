@@ -81,30 +81,30 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       )}
 
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-50 flex flex-col justify-between border-r border-white/5 bg-[#090a10] text-zinc-300 transition-all duration-300 ${
+        className={`fixed top-0 left-0 bottom-0 z-50 flex flex-col justify-between border-r border-border bg-card text-card-foreground transition-all duration-300 ${
           mobileOpen ? "translate-x-0 w-64" : "-translate-x-full lg:translate-x-0"
         } ${collapsed ? "lg:w-16" : "lg:w-64"}`}
         aria-label="Sidebar Navigation"
       >
         {/* 1. Sidebar Header: Elegant Handwritten Signature & Panel Toggle */}
-        <div className="flex h-14 items-center justify-between px-4 border-b border-white/5">
+        <div className="flex h-14 items-center justify-between px-4 border-b border-border">
           {(!collapsed || mobileOpen) && (
             <Link
               to="/"
               onClick={handleLinkClick}
               className="flex items-center gap-1 overflow-hidden group"
-              aria-label="Prince Singh Home"
+              aria-label="Prince Sahni Home"
             >
               <span className="font-signature text-2xl font-bold tracking-wide whitespace-nowrap transition-transform group-hover:scale-105">
-                <span className="text-white">Prince</span>{" "}
-                <span className="text-[#4361ee] glow-theme-sm">Singh</span>
+                <span className="text-foreground">Prince</span>{" "}
+                <span className="text-[#4361ee] glow-theme-sm">Sahni</span>
               </span>
             </Link>
           )}
 
           <button
             onClick={onToggle}
-            className={`rounded-lg p-1.5 text-zinc-400 hover:bg-white/10 hover:text-white transition-colors ${
+            className={`rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors ${
               collapsed && !mobileOpen ? "mx-auto" : ""
             }`}
             title="Toggle sidebar (Alt+B)"
@@ -117,11 +117,11 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         {/* 2. Navigation Scroll Area */}
         <nav className="flex-1 overflow-y-auto px-2.5 py-3 space-y-4 text-xs font-sans scrollbar-none">
           {/* GROUP 1: OVERVIEW */}
-          <div className="border-b border-white/5 pb-2">
+          <div className="border-b border-border pb-2">
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("overview")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>OVERVIEW</span>
                 <ChevronDown
@@ -137,8 +137,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/dashboard")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Overview / Dashboard"
                 >
@@ -147,7 +147,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <LayoutDashboard
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/dashboard") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/dashboard") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Overview</span>}
@@ -159,8 +159,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     location.search.includes("cat=ai")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Thor AI – Full-Stack RAG Assistant"
                 >
@@ -168,7 +168,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Bot
-                    className={`h-4 w-4 shrink-0 ${location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && (
                     <span className="flex items-center justify-between flex-1">
@@ -184,11 +184,11 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           </div>
 
           {/* GROUP 2: BUILD */}
-          <div className="border-b border-white/5 pb-2">
+          <div className="border-b border-border pb-2">
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("build")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>BUILD</span>
                 <ChevronDown
@@ -204,8 +204,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/projects") && !location.search.includes("cat=ai")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="AI Lab"
                 >
@@ -214,7 +214,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <Layers
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/projects") && !location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/projects") && !location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>AI Lab</span>}
@@ -223,20 +223,20 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 <Link
                   to="/projects?cat=ai"
                   onClick={handleLinkClick}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   title="AI Systems"
                 >
-                  <Cpu className="h-4 w-4 shrink-0 text-zinc-400" />
+                  <Cpu className="h-4 w-4 shrink-0 text-muted-foreground" />
                   {(!collapsed || mobileOpen) && <span>AI Systems</span>}
                 </Link>
 
                 <Link
                   to="/projects?cat=cloud"
                   onClick={handleLinkClick}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   title="Engineering Systems"
                 >
-                  <Boxes className="h-4 w-4 shrink-0 text-zinc-400" />
+                  <Boxes className="h-4 w-4 shrink-0 text-muted-foreground" />
                   {(!collapsed || mobileOpen) && <span>Engineering Systems</span>}
                 </Link>
               </div>
@@ -244,11 +244,11 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           </div>
 
           {/* GROUP 3: CAREER */}
-          <div className="border-b border-white/5 pb-2">
+          <div className="border-b border-border pb-2">
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("career")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>CAREER</span>
                 <ChevronDown
@@ -262,10 +262,10 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 <Link
                   to="/about#experience"
                   onClick={handleLinkClick}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   title="Experience Lab"
                 >
-                  <Briefcase className="h-4 w-4 shrink-0 text-zinc-400" />
+                  <Briefcase className="h-4 w-4 shrink-0 text-muted-foreground" />
                   {(!collapsed || mobileOpen) && <span>Experience Lab</span>}
                 </Link>
 
@@ -274,8 +274,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/about")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Founder (About)"
                 >
@@ -283,7 +283,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <User
-                    className={`h-4 w-4 shrink-0 ${isActive("/about") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/about") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Founder (About)</span>}
                 </Link>
@@ -293,8 +293,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/certificates")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Certificates"
                 >
@@ -303,7 +303,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <Award
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/certificates") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/certificates") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Certificates</span>}
@@ -314,8 +314,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/resume")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Resume"
                 >
@@ -323,7 +323,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <FileText
-                    className={`h-4 w-4 shrink-0 ${isActive("/resume") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/resume") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Resume</span>}
                 </Link>
@@ -332,11 +332,11 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           </div>
 
           {/* GROUP 4: PRACTICE */}
-          <div className="border-b border-white/5 pb-2">
+          <div className="border-b border-border pb-2">
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("practice")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>PRACTICE</span>
                 <ChevronDown
@@ -350,7 +350,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                 <Link
                   to="/about#impact"
                   onClick={handleLinkClick}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-zinc-100 hover:bg-white/5 transition-all"
+                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
                   title="DSA Lab"
                 >
                   <Target className="h-4 w-4 shrink-0 text-[#4895ef]" />
@@ -362,8 +362,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/skills")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Tech Stack"
                 >
@@ -371,7 +371,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Grid
-                    className={`h-4 w-4 shrink-0 ${isActive("/skills") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/skills") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Tech Stack</span>}
                 </Link>
@@ -380,11 +380,11 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           </div>
 
           {/* GROUP 5: MEDIA & LEARNING (User 12 Menu Items) */}
-          <div className="border-b border-white/5 pb-2">
+          <div className="border-b border-border pb-2">
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("media")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>MEDIA &amp; LEARNING</span>
                 <ChevronDown
@@ -400,8 +400,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/articles")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Articles"
                 >
@@ -410,7 +410,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <BookOpen
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/articles") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/articles") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Articles</span>}
@@ -421,8 +421,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/courses")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Courses"
                 >
@@ -431,7 +431,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <GraduationCap
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/courses") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/courses") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Courses</span>}
@@ -442,8 +442,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/blog")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Blogs"
                 >
@@ -451,7 +451,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <FileText
-                    className={`h-4 w-4 shrink-0 ${isActive("/blog") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/blog") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Blogs</span>}
                 </Link>
@@ -461,8 +461,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/youtube")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="YouTube"
                 >
@@ -471,7 +471,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <Youtube
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/youtube") ? "text-red-500" : "text-zinc-400"
+                      isActive("/youtube") ? "text-red-500" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>YouTube</span>}
@@ -482,8 +482,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/photography")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Photography"
                 >
@@ -492,7 +492,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   )}
                   <Camera
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/photography") ? "text-[#4895ef]" : "text-zinc-400"
+                      isActive("/photography") ? "text-[#4895ef]" : "text-muted-foreground"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Photography</span>}
@@ -503,8 +503,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/social")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Social Media Overview"
                 >
@@ -512,7 +512,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Share2
-                    className={`h-4 w-4 shrink-0 ${isActive("/social") ? "text-[#4895ef]" : "text-zinc-400"}`}
+                    className={`h-4 w-4 shrink-0 ${isActive("/social") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && <span>Social Media</span>}
                 </Link>
@@ -525,7 +525,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             {(!collapsed || mobileOpen) && (
               <button
                 onClick={() => toggleGroup("community")}
-                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-zinc-500 tracking-wider px-2 py-1 hover:text-zinc-300 transition-colors"
+                className="w-full flex items-center justify-between text-[11px] uppercase font-semibold text-muted-foreground/70 tracking-wider px-2 py-1 hover:text-card-foreground transition-colors"
               >
                 <span>COMMUNITY</span>
                 <ChevronDown
@@ -541,8 +541,8 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
                     isActive("/opensource")
-                      ? "bg-[#4361ee]/20 text-white font-semibold"
-                      : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
+                      ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Open Source"
                 >
@@ -569,7 +569,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </nav>
 
         {/* 3. Sidebar Footer (ACCOUNT REMOVED AS REQUESTED) */}
-        <div className="p-3 border-t border-white/5">
+        <div className="p-3 border-t border-border">
           <Link
             to="/contact"
             onClick={handleLinkClick}

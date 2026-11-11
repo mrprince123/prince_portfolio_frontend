@@ -67,7 +67,7 @@ export const CtaSection = () => {
             </div>
 
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground tracking-tight leading-tight">
-              Let's build something <span className="text-purple-gradient">that ships</span>.
+              Let's build something <span className="text-theme-gradient">that ships</span>.
             </h2>
 
             <p className="text-sm leading-relaxed text-muted-foreground">
@@ -75,9 +75,9 @@ export const CtaSection = () => {
             </p>
 
             {/* 1-Click Copy Email Pill */}
-            <div className="rounded-2xl border border-[#4361ee]/20 bg-black/40 p-4">
+            <div className="rounded-2xl border border-[#4361ee]/20 bg-card/70 p-4">
               <span className="font-mono text-[11px] text-muted-foreground block mb-2">Direct transmission:</span>
-              <div className="flex items-center justify-between gap-3 bg-black/50 border border-white/5 rounded-xl p-2.5">
+              <div className="flex items-center justify-between gap-3 bg-muted/40 border border-border rounded-xl p-2.5">
                 <div className="flex items-center gap-2 overflow-hidden font-mono text-xs text-[#4895ef]">
                   <Mail className="h-4 w-4 shrink-0 text-[#4895ef]" />
                   <span className="truncate">{personalInfo.email}</span>
@@ -199,14 +199,14 @@ export const CtaSection = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell me about the role, project architecture, or timeline..."
-                  className="w-full rounded-xl border border-border bg-black/40 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee] resize-none"
+                  className="w-full rounded-xl border border-border bg-card/70 px-3.5 py-2.5 font-mono text-xs text-foreground placeholder:text-muted-foreground focus:border-[#4361ee] focus:outline-none focus:ring-1 focus:ring-[#4361ee] resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/25 hover:from-purple-500 hover:to-indigo-500 transition-all hover:scale-[1.01] disabled:opacity-50"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#4361ee] to-[#3a56d4] px-6 py-3 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/25 hover:from-[#3a56d4] hover:to-[#4361ee] transition-all hover:scale-[1.01] disabled:opacity-50"
               >
                 {isSubmitting ? (
                   <span>Transmitting...</span>

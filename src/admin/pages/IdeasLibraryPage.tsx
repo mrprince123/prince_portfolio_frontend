@@ -205,7 +205,7 @@ export const IdeasLibraryPage: React.FC = () => {
 
                 <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-mono">
                   {item.source === "telegram_voice" ? (
-                    <span className="flex items-center gap-1 text-purple-500">
+                    <span className="flex items-center gap-1 text-[#4361ee]">
                       <Mic className="h-3 w-3" /> Voice Note
                     </span>
                   ) : item.source === "telegram_text" ? (

@@ -8,7 +8,7 @@ const Chip = React.forwardRef<HTMLSpanElement, ChipProps>(({ className, children
   <span
     ref={ref}
     className={cn(
-      "inline-flex items-center rounded-lg border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground transition-all hover:border-purple-500/40 hover:text-purple-300",
+      "inline-flex items-center rounded-lg border border-border px-3 py-1.5 font-mono text-xs text-muted-foreground transition-all hover:border-[#4361ee]/40 hover:text-[#4361ee] dark:hover:text-[#4895ef]",
       className,
     )}
     {...props}

@@ -20,7 +20,7 @@ export const Certificates = () => {
               <span>OFFICIAL CREDENTIALS & BADGES</span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-              Certificates & <span className="text-purple-gradient">Accreditations</span>
+              Certificates & <span className="text-theme-gradient">Accreditations</span>
             </h1>
             <p className="mt-2 font-mono text-xs text-muted-foreground max-w-xl">
               Industry certifications, algorithmic honors, and academic credentials validating production engineering standards.

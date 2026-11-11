@@ -180,16 +180,16 @@ export const Opensource = () => {
 
       <section className="container mx-auto px-4 sm:px-6 py-12 max-w-7xl space-y-12">
         {/* Header Hero */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-border">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3.5 py-1 font-mono text-xs text-[#4895ef] mb-3">
               <Github className="h-4 w-4" />
               <span>GITHUB COCKPIT · @mrprince123</span>
             </div>
             <h1 className="font-display text-4xl sm:text-5xl font-black text-foreground tracking-tight">
-              Open Source <span className="text-purple-gradient">&amp; Architecture</span>
+              Open Source <span className="text-theme-gradient">&amp; Architecture</span>
             </h1>
-            <p className="mt-2 font-mono text-xs text-zinc-400 max-w-2xl leading-relaxed">
+            <p className="mt-2 font-mono text-xs text-muted-foreground max-w-2xl leading-relaxed">
               Curated telemetry covering flagship repositories, annual contribution cadence, language distributions, and production tools built in public.
             </p>
           </div>
@@ -198,7 +198,7 @@ export const Opensource = () => {
             href="https://github.com/mrprince123"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] hover:bg-[#3a56d4] px-5 py-2.5 font-mono text-xs font-semibold text-white shadow-lg shadow-[#4361ee]/25 transition-all hover:scale-[1.02] shrink-0"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] hover:bg-[#3a56d4] px-5 py-2.5 font-mono text-xs font-semibold text-foreground shadow-lg shadow-[#4361ee]/25 transition-all hover:scale-[1.02] shrink-0"
           >
             <Github className="h-4 w-4" />
             <span>Follow @mrprince123</span>
@@ -208,44 +208,44 @@ export const Opensource = () => {
 
         {/* 4 Metric Telemetry Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
-          <div className="rounded-2xl border border-white/10 bg-[#0d0f1a] p-4 space-y-1">
+          <div className="rounded-2xl border border-border bg-card p-4 space-y-1">
             <span className="font-display text-3xl font-black text-[#4895ef]">78</span>
-            <div className="text-white font-bold">Public Repositories</div>
-            <div className="text-zinc-500 text-[11px]">Across AI, Full-Stack, Android</div>
+            <div className="text-foreground font-bold">Public Repositories</div>
+            <div className="text-muted-foreground/80 text-[11px]">Across AI, Full-Stack, Android</div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-[#0d0f1a] p-4 space-y-1">
+          <div className="rounded-2xl border border-border bg-card p-4 space-y-1">
             <span className="font-display text-3xl font-black text-[#4895ef]">3,000+</span>
-            <div className="text-white font-bold">Total Contributions</div>
-            <div className="text-zinc-500 text-[11px]">Verified GitHub commits &amp; PRs</div>
+            <div className="text-foreground font-bold">Total Contributions</div>
+            <div className="text-muted-foreground/80 text-[11px]">Verified GitHub commits &amp; PRs</div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-[#0d0f1a] p-4 space-y-1">
+          <div className="rounded-2xl border border-border bg-card p-4 space-y-1">
             <span className="font-display text-3xl font-black text-[#4895ef]">5+ Yrs</span>
-            <div className="text-white font-bold">Open Source History</div>
-            <div className="text-zinc-500 text-[11px]">Continuous building since 2020</div>
+            <div className="text-foreground font-bold">Open Source History</div>
+            <div className="text-muted-foreground/80 text-[11px]">Continuous building since 2020</div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-[#0d0f1a] p-4 space-y-1">
+          <div className="rounded-2xl border border-border bg-card p-4 space-y-1">
             <span className="font-display text-3xl font-black text-emerald-400">100%</span>
-            <div className="text-white font-bold">Free &amp; Open Access</div>
-            <div className="text-zinc-500 text-[11px]">MIT / Apache 2.0 licensed code</div>
+            <div className="text-foreground font-bold">Free &amp; Open Access</div>
+            <div className="text-muted-foreground/80 text-[11px]">MIT / Apache 2.0 licensed code</div>
           </div>
         </div>
 
         {/* Tech Stack & Language Distribution */}
-        <div className="rounded-3xl border border-white/10 bg-[#0d0f1a] p-6 sm:p-8 space-y-6">
+        <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
+              <h2 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
                 <Code2 className="h-5 w-5 text-[#4895ef]" />
                 <span>Open Source Language Ecosystem</span>
               </h2>
-              <p className="font-mono text-xs text-zinc-400 mt-1">
+              <p className="font-mono text-xs text-muted-foreground mt-1">
                 Distribution across 78 public repositories on GitHub
               </p>
             </div>
-            <span className="font-mono text-xs text-zinc-500">6 Core Languages</span>
+            <span className="font-mono text-xs text-muted-foreground/80">6 Core Languages</span>
           </div>
 
           {/* Visual Percentage Bar */}
@@ -265,18 +265,18 @@ export const Opensource = () => {
             {LANGUAGE_BREAKDOWN.map((lang) => (
               <div
                 key={lang.name}
-                className="rounded-xl border border-white/5 bg-black/40 p-3 flex flex-col justify-between"
+                className="rounded-xl border border-border bg-muted/40 p-3 flex flex-col justify-between"
               >
                 <div className="flex items-center gap-2">
                   <span
                     className="h-2.5 w-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: lang.color }}
                   />
-                  <span className="font-bold text-white truncate">{lang.name}</span>
+                  <span className="font-bold text-foreground truncate">{lang.name}</span>
                 </div>
-                <div className="mt-2 text-zinc-400 text-[11px] flex items-center justify-between">
+                <div className="mt-2 text-muted-foreground text-[11px] flex items-center justify-between">
                   <span>{lang.percentage}%</span>
-                  <span className="text-zinc-500">{lang.repos} repos</span>
+                  <span className="text-muted-foreground/80">{lang.repos} repos</span>
                 </div>
               </div>
             ))}
@@ -286,34 +286,34 @@ export const Opensource = () => {
         {/* Annual Activity Telemetry */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
+            <h2 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
               <Activity className="h-5 w-5 text-[#4895ef]" />
               <span>Annual Activity &amp; Milestones</span>
             </h2>
-            <span className="font-mono text-xs text-zinc-500">Year-over-Year Track Record</span>
+            <span className="font-mono text-xs text-muted-foreground/80">Year-over-Year Track Record</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
             {ANNUAL_ACTIVITY.map((act) => (
               <div
                 key={act.year}
-                className="rounded-2xl border border-white/10 bg-[#0d0f1a] p-5 space-y-3 relative overflow-hidden flex flex-col justify-between"
+                className="rounded-2xl border border-border bg-card p-5 space-y-3 relative overflow-hidden flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-2xl font-black text-white">{act.year}</span>
+                    <span className="font-display text-2xl font-black text-foreground">{act.year}</span>
                     <span className="rounded-full bg-[#4361ee]/20 text-[#4895ef] border border-[#4361ee]/40 px-2 py-0.5 text-[10px] font-bold">
                       {act.totalContributions} commits
                     </span>
                   </div>
 
-                  <p className="mt-3 font-sans text-xs text-zinc-300 leading-relaxed">
+                  <p className="mt-3 font-sans text-xs text-muted-foreground leading-relaxed">
                     {act.highlights}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/5 text-[11px] text-zinc-400">
-                  <span className="text-zinc-500 block uppercase text-[9px]">Focus Area:</span>
+                <div className="pt-3 border-t border-border text-[11px] text-muted-foreground">
+                  <span className="text-muted-foreground/80 block uppercase text-[9px]">Focus Area:</span>
                   <span className="text-[#4895ef] font-semibold">{act.focus}</span>
                 </div>
               </div>
@@ -325,24 +325,24 @@ export const Opensource = () => {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 className="font-display text-xl font-bold text-white flex items-center gap-2">
+              <h2 className="font-display text-xl font-bold text-foreground flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-[#4895ef]" />
                 <span>Top Repositories &amp; Flagship Code</span>
               </h2>
-              <p className="font-mono text-xs text-zinc-400 mt-1">
+              <p className="font-mono text-xs text-muted-foreground mt-1">
                 High-impact open-source architectures built and maintained by Prince
               </p>
             </div>
 
             {/* Search Box */}
             <div className="relative w-full sm:w-64 font-mono text-xs">
-              <Search className="absolute left-3 top-2.5 h-4 w-4 text-zinc-500" />
+              <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground/80" />
               <input
                 type="text"
                 placeholder="Search repos or tech..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-black/60 pl-9 pr-4 py-2 text-white placeholder:text-zinc-600 focus:border-[#4361ee] focus:outline-none"
+                className="w-full rounded-xl border border-border bg-card border-border pl-9 pr-4 py-2 text-foreground placeholder:text-zinc-600 focus:border-[#4361ee] focus:outline-none"
               />
             </div>
           </div>
@@ -361,8 +361,8 @@ export const Opensource = () => {
                 onClick={() => setSelectedCategory(tab.id)}
                 className={`px-3.5 py-1.5 rounded-xl whitespace-nowrap transition-all ${
                   selectedCategory === tab.id
-                    ? "bg-[#4361ee] text-white font-bold shadow-md shadow-[#4361ee]/20"
-                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                    ? "bg-[#4361ee] text-foreground font-bold shadow-md shadow-[#4361ee]/20"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 }`}
               >
                 {tab.label}
@@ -375,7 +375,7 @@ export const Opensource = () => {
             {filteredRepos.map((repo) => (
               <div
                 key={repo.name}
-                className="group rounded-2xl border border-white/10 bg-[#0d0f1a] p-5 hover:border-[#4361ee]/50 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
+                className="group rounded-2xl border border-border bg-card p-5 hover:border-[#4361ee]/50 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   {/* Title & Links */}
@@ -384,13 +384,13 @@ export const Opensource = () => {
                       href={repo.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-display text-base font-bold text-white hover:text-[#4895ef] transition-colors flex items-center gap-1.5"
+                      className="font-display text-base font-bold text-foreground hover:text-[#4895ef] transition-colors flex items-center gap-1.5"
                     >
                       <span>{repo.name}</span>
-                      <ExternalLink className="h-3.5 w-3.5 text-zinc-500 group-hover:text-[#4895ef]" />
+                      <ExternalLink className="h-3.5 w-3.5 text-muted-foreground/80 group-hover:text-[#4895ef]" />
                     </a>
 
-                    <div className="flex items-center gap-2 text-zinc-400 text-[11px] shrink-0">
+                    <div className="flex items-center gap-2 text-muted-foreground text-[11px] shrink-0">
                       <span className="flex items-center gap-1">
                         <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                         {repo.stars}
@@ -403,7 +403,7 @@ export const Opensource = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="font-sans text-xs text-zinc-400 line-clamp-3 leading-relaxed">
+                  <p className="font-sans text-xs text-muted-foreground line-clamp-3 leading-relaxed">
                     {repo.description}
                   </p>
 
@@ -412,7 +412,7 @@ export const Opensource = () => {
                     {repo.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-zinc-300 border border-white/5"
+                        className="rounded-md bg-white/5 px-2 py-0.5 text-[10px] text-muted-foreground border border-border"
                       >
                         {t}
                       </span>
@@ -421,8 +421,8 @@ export const Opensource = () => {
                 </div>
 
                 {/* Footer Metric */}
-                <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[11px]">
-                  <div className="flex items-center gap-1.5 text-zinc-400">
+                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[11px]">
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
                     <span
                       className="h-2 w-2 rounded-full"
                       style={{ backgroundColor: repo.languageColor }}

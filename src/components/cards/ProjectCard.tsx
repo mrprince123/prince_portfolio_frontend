@@ -27,18 +27,18 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
       <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#4361ee]/20 bg-card/80 p-5 sm:p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#4361ee]/50 hover:shadow-[0_15px_40px_-15px_rgba(67,97,238,0.35)]">
         {/* Top Header: System Code & Status Badges */}
         <div>
-          <div className="flex items-center justify-between pb-3 border-b border-white/5">
+          <div className="flex items-center justify-between pb-3 border-b border-border">
             <span className="font-mono text-xs font-semibold text-[#4895ef]">
               SYS-{String(index + 1).padStart(2, "0")}
             </span>
             <div className="flex items-center gap-2">
               {project.featured && (
                 <span className="inline-flex items-center gap-1 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/15 px-2 py-0.5 font-mono text-[10px] text-[#4895ef] font-medium">
-                  <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#4895ef] animate-pulse" />
                   Featured System
                 </span>
               )}
-              <span className="rounded-full border border-border bg-black/40 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
+              <span className="rounded-full border border-border bg-muted/40 px-2 py-0.5 font-mono text-[10px] text-muted-foreground">
                 {project.category || "Full-Stack"}
               </span>
             </div>

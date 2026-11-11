@@ -151,7 +151,7 @@ const Projects = () => {
               PRODUCTION SYSTEMS &amp; AI
             </span>
             <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-foreground md:text-6xl">
-              Things I've <span className="text-purple-gradient">built</span>.
+              Things I've <span className="text-theme-gradient">built</span>.
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground font-sans">
               Real-world systems and AI tools including Thor AI RAG assistant and Claude CLI UI, each built for scale, performance, and craft.
@@ -178,7 +178,7 @@ const Projects = () => {
                     "relative rounded-full px-4 py-2 transition-all flex items-center gap-1.5",
                     active
                       ? "text-white font-bold bg-[#4361ee] shadow-md shadow-[#4361ee]/25"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5",
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted",
                   )}
                 >
                   {category.badge && (
@@ -186,7 +186,7 @@ const Projects = () => {
                   )}
                   <span>{category.label}</span>
                   {category.badge && (
-                    <span className="rounded bg-black/40 px-1.5 py-0.2 text-[9px] font-bold text-[#4cc9f0]">
+                    <span className="rounded bg-card/80 border border-border px-1.5 py-0.2 text-[9px] font-bold text-[#4cc9f0]">
                       {category.badge}
                     </span>
                   )}

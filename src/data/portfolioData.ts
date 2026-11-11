@@ -715,12 +715,12 @@ export const socialMediaOverviewData = [
   },
   {
     platform: "YouTube",
-    handle: "@PrinceSinghCSE",
-    role: "System Design, Microservices & Web Tutorials",
-    metric: "Video Views",
-    value: "65K+ Views",
+    handle: "@PrinceUnframed",
+    role: "Cinematography, Nikon Z50 II, Lighting & Full-Stack Tech",
+    metric: "Dual Channels",
+    value: "15+ Episodes",
     color: "#FF0000",
-    url: "https://www.youtube.com/@PrinceSinghCSE",
+    url: "https://www.youtube.com/@PrinceUnframed",
     featured: true,
   },
   {

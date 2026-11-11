@@ -92,7 +92,7 @@ const SkillsSection = () => {
             onClick={() => setActiveCategory(tab.id)}
             className={`rounded-full px-4 py-1.5 font-mono text-xs transition-all ${
               activeCategory === tab.id
-                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-purple-600/20"
+                ? "bg-[#4361ee] text-white font-medium shadow-md shadow-[#4361ee]/20"
                 : "border border-border bg-card/60 text-muted-foreground hover:border-[#4361ee]/30 hover:text-foreground"
             }`}
           >
@@ -106,7 +106,7 @@ const SkillsSection = () => {
         {filteredCategories.map((cat) => (
           <div
             key={cat.name}
-            className="rounded-2xl border border-[#4361ee]/20 bg-card/70 p-6 backdrop-blur-xl hover:border-[#4361ee]/40 transition-all shadow-md shadow-purple-500/5"
+            className="rounded-2xl border border-[#4361ee]/20 bg-card/70 p-6 backdrop-blur-xl hover:border-[#4361ee]/40 transition-all shadow-md shadow-[#4361ee]/5"
           >
             <div className="flex items-center justify-between pb-3 border-b border-border">
               <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-[#4895ef]">

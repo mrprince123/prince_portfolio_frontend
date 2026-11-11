@@ -35,7 +35,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
       <div className="border-b border-[#4361ee]/20 bg-black/60 backdrop-blur-md text-[11px] font-mono py-1.5 px-4 text-center text-muted-foreground">
         <div className="container mx-auto flex items-center justify-center gap-2">
           <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#4361ee]/15 text-[#4895ef] border border-[#4361ee]/30 font-semibold text-[10px]">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-ping" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#4895ef] animate-ping" />
             LIVE
           </span>
           <span className="hidden sm:inline text-zinc-300">
@@ -54,7 +54,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
 
       {/* Floating Capsule Nav */}
       <div className="container mx-auto px-4 py-3">
-        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-[#4361ee]/20 bg-background/85 px-4 py-2.5 backdrop-blur-xl shadow-lg shadow-purple-500/5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-[#4361ee]/20 bg-background/85 px-4 py-2.5 backdrop-blur-xl shadow-lg shadow-[#4361ee]/5">
           {/* Brand Wordmark & Sidebar Trigger */}
           <div className="flex items-center gap-3">
             {onOpenSidebar && (
@@ -132,7 +132,7 @@ const Header = ({ onOpenSidebar }: HeaderProps) => {
 
             <Link
               to="/contact"
-              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-3.5 py-1.5 font-mono text-xs font-medium text-white shadow-md shadow-[#4361ee]/20 hover:from-purple-500 hover:to-indigo-500 transition-all hover:scale-[1.02]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#4361ee] to-[#3a56d4] px-3.5 py-1.5 font-mono text-xs font-medium text-white shadow-md shadow-[#4361ee]/20 hover:from-[#3a56d4] hover:to-[#4361ee] transition-all hover:scale-[1.02]"
             >
               <Sparkles className="h-3 w-3" />
               <span>Let's talk</span>
