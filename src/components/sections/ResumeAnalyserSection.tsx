@@ -6,7 +6,7 @@ export const ResumeAnalyserSection = () => {
   const [activeTab, setActiveTab] = useState<"mnc" | "startup">("startup");
 
   return (
-    <section id="resume-analyser" className="container mx-auto px-4 sm:px-6 py-20 max-w-7xl">
+    <section id="resume-analyser" className="w-full px-4 sm:px-6 lg:px-8 py-10">
       <div className="rounded-3xl border border-[#4361ee]/30 bg-gradient-to-b from-card via-card to-[#4361ee]/10 p-6 sm:p-10 shadow-2xl overflow-hidden relative">
         <div aria-hidden="true" className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-[#4361ee]/15 blur-3xl" />
 

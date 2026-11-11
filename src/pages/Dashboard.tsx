@@ -15,7 +15,7 @@ export const Dashboard = () => {
         url="https://princesahni.com/dashboard"
       />
 
-      <div className="space-y-6">
+      <div className="space-y-6 w-full">
         {/* Cockpit Dashboard Hero with streak pill, greeting, constellation card, metric cards, product lines */}
         <DashboardHeroSection />
 

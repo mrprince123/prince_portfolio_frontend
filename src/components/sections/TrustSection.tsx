@@ -2,7 +2,7 @@ import { ShieldCheck, Zap, Building2, CheckCircle2, TrendingUp, Users } from "lu
 
 export const TrustSection = () => {
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-16 max-w-7xl">
+    <section className="w-full px-4 sm:px-6 lg:px-8 py-10">
       <div className="rounded-3xl border border-[#4361ee]/20 bg-card/70 p-6 sm:p-10 backdrop-blur-xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-border">
           <div>

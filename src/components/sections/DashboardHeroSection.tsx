@@ -5,7 +5,7 @@ import { personalInfo } from "@/data/portfolioData";
 
 export const DashboardHeroSection = () => {
   return (
-    <section className="px-4 sm:px-6 lg:px-8 pt-2.5 sm:pt-3 pb-8 space-y-4 max-w-6xl">
+    <section className="w-full px-4 sm:px-6 lg:px-8 pt-2 sm:pt-3 pb-8 space-y-4">
       {/* 1. Top Alert Pill matching screenshot */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-2xl border border-[#4361ee]/20 bg-[#4361ee]/10 px-4 py-2.5 font-mono text-xs text-muted-foreground backdrop-blur-xl">
         <div className="flex items-center gap-2">
