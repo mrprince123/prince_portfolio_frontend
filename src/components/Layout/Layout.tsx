@@ -1,8 +1,9 @@
-import { lazy, ReactNode, Suspense } from "react";
+import { lazy, ReactNode, Suspense, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Sidebar } from "./Sidebar";
 import { PageTransition } from "@/components/ui/primitives/PageTransition";
 
 const AIChatbot = lazy(() => import("@/components/AIChatbot"));
@@ -12,8 +13,10 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const isWork = location.pathname === "/work";
   const isAdmin = location.pathname.startsWith("/admin");
 
   if (isAdmin) {
@@ -22,8 +25,9 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      <Header />
-      <main className={`flex-1 ${isHome ? "" : "pt-28"}`}>
+      <Header onOpenSidebar={() => setIsSidebarOpen(true)} />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      <main className={`flex-1 ${isHome || isWork ? "" : "pt-28"}`}>
         <AnimatePresence mode="wait">
           <PageTransition key={location.pathname}>{children}</PageTransition>
         </AnimatePresence>

@@ -25,6 +25,14 @@ const BlogDetail = lazy(() => import("./pages/BlogDetails"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Expanded Pages matching User Sidebar & References
+const Work = lazy(() => import("./pages/Work"));
+const YouTube = lazy(() => import("./pages/YouTube"));
+const Photography = lazy(() => import("./pages/Photography"));
+const SocialOverview = lazy(() => import("./pages/SocialOverview"));
+const Certificates = lazy(() => import("./pages/Certificates"));
+const Opensource = lazy(() => import("./pages/Opensource"));
+
 // Admin Dashboard Components
 const AdminLogin = lazy(() =>
   import("./admin/pages/AdminLogin").then((m) => ({ default: m.AdminLogin }))
@@ -89,18 +97,25 @@ const App = () => (
             <Layout>
               <Suspense fallback={<RouteFallback />}>
                 <Routes>
-                  {/* Public Portfolio Routes */}
+                  {/* Public Portfolio Routes (12 Sidebar Items + Work Tab) */}
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/skills" element={<Skills />} />
                   <Route path="/projects" element={<Projects />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/blog/:slug" element={<BlogDetail />} />
-                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/articles" element={<Articles />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/:slug" element={<CourseDetails />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogDetail />} />
+                  <Route path="/youtube" element={<YouTube />} />
+                  <Route path="/photography" element={<Photography />} />
+                  <Route path="/social" element={<SocialOverview />} />
+                  <Route path="/social-overview" element={<SocialOverview />} />
                   <Route path="/resume" element={<Resume />} />
-                  <Route path="/articles" element={<Articles />} />
+                  <Route path="/certificates" element={<Certificates />} />
+                  <Route path="/opensource" element={<Opensource />} />
+                  <Route path="/work" element={<Work />} />
+                  <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
 
                   {/* Admin Auth Route */}
