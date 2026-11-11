@@ -133,21 +133,21 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             {openGroups.overview && (
               <div className="mt-1 space-y-0.5">
                 <Link
-                  to="/"
+                  to="/dashboard"
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
-                    isActive("/") && location.pathname === "/"
+                    isActive("/dashboard")
                       ? "bg-purple-600/15 text-white font-semibold"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-white/5"
                   }`}
                   title="Overview"
                 >
-                  {isActive("/") && location.pathname === "/" && (
+                  {isActive("/dashboard") && (
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
                   )}
                   <LayoutDashboard
                     className={`h-4 w-4 shrink-0 ${
-                      isActive("/") && location.pathname === "/" ? "text-purple-400" : "text-zinc-400"
+                      isActive("/dashboard") ? "text-purple-400" : "text-zinc-400"
                     }`}
                   />
                   {(!collapsed || mobileOpen) && <span>Overview</span>}

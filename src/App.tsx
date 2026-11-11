@@ -12,6 +12,7 @@ import { AdminAuthProvider } from "./admin/context/AdminAuthContext";
 import { ProtectedRoute } from "./admin/components/ProtectedRoute";
 
 const Home = lazy(() => import("./pages/Home"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
 const About = lazy(() => import("./pages/About"));
 const Skills = lazy(() => import("./pages/Skills"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -99,6 +100,7 @@ const App = () => (
                 <Routes>
                   {/* Public Portfolio Routes (12 Sidebar Items + Work Tab) */}
                   <Route path="/" element={<Home />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/skills" element={<Skills />} />
                   <Route path="/projects" element={<Projects />} />
