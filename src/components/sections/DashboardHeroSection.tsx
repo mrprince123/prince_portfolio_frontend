@@ -154,12 +154,44 @@ export const DashboardHeroSection = () => {
           {/* Card 1: AI Lab */}
           <Link
             to="/projects?cat=ai"
-            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
+            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-4 sm:p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="h-8 w-8 rounded-lg bg-[#4361ee]/20 text-[#4895ef] flex items-center justify-center font-bold text-xs mb-3">
-                AI Lab
+              {/* Visual Header Box with Neural Network Wireframe */}
+              <div className="h-24 w-full rounded-xl border border-[#4361ee]/20 bg-gradient-to-b from-[#4361ee]/10 via-card to-card relative overflow-hidden flex flex-col items-center justify-center mb-3 group-hover:border-[#4361ee]/40 transition-colors">
+                <svg
+                  className="absolute inset-0 h-full w-full opacity-35 pointer-events-none text-[#4361ee]"
+                  viewBox="0 0 200 96"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
+                  <circle cx="100" cy="22" r="4" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="65" cy="52" r="3.5" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="135" cy="52" r="3.5" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="45" cy="78" r="3" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="85" cy="78" r="3" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="115" cy="78" r="3" fill="currentColor" fillOpacity="0.4" />
+                  <circle cx="155" cy="78" r="3" fill="currentColor" fillOpacity="0.4" />
+                  <line x1="100" y1="26" x2="65" y2="49" strokeDasharray="2 2" />
+                  <line x1="100" y1="26" x2="135" y2="49" strokeDasharray="2 2" />
+                  <line x1="65" y1="55" x2="45" y2="75" />
+                  <line x1="65" y1="55" x2="85" y2="75" />
+                  <line x1="135" y1="55" x2="115" y2="75" />
+                  <line x1="135" y1="55" x2="155" y2="75" />
+                </svg>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#4361ee]/15 border border-[#4361ee]/30 text-[#4895ef] text-[10px] font-mono font-bold mb-1">
+                    <Bot className="h-3 w-3" />
+                    <span>LAB</span>
+                  </div>
+                  <span className="font-display font-black text-sm tracking-tight text-foreground">
+                    AI Lab
+                  </span>
+                </div>
               </div>
+
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 FLAGSHIP PRODUCTS
               </span>
@@ -176,12 +208,45 @@ export const DashboardHeroSection = () => {
           {/* Card 2: AI Systems */}
           <Link
             to="/projects?cat=ai"
-            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
+            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-4 sm:p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="h-8 w-8 rounded-lg bg-[#4361ee]/20 text-[#4895ef] flex items-center justify-center font-bold text-xs mb-3">
-                AI Sys
+              {/* Visual Header Box with Microchip Circuit Wireframe */}
+              <div className="h-24 w-full rounded-xl border border-[#4361ee]/20 bg-gradient-to-b from-[#4361ee]/10 via-card to-card relative overflow-hidden flex flex-col items-center justify-center mb-3 group-hover:border-[#4361ee]/40 transition-colors">
+                <svg
+                  className="absolute inset-0 h-full w-full opacity-35 pointer-events-none text-[#4361ee]"
+                  viewBox="0 0 200 96"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
+                  <rect x="75" y="24" width="50" height="48" rx="6" strokeWidth="1.5" />
+                  <rect x="85" y="34" width="30" height="28" rx="3" fill="currentColor" fillOpacity="0.1" />
+                  <line x1="60" y1="36" x2="75" y2="36" />
+                  <line x1="60" y1="48" x2="75" y2="48" />
+                  <line x1="60" y1="60" x2="75" y2="60" />
+                  <line x1="125" y1="36" x2="140" y2="36" />
+                  <line x1="125" y1="48" x2="140" y2="48" />
+                  <line x1="125" y1="60" x2="140" y2="60" />
+                  <line x1="88" y1="12" x2="88" y2="24" />
+                  <line x1="100" y1="12" x2="100" y2="24" />
+                  <line x1="112" y1="12" x2="112" y2="24" />
+                  <line x1="88" y1="72" x2="88" y2="84" />
+                  <line x1="100" y1="72" x2="100" y2="84" />
+                  <line x1="112" y1="72" x2="112" y2="84" />
+                </svg>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#4361ee]/15 border border-[#4361ee]/30 text-[#4895ef] text-[10px] font-mono font-bold mb-1">
+                    <Cpu className="h-3 w-3" />
+                    <span>SYSTEMS</span>
+                  </div>
+                  <span className="font-display font-black text-sm tracking-tight text-foreground">
+                    AI Systems
+                  </span>
+                </div>
               </div>
+
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 THOR AI &amp; CLAUDE CLI
               </span>
@@ -198,12 +263,45 @@ export const DashboardHeroSection = () => {
           {/* Card 3: Production Systems */}
           <Link
             to="/about#impact"
-            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
+            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-4 sm:p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="h-8 w-8 rounded-lg bg-[#4361ee]/20 text-[#4895ef] flex items-center justify-center font-bold text-xs mb-3">
-                Prod Sys
+              {/* Visual Header Box with Server Infrastructure Wireframe */}
+              <div className="h-24 w-full rounded-xl border border-[#4361ee]/20 bg-gradient-to-b from-[#4361ee]/10 via-card to-card relative overflow-hidden flex flex-col items-center justify-center mb-3 group-hover:border-[#4361ee]/40 transition-colors">
+                <svg
+                  className="absolute inset-0 h-full w-full opacity-35 pointer-events-none text-[#4361ee]"
+                  viewBox="0 0 200 96"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
+                  <rect x="60" y="16" width="80" height="18" rx="4" />
+                  <circle cx="70" cy="25" r="2" fill="currentColor" />
+                  <circle cx="78" cy="25" r="2" fill="currentColor" />
+                  <line x1="90" y1="25" x2="130" y2="25" strokeDasharray="3 3" />
+
+                  <rect x="60" y="39" width="80" height="18" rx="4" />
+                  <circle cx="70" cy="48" r="2" fill="currentColor" />
+                  <circle cx="78" cy="48" r="2" fill="currentColor" />
+                  <line x1="90" y1="48" x2="130" y2="48" strokeDasharray="3 3" />
+
+                  <rect x="60" y="62" width="80" height="18" rx="4" />
+                  <circle cx="70" cy="71" r="2" fill="currentColor" />
+                  <circle cx="78" cy="71" r="2" fill="currentColor" />
+                  <line x1="90" y1="71" x2="130" y2="71" strokeDasharray="3 3" />
+                </svg>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#4361ee]/15 border border-[#4361ee]/30 text-[#4895ef] text-[10px] font-mono font-bold mb-1">
+                    <Layers className="h-3 w-3" />
+                    <span>SCALE</span>
+                  </div>
+                  <span className="font-display font-black text-sm tracking-tight text-foreground">
+                    Production Systems
+                  </span>
+                </div>
               </div>
+
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 MAJOR CONTRIBUTIONS
               </span>
@@ -220,12 +318,41 @@ export const DashboardHeroSection = () => {
           {/* Card 4: Company History */}
           <Link
             to="/about"
-            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
+            className="group rounded-2xl border border-[#4361ee]/25 bg-card/75 p-4 sm:p-5 backdrop-blur-xl hover:border-[#4361ee]/60 hover:shadow-xl hover:shadow-[#4361ee]/10 transition-all flex flex-col justify-between"
           >
             <div>
-              <div className="h-8 w-8 rounded-lg bg-[#4361ee]/20 text-[#4895ef] flex items-center justify-center font-bold text-xs mb-3">
-                Exp Lab
+              {/* Visual Header Box with Career Growth Timeline Wireframe */}
+              <div className="h-24 w-full rounded-xl border border-[#4361ee]/20 bg-gradient-to-b from-[#4361ee]/10 via-card to-card relative overflow-hidden flex flex-col items-center justify-center mb-3 group-hover:border-[#4361ee]/40 transition-colors">
+                <svg
+                  className="absolute inset-0 h-full w-full opacity-35 pointer-events-none text-[#4361ee]"
+                  viewBox="0 0 200 96"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.2"
+                >
+                  <line x1="40" y1="75" x2="160" y2="75" />
+                  <polyline points="45,68 75,52 110,58 145,28" strokeWidth="1.5" />
+                  <circle cx="45" cy="68" r="3" fill="currentColor" />
+                  <circle cx="75" cy="52" r="3" fill="currentColor" />
+                  <circle cx="110" cy="58" r="3" fill="currentColor" />
+                  <circle cx="145" cy="28" r="3.5" fill="currentColor" />
+                  <line x1="45" y1="75" x2="45" y2="68" strokeDasharray="2 2" />
+                  <line x1="75" y1="75" x2="75" y2="52" strokeDasharray="2 2" />
+                  <line x1="110" y1="75" x2="110" y2="58" strokeDasharray="2 2" />
+                  <line x1="145" y1="75" x2="145" y2="28" strokeDasharray="2 2" />
+                </svg>
+
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#4361ee]/15 border border-[#4361ee]/30 text-[#4895ef] text-[10px] font-mono font-bold mb-1">
+                    <Briefcase className="h-3 w-3" />
+                    <span>CAREER</span>
+                  </div>
+                  <span className="font-display font-black text-sm tracking-tight text-foreground">
+                    Company History
+                  </span>
+                </div>
               </div>
+
               <span className="font-mono text-[9px] uppercase tracking-wider text-[#4895ef] font-semibold block">
                 COMPANY HISTORY
               </span>
