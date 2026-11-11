@@ -598,20 +598,26 @@ export const adminApi = {
       const client = createClient();
       const res = await client.post<{ success: boolean; data: { reply: string; topic: string } }>(
         "/ai/brainstorm",
-        data
+        data,
+        { timeout: 60000 }
       );
       return res.data.data;
     },
     generate: async (data: { title: string; details?: string; context?: Array<{ role: string; content: string }> }) => {
       const client = createClient();
-      const res = await client.post<{ success: boolean; data: Partial<Post> }>("/ai/generate", data);
+      const res = await client.post<{ success: boolean; data: Partial<Post> }>(
+        "/ai/generate",
+        data,
+        { timeout: 120000 }
+      );
       return res.data.data;
     },
     refine: async (data: { content: string; instruction: string; platform?: string }) => {
       const client = createClient();
       const res = await client.post<{ success: boolean; data: { refinedContent: string } }>(
         "/ai/refine",
-        data
+        data,
+        { timeout: 60000 }
       );
       return res.data.data;
     },
