@@ -1,23 +1,23 @@
 :root {
-  --background: 0 0% 100%;
-  --foreground: 220 15% 10%;
-  --card: 220 25% 98%;
-  --card-foreground: 220 15% 10%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 220 15% 10%;
-  --primary: 230 83% 58%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 225 30% 95%;
-  --secondary-foreground: 230 75% 40%;
-  --muted: 225 25% 95%;
-  --muted-foreground: 220 10% 45%;
-  --accent: 225 35% 94%;
-  --accent-foreground: 230 83% 45%;
+  --background: 48 24% 94%;
+  --foreground: 48 18% 7%;
+  --card: 48 30% 98%;
+  --card-foreground: 48 18% 7%;
+  --popover: 48 30% 98%;
+  --popover-foreground: 48 18% 7%;
+  --primary: 231 72% 45%;
+  --primary-foreground: 48 30% 98%;
+  --secondary: 45 18% 90%;
+  --secondary-foreground: 48 14% 20%;
+  --muted: 45 18% 90%;
+  --muted-foreground: 43 8% 45%;
+  --accent: 44 24% 91%;
+  --accent-foreground: 48 18% 12%;
   --destructive: 0 72% 45%;
   --destructive-foreground: 0 0% 98%;
-  --border: 220 15% 88%;
-  --input: 220 15% 88%;
-  --ring: 230 83% 58%;
+  --border: 44 20% 83%;
+  --input: 44 20% 83%;
+  --ring: 231 72% 45%;
   --radius: 0.75rem;
 
   /* Reference site style variables - #4361ee Royal Blue Theme */
@@ -26,32 +26,32 @@
   --acc-2: #3a56d4;
   --acc-glow: rgba(67, 97, 238, 0.25);
   --acc-ink: #ffffff;
-  --panel: #ffffff;
-  --panel-2: #f5f7ff;
-  --line: rgba(0, 0, 0, 0.08);
+  --panel: hsl(var(--card));
+  --panel-2: hsl(var(--card));
+  --line: hsl(var(--border));
   --line-2: rgba(67, 97, 238, 0.2);
 }
 
 .dark {
-  --background: 230 18% 5%;
-  --foreground: 220 15% 96%;
-  --card: 230 16% 8%;
-  --card-foreground: 220 15% 96%;
-  --popover: 230 16% 8%;
-  --popover-foreground: 220 15% 96%;
-  --primary: 230 83% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 230 14% 13%;
-  --secondary-foreground: 220 15% 90%;
-  --muted: 230 14% 13%;
-  --muted-foreground: 220 10% 65%;
-  --accent: 230 65% 20%;
-  --accent-foreground: 230 95% 75%;
+  --background: 225 14% 6%;
+  --foreground: 45 16% 91%;
+  --card: 224 16% 9%;
+  --card-foreground: 45 16% 91%;
+  --popover: 224 16% 9%;
+  --popover-foreground: 45 16% 91%;
+  --primary: 231 100% 75%;
+  --primary-foreground: 225 20% 10%;
+  --secondary: 225 14% 13%;
+  --secondary-foreground: 45 12% 85%;
+  --muted: 225 14% 12%;
+  --muted-foreground: 225 6% 55%;
+  --accent: 225 16% 15%;
+  --accent-foreground: 45 16% 91%;
   --destructive: 0 63% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 230 12% 16%;
-  --input: 230 12% 16%;
-  --ring: 230 83% 60%;
+  --border: 228 12% 16%;
+  --input: 228 12% 16%;
+  --ring: 231 100% 75%;
 
   /* Reference site style variables - #4361ee Royal Blue Theme */
   --acc: #4361ee;
@@ -59,8 +59,8 @@
   --acc-2: #4895ef;
   --acc-glow: rgba(67, 97, 238, 0.35);
   --acc-ink: #ffffff;
-  --panel: #0d0f1a;
-  --panel-2: #121526;
-  --line: rgba(255, 255, 255, 0.07);
+  --panel: hsl(var(--card));
+  --panel-2: hsl(var(--card));
+  --line: hsl(var(--border));
   --line-2: rgba(67, 97, 238, 0.25);
 }

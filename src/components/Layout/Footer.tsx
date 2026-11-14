@@ -29,7 +29,7 @@ const Footer = () => {
                 className="h-9 w-9 rounded-full object-cover ring-2 ring-[#4361ee]/40"
               />
               <span className="font-display text-xl font-bold tracking-tight text-foreground">
-                Prince Sahni<span className="text-[#4361ee] font-black">.</span>
+                Prince Sahni<span className="text-primary font-black">.</span>
               </span>
             </Link>
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Flame, Target, Crown, Briefcase, Menu, PanelLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/primitives/ThemeToggle";
+import princelogo from "@/assets/princesahni-logo.png";
 
 interface DashboardTopBarProps {
   collapsed: boolean;
@@ -46,12 +47,18 @@ export const DashboardTopBar: React.FC<DashboardTopBarProps> = ({
           <Menu className="h-5 w-5" />
         </button>
 
-        {/* If desktop sidebar is collapsed, show signature wordmark in Topbar */}
+        {/* If desktop sidebar is collapsed, show wordmark in Topbar matching live website */}
         {collapsed && (
           <div className="hidden lg:flex items-center gap-2 pr-3 border-r border-border">
-            <Link to="/" className="font-signature text-xl font-bold tracking-wide">
-              <span className="text-foreground">Prince</span>{" "}
-              <span className="text-[#4361ee]">Sahni</span>
+            <Link to="/" className="flex items-center gap-2 font-display text-base font-bold tracking-tight">
+              <img
+                src={princelogo}
+                alt="Prince Kumar Sahni"
+                className="h-6 w-6 rounded-md object-cover shrink-0"
+              />
+              <span className="text-foreground">
+                Prince Sahni<span className="text-primary">.</span>
+              </span>
             </Link>
             <button
               onClick={onToggleSidebar}

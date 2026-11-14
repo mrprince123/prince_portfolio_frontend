@@ -23,6 +23,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import princelogo from "@/assets/princesahni-logo.png";
 
 interface DashboardSidebarProps {
   collapsed: boolean;
@@ -85,18 +86,22 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         } ${collapsed ? "lg:w-16" : "lg:w-64"}`}
         aria-label="Sidebar Navigation"
       >
-        {/* 1. Sidebar Header: Elegant Handwritten Signature & Panel Toggle */}
+        {/* 1. Sidebar Header: Brand Wordmark matching live website & Panel Toggle */}
         <div className="flex h-14 items-center justify-between px-4 border-b border-border">
           {(!collapsed || mobileOpen) && (
             <Link
               to="/"
               onClick={handleLinkClick}
-              className="flex items-center gap-1 overflow-hidden group"
+              className="flex items-center gap-2.5 overflow-hidden group"
               aria-label="Prince Sahni Home"
             >
-              <span className="font-signature text-2xl font-bold tracking-wide whitespace-nowrap transition-transform group-hover:scale-105">
-                <span className="text-foreground">Prince</span>{" "}
-                <span className="text-[#4361ee] glow-theme-sm">Sahni</span>
+              <img
+                src={princelogo}
+                alt="Prince Kumar Sahni"
+                className="h-7 w-7 rounded-md object-cover shrink-0 transition-transform group-hover:scale-105"
+              />
+              <span className="font-display text-base font-bold tracking-tight text-foreground whitespace-nowrap">
+                Prince Sahni<span className="text-primary">.</span>
               </span>
             </Link>
           )}

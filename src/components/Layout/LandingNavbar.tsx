@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayoutDashboard, User, FileDown, Sparkles, Menu, X, ArrowRight } from "lucide-react";
-import { personalInfo } from "@/data/portfolioData";
+import { LayoutDashboard, FileDown, Menu, X } from "lucide-react";
+import { navLinks, personalInfo } from "@/data/portfolioData";
 import { ThemeToggle } from "@/components/ui/primitives/ThemeToggle";
+import princelogo from "@/assets/princesahni-logo.png";
 
 export const LandingNavbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -16,79 +17,80 @@ export const LandingNavbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/90 text-foreground backdrop-blur-xl">
-      <div className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
-        {/* Left: Brand Signature */}
-        <Link
-          to="/"
-          className="group flex items-center gap-2 transition-transform hover:scale-105"
-          aria-label="Prince Sahni Home"
-        >
-          <span className="font-signature text-2xl sm:text-3xl font-bold tracking-wide">
-            <span className="text-foreground">Prince</span>{" "}
-            <span className="text-[#4361ee] glow-theme-sm">Sahni</span>
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur-md">
+      <div className="container mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6">
+        {/* Wordmark matching live princesahni.com */}
+        <Link to="/" className="flex items-center gap-2.5 group shrink-0" aria-label="Prince Sahni Home">
+          <img
+            src={princelogo}
+            alt="Prince Kumar Sahni"
+            className="h-8 w-8 rounded-md object-cover transition-transform group-hover:scale-105"
+          />
+          <span className="font-display text-lg font-bold tracking-tight text-foreground">
+            Prince Sahni<span className="text-primary">.</span>
           </span>
         </Link>
 
-        {/* Center: Requested Navbar Links (Dashboard, About) */}
-        <nav className="hidden md:flex items-center gap-2">
-          {/* Dashboard Link */}
+        {/* Desktop Nav Links matching live princesahni.com */}
+        <nav className="ml-2 hidden items-center gap-1 md:flex">
+          {navLinks.map((item) => (
+            <Link
+              key={item.name}
+              to={item.href}
+              className={`relative rounded-md px-3 py-2 font-mono text-[13px] transition-colors ${
+                isActive(item.href)
+                  ? "text-foreground font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {item.name.toLowerCase()}
+              {isActive(item.href) && (
+                <motion.span
+                  layoutId="nav-active"
+                  className="absolute inset-x-2 -bottom-px h-px bg-primary"
+                  transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                />
+              )}
+            </Link>
+          ))}
+
           <Link
             to="/dashboard"
-            className={`group flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
+            className={`ml-2 inline-flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-xs transition-all ${
               isActive("/dashboard")
-                ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                ? "bg-primary text-primary-foreground font-semibold shadow-xs"
+                : "border border-border text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}
           >
-            <LayoutDashboard className="h-4 w-4 text-[#4895ef] group-hover:rotate-12 transition-transform" />
-            <span>Dashboard</span>
-            <span className="rounded-full bg-[#4361ee]/20 px-1.5 py-0.2 text-[9px] font-mono text-[#4895ef] border border-[#4361ee]/30">
-              COCKPIT
-            </span>
-          </Link>
-
-          {/* About Link */}
-          <Link
-            to="/about"
-            className={`flex items-center gap-2 rounded-full px-4 py-2 font-mono text-xs transition-all ${
-              isActive("/about")
-                ? "bg-[#4361ee]/20 text-white border border-[#4361ee]/40 font-semibold shadow-sm"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted"
-            }`}
-          >
-            <User className="h-4 w-4 text-[#4895ef]" />
-            <span>About</span>
+            <LayoutDashboard className="h-3.5 w-3.5" />
+            <span>dashboard</span>
           </Link>
         </nav>
 
-        {/* Right: Actions */}
-        <div className="flex items-center gap-3">
+        {/* Right Actions matching live princesahni.com */}
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
+          <span className="mr-1 hidden items-center gap-2 font-mono text-[11px] text-muted-foreground lg:inline-flex">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]" />
+            available for work
+          </span>
+
           <a
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 font-mono text-xs text-muted-foreground hover:border-[#4361ee]/40 hover:text-[#4361ee] dark:hover:text-[#4895ef] transition-all bg-card"
+            className="hidden items-center gap-1.5 rounded-md px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground sm:flex"
           >
-            <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
+            <FileDown className="h-3.5 w-3.5" />
             <span>résumé</span>
           </a>
-
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#4361ee] to-[#3a56d4] px-4 py-1.5 font-mono text-xs font-semibold text-white shadow-md shadow-[#4361ee]/25 hover:from-[#3a56d4] hover:to-[#4361ee] transition-all hover:scale-[1.02]"
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Let's talk</span>
-          </Link>
 
           <ThemeToggle />
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
-            aria-label="Toggle Navigation Menu"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="rounded-md p-2 text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -99,53 +101,51 @@ export const LandingNavbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border bg-background text-foreground px-4 py-4 space-y-2 font-mono text-xs"
+            className="overflow-hidden border-t border-border md:hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
           >
-            <Link
-              to="/dashboard"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between p-3 rounded-xl bg-[#4361ee]/10 text-foreground border border-[#4361ee]/30"
-            >
-              <div className="flex items-center gap-2">
-                <LayoutDashboard className="h-4 w-4 text-[#4895ef]" />
-                <span>Dashboard</span>
-              </div>
-              <span className="text-[10px] bg-[#4361ee]/20 text-[#4895ef] px-1.5 py-0.5 rounded">
-                COCKPIT
-              </span>
-            </Link>
+            <div className="container mx-auto flex flex-col gap-1 px-6 py-4">
+              {navLinks.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-md px-3 py-2.5 font-mono text-sm transition-colors ${
+                    isActive(item.href)
+                      ? "bg-accent text-foreground font-semibold"
+                      : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                  }`}
+                >
+                  {item.name.toLowerCase()}
+                </Link>
+              ))}
 
-            <Link
-              to="/about"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-2 p-3 rounded-xl text-muted-foreground hover:bg-muted"
-            >
-              <User className="h-4 w-4 text-[#4895ef]" />
-              <span>About</span>
-            </Link>
+              <Link
+                to="/dashboard"
+                onClick={() => setMobileOpen(false)}
+                className={`flex items-center gap-2 rounded-md px-3 py-2.5 font-mono text-sm transition-colors ${
+                  isActive("/dashboard")
+                    ? "bg-accent text-foreground font-semibold"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                }`}
+              >
+                <LayoutDashboard className="h-4 w-4" />
+                <span>dashboard (cockpit)</span>
+              </Link>
 
-            <div className="pt-2 flex items-center justify-between border-t border-border">
               <a
                 href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground"
-              >
-                <FileDown className="h-3.5 w-3.5 text-[#4895ef]" />
-                <span>Download Résumé</span>
-              </a>
-
-              <Link
-                to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="text-[#4895ef] hover:underline flex items-center gap-1"
+                className="flex items-center gap-2 rounded-md px-3 py-2.5 font-mono text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
               >
-                <span>Contact</span>
-                <ArrowRight className="h-3 w-3" />
-              </Link>
+                <FileDown className="h-4 w-4" />
+                <span>résumé</span>
+              </a>
             </div>
           </motion.div>
         )}
