@@ -10,7 +10,7 @@ const ExperienceSection = () => {
         <div>
           <div className="inline-flex items-center gap-1.5 rounded-full border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1 font-mono text-xs text-[#4895ef] mb-2">
             <Briefcase className="h-3.5 w-3.5 text-[#4895ef]" />
-            <span>EXPERIENCE LAB · 3 ORGANIZATIONS</span>
+            <span>CAREER TIMELINE · 3 ORGANIZATIONS</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground">
             Where I've built & shipped software

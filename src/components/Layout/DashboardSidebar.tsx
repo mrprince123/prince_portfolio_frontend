@@ -7,7 +7,6 @@ import {
   Layers,
   Cpu,
   Boxes,
-  Briefcase,
   User,
   Award,
   FileText,
@@ -259,16 +258,6 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
             {openGroups.career && (
               <div className="mt-1 space-y-0.5">
-                <Link
-                  to="/about#experience"
-                  onClick={handleLinkClick}
-                  className="flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
-                  title="Experience Lab"
-                >
-                  <Briefcase className="h-4 w-4 shrink-0 text-muted-foreground" />
-                  {(!collapsed || mobileOpen) && <span>Experience Lab</span>}
-                </Link>
-
                 <Link
                   to="/about"
                   onClick={handleLinkClick}
