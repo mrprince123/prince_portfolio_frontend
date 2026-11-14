@@ -32,6 +32,7 @@ const Photography = lazy(() => import("./pages/Photography"));
 const SocialOverview = lazy(() => import("./pages/SocialOverview"));
 const Certificates = lazy(() => import("./pages/Certificates"));
 const Opensource = lazy(() => import("./pages/Opensource"));
+const ThorAiDetail = lazy(() => import("./pages/ThorAiDetail"));
 
 // Admin Dashboard Components
 const AdminLogin = lazy(() =>
@@ -103,6 +104,8 @@ const App = () => (
                   <Route path="/about" element={<About />} />
                   <Route path="/skills" element={<Skills />} />
                   <Route path="/projects" element={<Projects />} />
+                  <Route path="/projects/thor-ai" element={<ThorAiDetail />} />
+                  <Route path="/thor-ai" element={<ThorAiDetail />} />
                   <Route path="/articles" element={<Articles />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/:slug" element={<CourseDetails />} />

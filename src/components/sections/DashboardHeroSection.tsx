@@ -58,7 +58,7 @@ export const DashboardHeroSection = () => {
 
             <div className="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
               <Link
-                to="/projects?cat=ai"
+                to="/projects/thor-ai"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#4361ee] px-5 py-2.5 font-bold text-white shadow-lg shadow-[#4361ee]/30 hover:bg-[#3a56d4] transition-all hover:scale-[1.02]"
               >
                 <span>Thor AI</span>
@@ -147,7 +147,7 @@ export const DashboardHeroSection = () => {
             <Sparkles className="h-4 w-4 text-[#4895ef]" />
             Explore product lines
           </h3>
-          <span className="text-muted-foreground/80">9 lines</span>
+          <span className="text-muted-foreground/80">4 tracks</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

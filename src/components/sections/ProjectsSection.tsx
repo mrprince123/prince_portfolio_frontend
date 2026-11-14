@@ -34,7 +34,7 @@ const ProjectsSection = () => {
   }, [projects, selectedCategory]);
 
   return (
-    <section id="systems" className="w-full px-4 sm:px-6 lg:px-8 py-10">
+    <section id="systems" className="container mx-auto px-6 py-16">
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-border">
         <div>

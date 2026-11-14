@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
 @import "./styles/tokens.css";
 
 @tailwind base;
@@ -48,7 +48,7 @@
   /* ─── Typography ─── */
   .font-display { font-family: 'Bricolage Grotesque Variable', 'Inter Variable', system-ui, sans-serif; }
   .font-mono { font-family: 'Space Mono', ui-monospace, monospace; }
-  .font-signature { font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive; }
+  .font-signature { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 700; letter-spacing: -0.015em; }
 
   /* ─── Backgrounds ─── */
   .bg-dots {

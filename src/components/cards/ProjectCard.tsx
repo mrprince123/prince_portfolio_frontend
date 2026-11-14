@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ExternalLink, Github, Layers, ArrowUpRight, CheckCircle2, Cpu, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ExternalLink, Github, Layers, ArrowUpRight, CheckCircle2, Cpu, X, Bot } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export interface ProjectCardData {
@@ -21,6 +22,7 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
 
   const hasLive = project.liveUrl && project.liveUrl !== "#";
   const hasGithub = project.githubUrl && project.githubUrl !== "#";
+  const isThorAi = (project.title || "").toLowerCase().includes("thor");
 
   return (
     <>
@@ -46,10 +48,20 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
 
           {/* Title & Description */}
           <div className="mt-4">
-            <h3 className="font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-[#4895ef] transition-colors flex items-center justify-between">
-              <span>{project.title}</span>
-              <ArrowUpRight className="h-4 w-4 text-[#4895ef] opacity-0 group-hover:opacity-100 transition-opacity" />
-            </h3>
+            {isThorAi ? (
+              <Link
+                to="/projects/thor-ai"
+                className="font-display text-lg sm:text-xl font-bold text-foreground hover:text-[#4895ef] transition-colors flex items-center justify-between"
+              >
+                <span>{project.title}</span>
+                <ArrowUpRight className="h-4 w-4 text-[#4895ef]" />
+              </Link>
+            ) : (
+              <h3 className="font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-[#4895ef] transition-colors flex items-center justify-between">
+                <span>{project.title}</span>
+                <ArrowUpRight className="h-4 w-4 text-[#4895ef] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </h3>
+            )}
             <p className="mt-2 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-3">
               {project.description}
             </p>
@@ -83,13 +95,25 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
 
         {/* Action Buttons */}
         <div className="mt-6 pt-4 border-t border-border flex items-center justify-between gap-2">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1.5 font-mono text-xs font-medium text-[#4895ef] hover:bg-[#4361ee]/20 transition-all"
-          >
-            <Layers className="h-3.5 w-3.5 text-[#4895ef]" />
-            <span>Architecture</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#4361ee]/30 bg-[#4361ee]/10 px-3 py-1.5 font-mono text-xs font-medium text-[#4895ef] hover:bg-[#4361ee]/20 transition-all"
+            >
+              <Layers className="h-3.5 w-3.5 text-[#4895ef]" />
+              <span>Architecture</span>
+            </button>
+
+            {isThorAi && (
+              <Link
+                to="/projects/thor-ai"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#4361ee]/40 bg-[#4361ee]/15 px-3 py-1.5 font-mono text-xs font-bold text-[#4361ee] dark:text-[#4cc9f0] hover:bg-[#4361ee]/25 transition-all"
+              >
+                <Bot className="h-3.5 w-3.5 text-[#4895ef]" />
+                <span>README & Details</span>
+              </Link>
+            )}
+          </div>
 
           <div className="flex items-center gap-2">
             {hasGithub && (
@@ -158,7 +182,17 @@ export function ProjectCard({ project, index }: { project: ProjectCardData; inde
               </ul>
             </div>
 
-            <div className="flex items-center justify-end gap-3 pt-3 border-t border-border">
+            <div className="flex flex-wrap items-center justify-end gap-3 pt-3 border-t border-border">
+              {isThorAi && (
+                <Link
+                  to="/projects/thor-ai"
+                  onClick={() => setIsModalOpen(false)}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-[#4361ee]/40 bg-[#4361ee]/15 px-3.5 py-1.5 font-mono text-xs font-bold text-[#4361ee] dark:text-[#4cc9f0] hover:bg-[#4361ee]/25"
+                >
+                  <Bot className="h-3.5 w-3.5" />
+                  <span>Open Full Thor AI Page & README</span>
+                </Link>
+              )}
               {hasGithub && (
                 <a
                   href={project.githubUrl}

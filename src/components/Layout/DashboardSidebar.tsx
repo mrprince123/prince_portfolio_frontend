@@ -155,20 +155,20 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
                 {/* Replaced Kurukshetr AI with Thor AI as requested */}
                 <Link
-                  to="/projects?cat=ai"
+                  to="/projects/thor-ai"
                   onClick={handleLinkClick}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all ${
-                    location.search.includes("cat=ai")
+                    location.pathname.includes("thor-ai") || location.search.includes("cat=ai")
                       ? "bg-[#4361ee]/15 text-[#4361ee] dark:text-white font-semibold"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   }`}
                   title="Thor AI – Full-Stack RAG Assistant"
                 >
-                  {location.search.includes("cat=ai") && (
+                  {(location.pathname.includes("thor-ai") || location.search.includes("cat=ai")) && (
                     <span className="absolute left-0 top-2 bottom-2 w-1 rounded-r bg-[#4361ee] shadow-[0_0_8px_rgba(67,97,238,0.8)]" />
                   )}
                   <Bot
-                    className={`h-4 w-4 shrink-0 ${location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-muted-foreground"}`}
+                    className={`h-4 w-4 shrink-0 ${location.pathname.includes("thor-ai") || location.search.includes("cat=ai") ? "text-[#4895ef]" : "text-muted-foreground"}`}
                   />
                   {(!collapsed || mobileOpen) && (
                     <span className="flex items-center justify-between flex-1">
