@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Header from "./Header";
 import Footer from "./Footer";
 import { PageTransition } from "@/components/ui/primitives/PageTransition";
+import BackgroundElements from "@/components/ui/primitives/BackgroundElements";
 
 const AIChatbot = lazy(() => import("@/components/AIChatbot"));
 
@@ -21,14 +22,19 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+      {/* Minimal background elements: subtle engineering grid, soft purple/gold aurora flares, crosshairs, depth arcs */}
+      <BackgroundElements />
+
       <Header />
-      <main className={`flex-1 ${isHome ? "" : "pt-28"}`}>
+      <main className={`relative z-10 flex-1 ${isHome ? "" : "pt-28"}`}>
         <AnimatePresence mode="wait">
           <PageTransition key={location.pathname}>{children}</PageTransition>
         </AnimatePresence>
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
       {import.meta.env.VITE_GEMINI_API_KEY ? (
         <Suspense fallback={null}>
           <AIChatbot />

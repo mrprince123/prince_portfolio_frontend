@@ -9,16 +9,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
-      {/* Background ambient lighting and subtle dots */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-      >
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[450px] w-[750px] rounded-full bg-purple-500/10 blur-3xl" />
-        <div className="absolute inset-0 bg-dots opacity-40" />
-      </div>
-
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="container-page relative z-10">
         {/* Top Accent Eyebrow: —— FULL-STACK & BACKEND ENGINEER —— */}
         <motion.div
