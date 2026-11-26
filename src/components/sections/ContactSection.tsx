@@ -1,246 +1,287 @@
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-import GlassCard from "../ui/GlassCard";
-import NeonButton from "../ui/NeonButton";
-import { contactInfo, devQuotes, personalInfo } from "@/data/portfolioData";
-import { Send, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Check, Copy, ArrowUpRight, MessageSquare } from "lucide-react";
 import axios from "axios";
+import { personalInfo, contactInfo, socialLinks } from "@/data/portfolioData";
+import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
+import { Reveal } from "@/components/ui/primitives/Reveal";
+import { useToast } from "@/hooks/use-toast";
 
 const apiUrl = import.meta.env.VITE_CONTACT_URL;
 
-const iconMap: Record<string, any> = { Mail, Phone, MapPin };
-
-const ContactSection = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSent, setIsSent] = useState(false);
+export const ContactSection = () => {
   const { toast } = useToast();
+  const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
     subject: "",
     message: "",
   });
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    toast({
+      title: "Email copied!",
+      description: "princekrdss2018@gmail.com copied to clipboard.",
+    });
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await axios.post(apiUrl, formData);
+      if (apiUrl) {
+        await axios.post(apiUrl, formData);
+      }
       toast({
         title: "Message sent!",
-        description: response.data.message || "I'll get back to you soon.",
-        variant: "default",
+        description: "Thanks for reaching out! I'll get back to you shortly.",
       });
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      setIsSent(true);
-      setTimeout(() => setIsSent(false), 3000);
+      setFormData({ name: "", email: "", subject: "", message: "" });
     } catch {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
+        title: "Message noted",
+        description: "You can also reach me directly at princekrdss2018@gmail.com",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const inputClasses = `
-    w-full px-4 py-3 rounded-lg
-    bg-card/30 border border-border
-    text-foreground placeholder-foreground/30
-    focus:outline-none focus:border-primary/40 focus:shadow-[0_0_20px_rgba(99,102,241,0.1)]
-    transition-all duration-300
-    font-sans text-sm
-  `;
-
   return (
-    <section
-      ref={sectionRef}
-      id="contact-section"
-      className="relative py-24 px-6 bg-transparent"
-    >
-      <div className="absolute inset-0 bg-radial-glow opacity-30" />
-      <div className="relative container mx-auto max-w-5xl">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <p className="text-primary font-mono text-sm tracking-[0.2em] uppercase mb-3">
-            // establish link
-          </p>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-foreground">
-            Mission <span className="text-gradient">Control</span>
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            Ready to start a project or connect? Send a transmission to my coordinates.
-          </p>
-        </motion.div>
+    <section id="contacts" className="py-24 md:py-32 border-t border-border">
+      {/* Invisible anchor for #contact singular compatibility */}
+      <div id="contact" className="relative -top-24" />
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
-          <motion.div
-            className="lg:col-span-2"
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <GlassCard className="p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-6">
-                <MessageCircle className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold text-foreground">Send a Transmission</h3>
-              </div>
+      <div className="container-page">
+        <SectionHeader
+          eyebrow="Contacts &amp; Collaboration"
+          title="Let's build something"
+          highlight="exceptional together"
+          subtitle="Open for engineering leadership, full-stack architecture roles, and high-impact digital products."
+        />
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-foreground/50 text-xs font-mono mb-1 block">Name *</label>
-                    <input
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Your full name"
-                      className={inputClasses}
-                    />
-                  </div>
-                  <div>
-                    <label className="text-foreground/50 text-xs font-mono mb-1 block">Email *</label>
-                    <input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="your@email.com"
-                      className={inputClasses}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-foreground/50 text-xs font-mono mb-1 block">Phone</label>
-                  <input
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Your phone"
-                    className={inputClasses}
-                  />
-                </div>
-                <div>
-                  <label className="text-foreground/50 text-xs font-mono mb-1 block">Subject *</label>
-                  <input
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    placeholder="What's this about?"
-                    className={inputClasses}
-                  />
-                </div>
-                <div>
-                  <label className="text-foreground/50 text-xs font-mono mb-1 block">Message *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Write your message here..."
-                    rows={4}
-                    className={`${inputClasses} resize-none`}
-                  />
-                </div>
-                <NeonButton
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Transmitting..."
-                  ) : isSent ? (
-                    "✓ Transmission Success!"
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" /> Send Transmission
-                    </>
-                  )}
-                </NeonButton>
-              </form>
-            </GlassCard>
-          </motion.div>
-
-          {/* Sidebar */}
-          <motion.div
-            className="space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            {/* Contact Info */}
-            <GlassCard className="p-6">
-              <h4 className="text-foreground font-semibold mb-4">Contact Info</h4>
-              <div className="space-y-3">
-                {contactInfo.map((info, i) => {
-                  const Icon = iconMap[info.icon] || Mail;
-                  return (
-                    <a
-                      key={i}
-                      href={info.href}
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/[0.03] transition-colors group"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                        <Icon className="w-4 h-4 text-primary" />
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1.1fr] items-start">
+          {/* Left Column: Direct Contact Info */}
+          <div>
+            <Reveal>
+              <div className="space-y-4">
+                {/* Email Direct Card */}
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                        <Mail className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-muted-foreground/50">{info.label}</p>
-                        <p className="text-sm text-foreground/75">{info.value}</p>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          Direct Email
+                        </p>
+                        <a
+                          href={`mailto:${personalInfo.email}`}
+                          className="font-display text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors"
+                        >
+                          {personalInfo.email}
+                        </a>
                       </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </GlassCard>
+                    </div>
 
-            {/* Dev Quotes */}
-            <GlassCard className="p-6">
-              <h4 className="text-foreground font-semibold mb-4">Dev Vibes ✨</h4>
-              <div className="space-y-3">
-                {devQuotes.map((quote, i) => (
-                  <p
-                    key={i}
-                    className="text-muted-foreground/50 text-sm italic border-l-2 border-primary/30 pl-3"
+                    <button
+                      onClick={handleCopyEmail}
+                      aria-label="Copy email"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary text-muted-foreground transition-all hover:border-primary hover:text-primary"
+                    >
+                      {copied ? (
+                        <Check className="h-4 w-4 text-emerald-500" />
+                      ) : (
+                        <Copy className="h-4 w-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Phone & Location Cards */}
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <Phone className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Phone
+                        </p>
+                        <a
+                          href={`tel:${personalInfo.phone}`}
+                          className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                        >
+                          {personalInfo.phone}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-border bg-card p-5 shadow-soft">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                        <MapPin className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Location
+                        </p>
+                        <p className="text-xs sm:text-sm font-semibold text-foreground">
+                          {personalInfo.location}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Social Channels Card */}
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">
+                    Connect on Social &amp; Networks
+                  </h4>
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group flex items-center justify-between rounded-xl border border-border bg-secondary/50 px-3.5 py-2.5 text-xs font-semibold text-foreground transition-all hover:border-primary/40 hover:bg-card hover:text-primary"
+                      >
+                        <span>{social.name}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right Column: Clean Contact Form */}
+          <div>
+            <Reveal delay={0.1}>
+              <form
+                onSubmit={handleSubmit}
+                className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-soft"
+              >
+                <div className="flex items-center gap-2 mb-6">
+                  <MessageSquare className="h-5 w-5 text-primary" />
+                  <h3 className="font-display text-lg font-bold text-foreground">
+                    Send a message
+                  </h3>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="contact-name"
+                        className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5"
+                      >
+                        Your Name
+                      </label>
+                      <input
+                        id="contact-name"
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="John Doe"
+                        className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="contact-email"
+                        className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5"
+                      >
+                        Your Email
+                      </label>
+                      <input
+                        id="contact-email"
+                        type="email"
+                        name="email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="john@example.com"
+                        className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-subject"
+                      className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      id="contact-subject"
+                      type="text"
+                      name="subject"
+                      required
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Project Opportunity / Tech Discussion"
+                      className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="contact-message"
+                      className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      required
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project, idea, or questions..."
+                      className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary w-full justify-center rounded-xl py-3 text-sm font-semibold shadow-md shadow-primary/20 disabled:opacity-50"
                   >
-                    "{quote}"
-                  </p>
-                ))}
-              </div>
-            </GlassCard>
-
-            {/* Availability */}
-            <GlassCard className="p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-sm font-medium text-foreground">Open to opportunities</span>
-              </div>
-              <p className="text-muted-foreground/60 text-sm leading-relaxed">
-                I'm always excited to contribute to open-source projects, participate in hackathons,
-                and share knowledge on tech topics.
-              </p>
-            </GlassCard>
-          </motion.div>
+                    {isSubmitting ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="h-4 w-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

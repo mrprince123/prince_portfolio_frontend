@@ -16,9 +16,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"Inter Variable"', "system-ui", "sans-serif"],
-        display: ['"Bricolage Grotesque Variable"', '"Inter Variable"', "system-ui", "sans-serif"],
-        mono: ['"Space Mono"', "ui-monospace", "monospace"],
+        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Manrope"', '"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Space Mono"', 'ui-monospace', 'monospace'],
+      },
+      boxShadow: {
+        soft: "0 2px 10px -2px rgba(0, 0, 0, 0.04), 0 8px 24px -4px rgba(0, 0, 0, 0.06)",
+        card: "0 4px 20px -2px rgba(0, 0, 0, 0.05)",
       },
       colors: {
         border: "hsl(var(--border))",

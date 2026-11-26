@@ -15,6 +15,7 @@ const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Skills = lazy(() => import("./pages/Skills"));
 const Projects = lazy(() => import("./pages/Projects"));
+const Experience = lazy(() => import("./pages/Experience"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Courses = lazy(() => import("./pages/Courses"));
@@ -92,15 +93,19 @@ const App = () => (
                   {/* Public Portfolio Routes */}
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/skills" element={<Skills />} />
+                  <Route path="/apps" element={<Projects />} />
                   <Route path="/projects" element={<Projects />} />
+                  <Route path="/articles" element={<Articles />} />
+                  <Route path="/experience" element={<Experience />} />
+                  <Route path="/work-experience" element={<Experience />} />
+                  <Route path="/skills" element={<Skills />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/contacts" element={<Contact />} />
                   <Route path="/blog/:slug" element={<BlogDetail />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/:slug" element={<CourseDetails />} />
                   <Route path="/resume" element={<Resume />} />
-                  <Route path="/articles" element={<Articles />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
 
                   {/* Admin Auth Route */}
