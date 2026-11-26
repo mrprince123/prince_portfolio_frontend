@@ -1,43 +1,51 @@
+/* ═══════════════════════════════════════════════
+   Design Tokens
+   Primary: Modern Purple (#7E22CE / 268 75% 42%)
+   ═══════════════════════════════════════════════ */
+
 :root {
-  --background: 48 24% 94%;
-  --foreground: 48 18% 7%;
-  --card: 48 30% 98%;
-  --card-foreground: 48 18% 7%;
-  --popover: 48 30% 98%;
-  --popover-foreground: 48 18% 7%;
-  --primary: 231 72% 45%;
-  --primary-foreground: 48 30% 98%;
-  --secondary: 45 18% 90%;
-  --secondary-foreground: 48 14% 20%;
-  --muted: 45 18% 90%;
-  --muted-foreground: 43 8% 45%;
-  --accent: 44 24% 91%;
-  --accent-foreground: 48 18% 12%;
+  /* Light mode */
+  --background: 0 0% 100%;
+  --foreground: 220 15% 10%;
+  --card: 0 0% 99%;
+  --card-foreground: 220 15% 10%;
+  --popover: 0 0% 99%;
+  --popover-foreground: 220 15% 10%;
+  --primary: 268 75% 42%;           /* rich purple #7e22ce */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 268 20% 96%;
+  --secondary-foreground: 220 15% 20%;
+  --muted: 210 14% 96%;
+  --muted-foreground: 215 10% 48%;
+  --accent: 268 60% 95%;
+  --accent-foreground: 268 75% 35%;
   --destructive: 0 72% 45%;
   --destructive-foreground: 0 0% 98%;
-  --border: 44 20% 83%;
-  --input: 44 20% 83%;
-  --ring: 231 72% 45%;
-  --radius: 0.75rem;
+  --border: 214 15% 88%;
+  --input: 214 15% 88%;
+  --ring: 268 75% 42%;
+  --radius: 0.5rem;
 }
+
 .dark {
-  --background: 225 14% 6%;
-  --foreground: 45 16% 91%;
-  --card: 224 16% 9%;
-  --card-foreground: 45 16% 91%;
-  --popover: 224 16% 9%;
-  --popover-foreground: 45 16% 91%;
-  --primary: 231 100% 75%;
-  --primary-foreground: 225 20% 10%;
-  --secondary: 225 14% 13%;
-  --secondary-foreground: 45 12% 85%;
-  --muted: 225 14% 12%;
-  --muted-foreground: 225 6% 55%;
-  --accent: 225 16% 15%;
-  --accent-foreground: 45 16% 91%;
+  /* Dark mode */
+  --background: 222 25% 7%;
+  --foreground: 210 20% 92%;
+  --card: 222 22% 10%;
+  --card-foreground: 210 20% 92%;
+  --popover: 222 22% 10%;
+  --popover-foreground: 210 20% 92%;
+  --primary: 268 85% 65%;           /* vibrant purple #c084fc */
+  --primary-foreground: 222 25% 7%;
+  --secondary: 222 18% 15%;
+  --secondary-foreground: 210 15% 80%;
+  --muted: 222 18% 14%;
+  --muted-foreground: 215 10% 54%;
+  --accent: 268 35% 18%;
+  --accent-foreground: 268 85% 75%;
   --destructive: 0 63% 50%;
   --destructive-foreground: 0 0% 98%;
-  --border: 228 12% 16%;
-  --input: 228 12% 16%;
-  --ring: 231 100% 75%;
+  --border: 222 15% 18%;
+  --input: 222 15% 18%;
+  --ring: 268 85% 65%;
 }

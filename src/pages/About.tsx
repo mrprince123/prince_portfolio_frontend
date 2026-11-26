@@ -1,6 +1,20 @@
 import { Seo } from "@/components/seo";
 import { Link } from "react-router-dom";
-import { MapPin, Briefcase, Sparkles } from "lucide-react";
+import {
+  MapPin,
+  Briefcase,
+  Sparkles,
+  Download,
+  GraduationCap,
+  CheckCircle2,
+  ArrowUpRight,
+  ShieldCheck,
+  Zap,
+  Layers,
+  Heart,
+  Camera,
+  BookText,
+} from "lucide-react";
 import {
   personalInfo,
   experiences,
@@ -9,18 +23,31 @@ import {
   stats,
 } from "@/data/portfolioData";
 import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
-import { Chip } from "@/components/ui/primitives/Chip";
-import { Button } from "@/components/ui/primitives/Button";
-import { StatStrip } from "@/components/ui/primitives/StatStrip";
 import { Reveal } from "@/components/ui/primitives/Reveal";
 import portrait from "@/assets/princesahni.jpg";
 import portrait2 from "@/assets/princesahni2.jpg";
-import introVideo from "@/assets/princesahni.mp4";
 
-const facts = [
-  { icon: MapPin, label: "Based in", value: personalInfo.location },
-  { icon: Briefcase, label: "Currently", value: "Software Engineer" },
-  { icon: Sparkles, label: "Focus", value: "Full-Stack · Cloud" },
+const OPTIMIZE_FOR = [
+  {
+    icon: ShieldCheck,
+    title: "System Reliability & Uptime",
+    desc: "Build scalable microservices and APIs with smart caching (Redis), graceful fallbacks, and connection pooling that survive traffic surges.",
+  },
+  {
+    icon: Zap,
+    title: "Speed, Performance & UX",
+    desc: "Zero layout shifts, sub-second API responses, and lightweight frontend bundles designed for seamless mobile and desktop interactions.",
+  },
+  {
+    icon: Sparkles,
+    title: "Pragmatic AI & Automation",
+    desc: "Incorporate LLM APIs, multi-agent pipelines, and intelligent tools to give users real superpower leverage without fragile hype.",
+  },
+  {
+    icon: Layers,
+    title: "Clean DX & Maintainable Code",
+    desc: "Strict TypeScript types, modular architecture, and predictable state that makes onboarding and scaling effortless for team members.",
+  },
 ];
 
 const About = () => (
@@ -32,199 +59,311 @@ const About = () => (
       image="https://princesahni.com/og-images/princesahni-logo.png"
     />
 
-    <section className="container mx-auto px-6 py-16">
-      {/* ── Intro ── */}
-      <div className="grid items-center gap-10 lg:grid-cols-[1fr_380px] lg:gap-16">
-        <div>
-          <span className="font-mono text-xs uppercase tracking-[0.12em] text-primary">Who I am</span>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight text-foreground md:text-6xl">
-            Hi, I'm <span className="text-gradient">Prince</span>.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">{personalInfo.bio}</p>
+    <div className="py-16 md:py-24">
+      <div className="container-page">
+        {/* Page Header */}
+        <SectionHeader
+          eyebrow="About Me"
+          title="About"
+          highlight={personalInfo.name}
+          subtitle="Software Engineer focused on building scalable web products, resilient APIs, and intuitive user experiences."
+        />
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {facts.map(({ icon: Icon, label, value }) => (
-              <div key={label} className="rounded-xl border border-border bg-card p-4">
-                <Icon className="h-4 w-4 text-primary" />
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-wide text-muted-foreground">{label}</p>
-                <p className="mt-0.5 text-sm text-foreground">{value}</p>
+        {/* Hero Profile Grid */}
+        <div className="mt-14 grid gap-14 lg:grid-cols-[1.15fr_0.85fr] items-start">
+          {/* Left Column: Narrative */}
+          <div className="space-y-6">
+            <Reveal>
+              <div className="space-y-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
+                <p>
+                  Hello! I&apos;m{" "}
+                  <span className="font-semibold text-foreground">
+                    {personalInfo.name}
+                  </span>
+                  , a Software Engineer based in {personalInfo.location}. Over the past few years,
+                  I&apos;ve engineered everything from Android mobile applications to
+                  production full-stack platforms, always prioritizing performance, reliability, and usability.
+                </p>
+                <p>
+                  {personalInfo.bioExtended}
+                </p>
+                <p>
+                  {personalInfo.bioCreative}
+                </p>
               </div>
-            ))}
+            </Reveal>
+
+            {/* Quick Facts Strip */}
+            <Reveal delay={0.1}>
+              <div className="grid gap-3 sm:grid-cols-3 pt-2">
+                <div className="rounded-xl border border-border bg-card p-4 shadow-soft">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Location
+                  </p>
+                  <p className="mt-0.5 text-sm font-bold text-foreground">
+                    {personalInfo.location}
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-border bg-card p-4 shadow-soft">
+                  <Briefcase className="h-4 w-4 text-primary" />
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Role
+                  </p>
+                  <p className="mt-0.5 text-sm font-bold text-foreground">
+                    {personalInfo.title}
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-border bg-card p-4 shadow-soft">
+                  <Sparkles className="h-4 w-4 text-primary" />
+                  <p className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    Focus
+                  </p>
+                  <p className="mt-0.5 text-sm font-bold text-foreground">
+                    Full-Stack · Cloud
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary rounded-full px-6 py-2.5 text-sm font-semibold shadow-md shadow-primary/20"
+              >
+                <Download className="h-4 w-4" />
+                Download Résumé
+              </a>
+              <Link
+                to="/contact"
+                className="btn-ghost rounded-full px-6 py-2.5 text-sm font-semibold"
+              >
+                Get In Touch →
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button asChild variant="primary">
-              <Link to="/contact">Get in touch →</Link>
-            </Button>
-            <Button asChild variant="link">
-              <a href={personalInfo.resumeUrl} target="_blank" rel="noreferrer">
-                Download résumé
-              </a>
-            </Button>
+          {/* Right Column: Photo Card */}
+          <div className="lg:sticky lg:top-24">
+            <Reveal delay={0.15}>
+              <div className="rounded-2xl border border-border bg-card p-3 shadow-soft">
+                <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
+                  <img
+                    src={portrait}
+                    alt={personalInfo.name}
+                    width={500}
+                    height={625}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
+                  />
+                </div>
+                <div className="p-3">
+                  <h3 className="font-display text-base font-bold text-foreground">
+                    {personalInfo.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    {personalInfo.title} · Webkul Software
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
 
-        <Reveal delay={0.1}>
-          <div className="group relative">
-            <div className="absolute -inset-3 -z-10 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent opacity-70 blur-xl" />
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <img
-                src={portrait}
-                alt={personalInfo.name}
-                width={640}
-                height={800}
-                className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            <p className="mt-3 text-center font-mono text-xs text-muted-foreground">
-              {personalInfo.name} — {personalInfo.title}
-            </p>
+        {/* ── What I Optimize For (Tara routray signature section) ── */}
+        <div className="mt-20 border-t border-border pt-16">
+          <SectionHeader
+            eyebrow="Core Principles"
+            title="What I optimize for in"
+            highlight="production"
+            subtitle="Software engineering values that keep applications resilient, maintainable, and fast."
+          />
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {OPTIMIZE_FOR.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.title} delay={idx * 0.08}>
+                  <div className="flex flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:border-primary/40 hover:shadow-md">
+                    <div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-display text-base font-bold text-foreground">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
-        </Reveal>
-      </div>
+        </div>
 
-      {/* ── Stats ── */}
-      <div className="mt-16">
-        <StatStrip items={stats.map((s) => ({ value: s.number, label: s.label }))} />
-      </div>
-
-      {/* ── My Story (image + text) ── */}
-      <div className="mt-24 grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <Reveal>
-          <div className="overflow-hidden rounded-2xl border border-border">
-            <img
-              src={portrait2}
-              alt={`${personalInfo.name} at work`}
-              width={720}
-              height={540}
-              loading="lazy"
-              className="aspect-[4/3] w-full object-cover"
+        {/* ── Career & Experience Highlights ── */}
+        <div className="mt-20 border-t border-border pt-16">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <SectionHeader
+              eyebrow="Work History"
+              title="Recent engineering"
+              highlight="experience"
+              subtitle="Where I've delivered scalable features and contributed to team milestones."
+              className="mb-0"
             />
+            <Link
+              to="/experience"
+              className="btn-ghost rounded-full px-5 py-2 text-xs font-semibold shrink-0"
+            >
+              Full Work History →
+            </Link>
           </div>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.12em] text-primary">My story</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground">
-              From Android apps to full-stack platforms.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">{personalInfo.bioExtended}</p>
-            <p className="mt-4 leading-relaxed text-muted-foreground">{personalInfo.bio}</p>
-          </div>
-        </Reveal>
-      </div>
 
-      {/* ── Beyond Code (text + video) ── */}
-      <div className="mt-24 grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <Reveal>
-          <div>
-            <span className="font-mono text-xs uppercase tracking-[0.12em] text-primary">Beyond code</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground">
-              Curious by default.
-            </h2>
-            <p className="mt-4 leading-relaxed text-muted-foreground">{personalInfo.bioCreative}</p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {interests.map((interest) => (
-                <Chip key={interest} className="transition-colors hover:border-primary/50 hover:text-primary">
-                  {interest}
-                </Chip>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <div className="overflow-hidden rounded-2xl border border-border">
-            <video
-              src={introVideo}
-              poster={portrait2}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="aspect-[4/5] w-full object-cover md:aspect-[4/3]"
-            />
-          </div>
-        </Reveal>
-      </div>
-
-      {/* ── Experience ── */}
-      <div className="mt-24">
-        <SectionHeader index="01" title="Experience" />
-        <div className="mt-8">
-          {experiences.map((exp, i) => (
-            <Reveal key={exp.company} delay={i * 0.05}>
-              <div className="group relative grid gap-4 border-l border-border py-8 pl-8 md:grid-cols-[200px_1fr] md:gap-10">
-                <span className="absolute -left-[5px] top-9 h-2.5 w-2.5 rounded-full border-2 border-background bg-border transition-colors group-hover:bg-primary" />
-                <div>
-                  <p className="font-mono text-xs text-primary">{exp.period}</p>
-                  <p className="mt-1 font-mono text-xs text-muted-foreground">{exp.location}</p>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl text-foreground md:text-2xl">{exp.title}</h3>
-                  <p className="mt-0.5 font-mono text-sm text-muted-foreground">{exp.company}</p>
-                  <p className="mt-3 max-w-2xl text-muted-foreground">{exp.description}</p>
-                  <ul className="mt-4 space-y-1.5">
-                    {exp.achievements.map((a) => (
-                      <li key={a} className="flex gap-2.5 text-sm text-foreground/80">
-                        <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-primary" />
-                        {a}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {exp.technologies.map((t) => (
-                      <span key={t} className="rounded-md bg-secondary px-2 py-0.5 font-mono text-[11px] text-muted-foreground">
-                        {t}
+          <div className="space-y-4">
+            {experiences.map((exp, idx) => (
+              <Reveal key={exp.company} delay={idx * 0.08}>
+                <div className="rounded-2xl border border-border bg-card p-6 shadow-soft transition-all hover:border-primary/40">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
+                    <div>
+                      <h4 className="font-display text-base font-bold text-foreground">
+                        {exp.title}{" "}
+                        <span className="text-primary font-medium">@ {exp.company}</span>
+                      </h4>
+                    </div>
+                    <span className="text-xs font-semibold text-muted-foreground">
+                      {exp.period} · {exp.location}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    {exp.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {exp.technologies.slice(0, 5).map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-md border border-border bg-secondary px-2 py-0.5 text-xs text-muted-foreground"
+                      >
+                        {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* ── Education ── */}
-      <div className="mt-24">
-        <SectionHeader index="02" title="Education" />
-        <div className="mt-8 grid gap-5">
-          {education.map((edu) => (
-            <Reveal key={edu.degree}>
-              <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-display text-xl text-foreground md:text-2xl">{edu.degree}</h3>
-                  <span className="font-mono text-xs text-primary">{edu.period}</span>
+        {/* ── Education & Beyond Code ── */}
+        <div className="mt-20 border-t border-border pt-16 grid gap-10 lg:grid-cols-2">
+          {/* Education */}
+          <div>
+            <SectionHeader
+              eyebrow="Academics"
+              title="Formal"
+              highlight="education"
+              subtitle="Foundations in computer science, software engineering, and algorithms."
+            />
+
+            <div className="space-y-4">
+              {education.map((edu) => (
+                <div
+                  key={edu.institution}
+                  className="rounded-2xl border border-border bg-card p-6 shadow-soft"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-primary">
+                      {edu.period}
+                    </span>
+                    <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
+                      GPA {edu.gpa}
+                    </span>
+                  </div>
+                  <h4 className="mt-2 font-display text-base font-bold text-foreground">
+                    {edu.degree}
+                  </h4>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {edu.institution} · {edu.location}
+                  </p>
                 </div>
-                <p className="mt-1 font-mono text-sm text-muted-foreground">
-                  {edu.institution} · {edu.location}
+              ))}
+            </div>
+          </div>
+
+          {/* Beyond Code / Interests */}
+          <div>
+            <SectionHeader
+              eyebrow="Beyond The Screen"
+              title="Passions &amp;"
+              highlight="creativity"
+              subtitle="Knowledge sharing, photography, and community contribution."
+            />
+
+            <div className="rounded-2xl border border-border bg-card p-6 shadow-soft space-y-4">
+              <div className="flex items-start gap-3">
+                <BookText className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <h5 className="text-sm font-bold text-foreground">Technical Writing on Medium</h5>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                    Authoring in-depth articles on modern JavaScript, distributed systems, and backend frameworks.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 border-t border-border pt-3">
+                <Camera className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <h5 className="text-sm font-bold text-foreground">Photography &amp; Visual Arts</h5>
+                  <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
+                    Capturing perspectives and urban street life; contributing as a Google Maps Local Guide with over 600K+ views.
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-border pt-4">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                  All Interests &amp; Hobbies
                 </p>
-                <div className="mt-3 flex flex-wrap gap-3 font-mono text-xs text-muted-foreground">
-                  <span>GPA {edu.gpa}</span>
-                  <span className="text-primary">{edu.honors}</span>
-                </div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {edu.relevant.map((course) => (
-                    <Chip key={course}>{course}</Chip>
+                <div className="flex flex-wrap gap-1.5">
+                  {interests.map((interest) => (
+                    <span
+                      key={interest}
+                      className="rounded-full border border-border bg-secondary/80 px-3 py-1 text-xs text-muted-foreground"
+                    >
+                      {interest}
+                    </span>
                   ))}
                 </div>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* ── CTA ── */}
-      <div className="mt-24 rounded-2xl border border-border bg-card p-10 text-center">
-        <h2 className="font-display text-2xl font-bold text-foreground md:text-3xl">Let's work together.</h2>
-        <p className="mt-3 font-mono text-sm text-muted-foreground">{personalInfo.email}</p>
-        <div className="mt-6 flex justify-center">
-          <Button asChild variant="primary">
-            <Link to="/contact">Start a conversation →</Link>
-          </Button>
+        {/* Bottom CTA */}
+        <div className="mt-20 rounded-2xl border border-border bg-card/60 p-8 text-center shadow-soft">
+          <h3 className="font-display text-2xl font-bold text-foreground">
+            Interested in working together?
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
+            I&apos;m open to discussing full-time software engineering roles, high-impact products, and consulting.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="btn-primary rounded-full px-6 py-2.5 text-sm font-semibold">
+              Send a Message
+            </Link>
+            <Link to="/apps" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-semibold">
+              Explore My Apps
+            </Link>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   </>
 );
 

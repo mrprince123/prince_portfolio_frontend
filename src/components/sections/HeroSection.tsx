@@ -1,115 +1,111 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "framer-motion";
-import { personalInfo, stats } from "@/data/portfolioData";
-import { Button } from "@/components/ui/primitives/Button";
-import { StatStrip } from "@/components/ui/primitives/StatStrip";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { personalInfo } from "@/data/portfolioData";
 
-const HeroCanvas = lazy(() => import("@/components/hero/HeroCanvas"));
-
-const TAGLINES = personalInfo.taglines;
-
-const useTypewriter = (words: string[]) => {
-  const [index, setIndex] = useState(0);
-  const [text, setText] = useState("");
-  const [deleting, setDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = words[index % words.length];
-    const done = !deleting && text === current;
-    const cleared = deleting && text === "";
-    const delay = done ? 1600 : cleared ? 200 : deleting ? 40 : 70;
-
-    const timer = setTimeout(() => {
-      if (done) setDeleting(true);
-      else if (cleared) {
-        setDeleting(false);
-        setIndex((i) => i + 1);
-      } else {
-        setText(current.slice(0, deleting ? text.length - 1 : text.length + 1));
-      }
-    }, delay);
-
-    return () => clearTimeout(timer);
-  }, [text, deleting, index, words]);
-
-  return text;
-};
-
-// Staggered entrance for the hero copy.
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] } },
-};
-
-const HeroSection = () => {
-  const typed = useTypewriter(TAGLINES);
-  const reduced = useReducedMotion();
-  const isMobile = useIsMobile();
+export const HeroSection = () => {
+  const handleScroll = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden">
-      {/* Ambient hero backdrop: a single bespoke wireframe object on capable
-          devices, a gradient otherwise. Lazy-loaded so three.js ships only here.
-          Kept at z-0 (not negative) so it paints above the page background. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_70%_10%,hsl(var(--primary)/0.12),transparent_70%)]" />
-        <div className="absolute inset-0 bg-grid opacity-60" />
-        {!reduced && !isMobile && (
-          <Suspense fallback={null}>
-            <HeroCanvas />
-          </Suspense>
-        )}
-      </div>
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24">
+      <div className="container-page relative z-10">
+        {/* Top Accent Eyebrow: —— FULL-STACK & BACKEND ENGINEER —— */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="flex items-center justify-center gap-3"
+        >
+          <span className="h-px w-10 sm:w-16 bg-border/80" />
+          <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-muted-foreground/80">
+            SOFTWARE ENGINEER
+          </span>
+          <span className="h-px w-10 sm:w-16 bg-border/80" />
+        </motion.div>
 
-      <div className="relative z-10 container mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 gap-0 md:grid-cols-[44px_1fr] md:gap-7">
-          <div className="hidden md:block">
-            <span className="mt-1 inline-block rotate-180 font-mono text-[11px] tracking-[0.12em] text-muted-foreground [writing-mode:vertical-rl]">
-              PORTFOLIO / 2026
+        {/* Hero Headline (100% Matching Reference Typography) */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="mt-6 text-center"
+        >
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight text-foreground leading-[1.08]">
+            Building scalable <br />
+            products with{" "}
+            <span className="text-purple-600 dark:text-purple-400">
+              clean
+            </span>{" "}
+            <br />
+            <span className="bg-gradient-to-r from-[#b47334] via-[#d99042] to-[#d47828] dark:from-[#dca052] dark:via-[#eab308] dark:to-[#f59e0b] bg-clip-text text-transparent">
+              architecture
             </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mx-auto mt-6 max-w-2xl text-center text-base sm:text-lg leading-relaxed text-muted-foreground">
+            I craft modern web applications, robust backend systems, seamless integrations, and pragmatic AI workflows that deliver real business value.
+          </p>
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.16 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3.5"
+        >
+          <button
+            onClick={() => handleScroll("apps")}
+            className="inline-flex items-center gap-2 rounded-full bg-purple-700 hover:bg-purple-800 dark:bg-purple-600 dark:hover:bg-purple-500 px-7 py-3 text-sm font-semibold text-white shadow-soft transition-all hover:shadow-md hover:-translate-y-px active:scale-95"
+          >
+            View my work
+            <ArrowRight className="h-4 w-4" />
+          </button>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center justify-center rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-foreground shadow-soft transition-all hover:bg-accent hover:border-primary/40 active:scale-95"
+          >
+            Get in touch
+          </Link>
+        </motion.div>
+
+        {/* Three Pill Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.22 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-2.5"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-500 animate-pulse" />
+            2+ years shipping
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/70 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-soft">
+            📦 Design → Deploy
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/70 backdrop-blur-sm px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-soft">
+            ⚡ Pragmatic AI
+          </span>
+        </motion.div>
+
+        {/* Scroll Indicator (Tara Routray Signature) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 sm:mt-20 flex flex-col items-center justify-center gap-2 text-muted-foreground/60"
+        >
+          <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/70">
+            SCROLL
+          </span>
+          <div className="h-7 w-4 rounded-full border-2 border-muted-foreground/30 p-1 flex justify-center">
+            <div className="h-1.5 w-1 rounded-full bg-muted-foreground/60 animate-bounce" />
           </div>
-          <motion.div variants={container} initial={reduced ? false : "hidden"} animate="show" className="max-w-3xl">
-            <motion.div variants={item} className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.1em] text-primary">
-              Software Engineer — {personalInfo.location}
-              <span className="h-px w-14 bg-primary/40" />
-            </motion.div>
-
-            <motion.h1 variants={item} className="text-balance font-display text-5xl font-bold leading-[0.98] tracking-tight text-foreground md:text-7xl">
-              I build software that{" "}
-              <em className="not-italic text-primary">solves the problem</em> first, then writes clean code.
-            </motion.h1>
-
-            <motion.p variants={item} className="mt-6 font-mono text-sm text-muted-foreground">
-              <span className="text-primary">$</span> {typed}
-              <span className="ml-0.5 inline-block h-4 w-2 translate-y-0.5 animate-pulse bg-primary align-middle motion-reduce:animate-none" />
-            </motion.p>
-
-            <motion.p variants={item} className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              {personalInfo.bio}
-            </motion.p>
-
-            <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-5">
-              <Button asChild variant="primary">
-                <Link to="/projects">View selected work</Link>
-              </Button>
-              <Button asChild variant="link">
-                <a href={personalInfo.resumeUrl} target="_blank" rel="noreferrer">
-                  Download résumé →
-                </a>
-              </Button>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        <div className="mt-16">
-          <StatStrip items={stats.map((s) => ({ value: s.number, label: s.label }))} />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
