@@ -132,10 +132,27 @@ const Skills = () => {
   return (
     <>
       <Seo
-        title="Skills | Prince Kumar Sahni - Software Engineer"
-        description="Comprehensive technical skills, programming languages, frameworks, and architecture defaults utilized by Prince Kumar Sahni."
+        title="Technical Skills & Architecture Stack | Prince Kumar Sahni"
+        description="Core technical competencies of Prince Kumar Sahni across backend engineering, distributed databases, cloud architecture, system design, and TypeScript."
         url="https://princesahni.com/skills"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Skills",
+          "Backend Developer Stack",
+          "TypeScript",
+          "Node.js",
+          "Python",
+          "FastAPI",
+          "Docker",
+          "Kubernetes",
+          "PostgreSQL",
+          "Redis",
+          "MongoDB",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Skills", path: "/skills" },
+        ]}
       />
 
       <div className="relative min-h-screen py-16 md:py-24 overflow-hidden">
@@ -264,13 +281,22 @@ const Skills = () => {
                             key={skill.name}
                             className="group inline-flex items-center gap-2 rounded-lg border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-primary/40 hover:bg-card"
                           >
-                            <span
-                              className="h-1.5 w-1.5 rounded-full transition-transform group-hover:scale-125"
-                              style={{
-                                backgroundColor:
-                                  skill.color || "hsl(var(--primary))",
-                              }}
-                            />
+                            {skill.icon && skill.icon.startsWith("http") ? (
+                              <img
+                                src={skill.icon}
+                                alt={skill.name}
+                                className="h-4 w-4 object-contain"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <span
+                                className="h-1.5 w-1.5 rounded-full transition-transform group-hover:scale-125"
+                                style={{
+                                  backgroundColor:
+                                    skill.color || "hsl(var(--primary))",
+                                }}
+                              />
+                            )}
                             <span>{skill.name}</span>
                           </div>
                         ))}

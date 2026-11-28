@@ -37,10 +37,21 @@ const Resume = () => {
   return (
     <>
       <Seo
-        title="Resume | Prince Kumar Sahni - Software Engineer"
-        description="Professional resume of Prince Kumar Sahni, Software Engineer specializing in Python-based backend systems, e-commerce, PIM architectures, and AI integrations."
+        title="Resume & Technical CV | Prince Kumar Sahni - Software Engineer"
+        description="Official resume and CV of Prince Kumar Sahni. View professional experience, education, system architecture credentials, technical skills, and certifications."
         url="https://princesahni.com/resume"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Resume",
+          "Prince Sahni CV",
+          "Software Engineer Resume",
+          "Hire Prince Sahni",
+          "Backend Engineer Resume PDF",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Resume", path: "/resume" },
+        ]}
       />
 
       <div className="relative min-h-screen py-16 md:py-24 overflow-hidden">

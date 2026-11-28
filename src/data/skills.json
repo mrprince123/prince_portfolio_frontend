@@ -1,0 +1,573 @@
+[
+  {
+    "name": "Programming Languages",
+    "description": "Core languages used for backend logic, scripting, and web systems",
+    "skills": [
+      {
+        "name": "Python (OOP)",
+        "icon": "Code2",
+        "color": "#3776AB"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "Code",
+        "color": "#F7DF1E"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "FileCode",
+        "color": "#3178C6"
+      },
+      {
+        "name": "Java",
+        "icon": "Coffee",
+        "color": "#ED8B00"
+      },
+      {
+        "name": "SQL",
+        "icon": "Database",
+        "color": "#00758F"
+      },
+      {
+        "name": "HTML5 & CSS3",
+        "icon": "Layout",
+        "color": "#E34F26"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "Python (OOP)",
+        "icon": "Code2",
+        "color": "#3776AB"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "Code",
+        "color": "#F7DF1E"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "FileCode",
+        "color": "#3178C6"
+      },
+      {
+        "name": "Java",
+        "icon": "Coffee",
+        "color": "#ED8B00"
+      },
+      {
+        "name": "SQL",
+        "icon": "Database",
+        "color": "#00758F"
+      },
+      {
+        "name": "HTML5 & CSS3",
+        "icon": "Layout",
+        "color": "#E34F26"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "Frameworks & Platforms",
+    "description": "Backend architectures, microservices, and modern frontend stacks",
+    "skills": [
+      {
+        "name": "Django",
+        "icon": "Shield",
+        "color": "#092E20"
+      },
+      {
+        "name": "FastAPI",
+        "icon": "Zap",
+        "color": "#009688"
+      },
+      {
+        "name": "React.js",
+        "icon": "Atom",
+        "color": "#61DAFB"
+      },
+      {
+        "name": "Vue.js",
+        "icon": "Component",
+        "color": "#4FC08D"
+      },
+      {
+        "name": "Next.js",
+        "icon": "Zap",
+        "color": "#000000"
+      },
+      {
+        "name": "Node.js & Express",
+        "icon": "Server",
+        "color": "#339933"
+      },
+      {
+        "name": "MVC Architecture",
+        "icon": "Layers",
+        "color": "#8b5cf6"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "Django",
+        "icon": "Shield",
+        "color": "#092E20"
+      },
+      {
+        "name": "FastAPI",
+        "icon": "Zap",
+        "color": "#009688"
+      },
+      {
+        "name": "React.js",
+        "icon": "Atom",
+        "color": "#61DAFB"
+      },
+      {
+        "name": "Vue.js",
+        "icon": "Component",
+        "color": "#4FC08D"
+      },
+      {
+        "name": "Next.js",
+        "icon": "Zap",
+        "color": "#000000"
+      },
+      {
+        "name": "Node.js & Express",
+        "icon": "Server",
+        "color": "#339933"
+      },
+      {
+        "name": "MVC Architecture",
+        "icon": "Layers",
+        "color": "#8b5cf6"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "APIs & Integrations",
+    "description": "Enterprise communication protocols, real-time protocols, and third-party SDKs",
+    "skills": [
+      {
+        "name": "REST APIs",
+        "icon": "Globe",
+        "color": "#00f0ff"
+      },
+      {
+        "name": "GraphQL",
+        "icon": "Network",
+        "color": "#E10098"
+      },
+      {
+        "name": "WebSockets",
+        "icon": "Radio",
+        "color": "#F05032"
+      },
+      {
+        "name": "Webhooks",
+        "icon": "Webhook",
+        "color": "#38bdf8"
+      },
+      {
+        "name": "Third-party APIs & SDKs",
+        "icon": "Puzzle",
+        "color": "#a855f7"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "REST APIs",
+        "icon": "Globe",
+        "color": "#00f0ff"
+      },
+      {
+        "name": "GraphQL",
+        "icon": "Network",
+        "color": "#E10098"
+      },
+      {
+        "name": "WebSockets",
+        "icon": "Radio",
+        "color": "#F05032"
+      },
+      {
+        "name": "Webhooks",
+        "icon": "Webhook",
+        "color": "#38bdf8"
+      },
+      {
+        "name": "Third-party APIs & SDKs",
+        "icon": "Puzzle",
+        "color": "#a855f7"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "Databases & In-Memory",
+    "description": "Relational, document, caching, and performance-tuned data layers",
+    "skills": [
+      {
+        "name": "PostgreSQL",
+        "icon": "Database",
+        "color": "#4169E1"
+      },
+      {
+        "name": "MySQL",
+        "icon": "Cylinder",
+        "color": "#4479A1"
+      },
+      {
+        "name": "Redis (Caching)",
+        "icon": "Zap",
+        "color": "#DC382D"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "Leaf",
+        "color": "#47A248"
+      },
+      {
+        "name": "Indexing & Sharding",
+        "icon": "HardDrive",
+        "color": "#10b981"
+      },
+      {
+        "name": "Stored Procedures & Views",
+        "icon": "Table",
+        "color": "#6366f1"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "PostgreSQL",
+        "icon": "Database",
+        "color": "#4169E1"
+      },
+      {
+        "name": "MySQL",
+        "icon": "Cylinder",
+        "color": "#4479A1"
+      },
+      {
+        "name": "Redis (Caching)",
+        "icon": "Zap",
+        "color": "#DC382D"
+      },
+      {
+        "name": "MongoDB",
+        "icon": "Leaf",
+        "color": "#47A248"
+      },
+      {
+        "name": "Indexing & Sharding",
+        "icon": "HardDrive",
+        "color": "#10b981"
+      },
+      {
+        "name": "Stored Procedures & Views",
+        "icon": "Table",
+        "color": "#6366f1"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "Message Brokers & Queues",
+    "description": "Asynchronous task workers and distributed event messaging",
+    "skills": [
+      {
+        "name": "Celery",
+        "icon": "Cpu",
+        "color": "#37814A"
+      },
+      {
+        "name": "RabbitMQ",
+        "icon": "Inbox",
+        "color": "#FF6600"
+      },
+      {
+        "name": "Apache Kafka",
+        "icon": "Activity",
+        "color": "#231F20"
+      },
+      {
+        "name": "Redis Queue",
+        "icon": "ListOrdered",
+        "color": "#DC382D"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "Celery",
+        "icon": "Cpu",
+        "color": "#37814A"
+      },
+      {
+        "name": "RabbitMQ",
+        "icon": "Inbox",
+        "color": "#FF6600"
+      },
+      {
+        "name": "Apache Kafka",
+        "icon": "Activity",
+        "color": "#231F20"
+      },
+      {
+        "name": "Redis Queue",
+        "icon": "ListOrdered",
+        "color": "#DC382D"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "AI & Automation",
+    "description": "Agentic AI workflows, LLM orchestration, and RAG architectures",
+    "skills": [
+      {
+        "name": "Agentic AI",
+        "icon": "Bot",
+        "color": "#10b981"
+      },
+      {
+        "name": "Gemini API",
+        "icon": "Sparkles",
+        "color": "#4285F4"
+      },
+      {
+        "name": "RAG (Retrieval-Augmented)",
+        "icon": "Search",
+        "color": "#ec4899"
+      },
+      {
+        "name": "Prompt Engineering",
+        "icon": "Terminal",
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "Vector Search",
+        "icon": "Compass",
+        "color": "#06b6d4"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "Agentic AI",
+        "icon": "Bot",
+        "color": "#10b981"
+      },
+      {
+        "name": "Gemini API",
+        "icon": "Sparkles",
+        "color": "#4285F4"
+      },
+      {
+        "name": "RAG (Retrieval-Augmented)",
+        "icon": "Search",
+        "color": "#ec4899"
+      },
+      {
+        "name": "Prompt Engineering",
+        "icon": "Terminal",
+        "color": "#8b5cf6"
+      },
+      {
+        "name": "Vector Search",
+        "icon": "Compass",
+        "color": "#06b6d4"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "PIM & E-Commerce Platforms",
+    "description": "Product Information Management systems and headless commerce",
+    "skills": [
+      {
+        "name": "UnoPim",
+        "icon": "Box",
+        "color": "#2563eb"
+      },
+      {
+        "name": "Bagisto",
+        "icon": "ShoppingBag",
+        "color": "#059669"
+      },
+      {
+        "name": "Shopify Connector",
+        "icon": "ShoppingBag",
+        "color": "#95BF47"
+      },
+      {
+        "name": "WooCommerce",
+        "icon": "Store",
+        "color": "#96588A"
+      },
+      {
+        "name": "Magento 2",
+        "icon": "Boxes",
+        "color": "#EE672F"
+      },
+      {
+        "name": "BigCommerce",
+        "icon": "ShoppingCart",
+        "color": "#121118"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "UnoPim",
+        "icon": "Box",
+        "color": "#2563eb"
+      },
+      {
+        "name": "Bagisto",
+        "icon": "ShoppingBag",
+        "color": "#059669"
+      },
+      {
+        "name": "Shopify Connector",
+        "icon": "ShoppingBag",
+        "color": "#95BF47"
+      },
+      {
+        "name": "WooCommerce",
+        "icon": "Store",
+        "color": "#96588A"
+      },
+      {
+        "name": "Magento 2",
+        "icon": "Boxes",
+        "color": "#EE672F"
+      },
+      {
+        "name": "BigCommerce",
+        "icon": "ShoppingCart",
+        "color": "#121118"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "Cloud, DevOps & Tools",
+    "description": "Containerization, cloud infrastructure, CI/CD, and developer tooling",
+    "skills": [
+      {
+        "name": "AWS (EC2, S3)",
+        "icon": "Cloud",
+        "color": "#FF9900"
+      },
+      {
+        "name": "Docker",
+        "icon": "Container",
+        "color": "#2496ED"
+      },
+      {
+        "name": "Linux & Shell",
+        "icon": "Terminal",
+        "color": "#FCC624"
+      },
+      {
+        "name": "Nginx",
+        "icon": "Server",
+        "color": "#009639"
+      },
+      {
+        "name": "Git & GitHub",
+        "icon": "GitBranch",
+        "color": "#F05032"
+      },
+      {
+        "name": "Postman",
+        "icon": "Send",
+        "color": "#FF6C37"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "AWS (EC2, S3)",
+        "icon": "Cloud",
+        "color": "#FF9900"
+      },
+      {
+        "name": "Docker",
+        "icon": "Container",
+        "color": "#2496ED"
+      },
+      {
+        "name": "Linux & Shell",
+        "icon": "Terminal",
+        "color": "#FCC624"
+      },
+      {
+        "name": "Nginx",
+        "icon": "Server",
+        "color": "#009639"
+      },
+      {
+        "name": "Git & GitHub",
+        "icon": "GitBranch",
+        "color": "#F05032"
+      },
+      {
+        "name": "Postman",
+        "icon": "Send",
+        "color": "#FF6C37"
+      }
+    ],
+    "isVisible": true
+  },
+  {
+    "name": "Payment Gateways",
+    "description": "Secure fintech integrations and subscription payment processing",
+    "skills": [
+      {
+        "name": "Stripe",
+        "icon": "CreditCard",
+        "color": "#635BFF"
+      },
+      {
+        "name": "Paystack",
+        "icon": "DollarSign",
+        "color": "#00C3F7"
+      },
+      {
+        "name": "PayUMoney",
+        "icon": "Wallet",
+        "color": "#22C55E"
+      },
+      {
+        "name": "Razorpay",
+        "icon": "CheckCircle",
+        "color": "#0C2340"
+      }
+    ],
+    "skillsList": [
+      {
+        "name": "Stripe",
+        "icon": "CreditCard",
+        "color": "#635BFF"
+      },
+      {
+        "name": "Paystack",
+        "icon": "DollarSign",
+        "color": "#00C3F7"
+      },
+      {
+        "name": "PayUMoney",
+        "icon": "Wallet",
+        "color": "#22C55E"
+      },
+      {
+        "name": "Razorpay",
+        "icon": "CheckCircle",
+        "color": "#0C2340"
+      }
+    ],
+    "isVisible": true
+  }
+]

@@ -1,20 +1,35 @@
+import { useMemo } from "react";
 import {
   Code2,
   Server,
   Database,
   Cloud,
-  Wrench,
-  Sparkles,
   Layers,
+  Sparkles,
   Globe,
   Cpu,
   Bot,
   ShoppingBag,
   CreditCard,
 } from "lucide-react";
-import { skillCategories, learningTech } from "@/data/portfolioData";
+import { skillCategories as fallbackCategories, learningTech } from "@/data/portfolioData";
 import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
 import { Reveal } from "@/components/ui/primitives/Reveal";
+import { useResource } from "@/hooks/useResource";
+
+interface RawSkill {
+  name: string;
+  icon?: string;
+  color?: string;
+}
+
+interface RawCategory {
+  _id?: string;
+  name: string;
+  description?: string;
+  skills?: RawSkill[];
+  skillsList?: RawSkill[];
+}
 
 const CATEGORY_ICONS: Record<string, any> = {
   "Programming Languages": Code2,
@@ -26,14 +41,33 @@ const CATEGORY_ICONS: Record<string, any> = {
   "PIM & E-Commerce Platforms": ShoppingBag,
   "Cloud, DevOps & Tools": Cloud,
   "Payment Gateways": CreditCard,
-  "Frontend Development": Code2,
-  "Backend Development": Server,
-  "Database Technologies": Database,
-  "DevOps & Cloud": Cloud,
-  "Tools & Development": Wrench,
+  "Backend Technologies": Server,
+  "Frontend Technologies": Layers,
+  "Databases": Database,
 };
 
 export const SkillsSection = () => {
+  const { data: rawApiData } = useResource<RawCategory[]>(
+    ["skills", "home"],
+    import.meta.env.VITE_SKILL_URL,
+    { fallback: undefined, timeoutMs: 2500 }
+  );
+
+  const categories = useMemo(() => {
+    if (Array.isArray(rawApiData) && rawApiData.length > 0) {
+      return rawApiData.map((cat) => ({
+        name: cat.name,
+        description: cat.description || "",
+        skills: (cat.skills || cat.skillsList || []).map((s) => ({
+          name: s.name,
+          icon: s.icon || "",
+          color: s.color || "#0d9488",
+        })),
+      }));
+    }
+    return fallbackCategories;
+  }, [rawApiData]);
+
   return (
     <section id="skills" className="py-24 md:py-32 border-t border-border">
       <div className="container-page">
@@ -45,8 +79,8 @@ export const SkillsSection = () => {
         />
 
         {/* Categories Grid */}
-        <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category, index) => {
+        <div className="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-2">
+          {categories.map((category, index) => {
             const Icon = CATEGORY_ICONS[category.name] || Code2;
 
             return (
@@ -75,10 +109,19 @@ export const SkillsSection = () => {
                           key={skill.name}
                           className="group inline-flex items-center gap-2 rounded-lg border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:border-primary/40 hover:bg-card"
                         >
-                          <span
-                            className="h-1.5 w-1.5 rounded-full transition-transform group-hover:scale-125"
-                            style={{ backgroundColor: skill.color || "hsl(var(--primary))" }}
-                          />
+                          {skill.icon && skill.icon.startsWith("http") ? (
+                            <img
+                              src={skill.icon}
+                              alt={skill.name}
+                              className="h-4 w-4 object-contain"
+                              loading="lazy"
+                            />
+                          ) : (
+                            <span
+                              className="h-1.5 w-1.5 rounded-full transition-transform group-hover:scale-125"
+                              style={{ backgroundColor: skill.color || "hsl(var(--primary))" }}
+                            />
+                          )}
                           <span>{skill.name}</span>
                         </div>
                       ))}
@@ -109,7 +152,7 @@ export const SkillsSection = () => {
                 {learningTech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold text-primary"
+                    className="rounded-full border border-border/80 bg-secondary/80 px-3 py-1 text-xs font-medium text-muted-foreground"
                   >
                     {tech}
                   </span>

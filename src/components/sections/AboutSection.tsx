@@ -27,7 +27,7 @@ export const AboutSection = () => {
           eyebrow="About Me"
           title="Background & engineering"
           highlight="philosophy"
-          subtitle="Writing clean code, designing resilient systems, and solving real problems from end to end."
+          subtitle="Software Engineer focused on AI + Python Development, designing resilient systems and solving complex problems from end to end."
         />
 
         <div className="mt-14 grid gap-14 lg:grid-cols-[1.15fr_0.85fr] items-start">
@@ -36,13 +36,12 @@ export const AboutSection = () => {
             <Reveal>
               <div className="space-y-4 text-base sm:text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  I&apos;m a Software Engineer based in{" "}
+                  I&apos;m a <strong className="font-semibold text-foreground">Software Engineer</strong> based in{" "}
                   <span className="font-semibold text-foreground">
                     {personalInfo.location}
                   </span>
-                  . Over the past few years, I&apos;ve engineered everything from
-                  high-volume web applications to mobile experiences and full-stack
-                  cloud microservices.
+                  , with a primary focus on{" "}
+                  <strong className="font-semibold text-foreground">AI + Python Development</strong>. Over the past few years, I&apos;ve engineered everything from autonomous AI agent pipelines and RAG architectures to high-throughput backend services and enterprise PIM integrations.
                 </p>
                 <p>
                   {personalInfo.bioExtended}
@@ -138,7 +137,7 @@ export const AboutSection = () => {
                 <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
                   <img
                     src={portrait}
-                    alt={personalInfo.name}
+                    alt={`${personalInfo.name} - Software Engineer & Systems Architect`}
                     width={500}
                     height={625}
                     loading="lazy"

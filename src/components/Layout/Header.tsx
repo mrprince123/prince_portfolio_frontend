@@ -46,7 +46,7 @@ const Header = () => {
           : "bg-background/80 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 sm:px-8 lg:px-10 py-3.5">
+      <div className="mx-auto flex w-full max-w-[1360px] xl:max-w-[70vw] items-center justify-between px-6 sm:px-8 lg:px-10 py-3.5">
         {/* Brand: Tara-inspired circular avatar + stacked title */}
         <Link
           to="/"
@@ -134,7 +134,7 @@ const Header = () => {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.22, ease: "easeInOut" }}
           >
-            <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 sm:px-8 py-4">
+            <nav className="mx-auto flex w-full max-w-[1360px] xl:max-w-[70vw] flex-col gap-1 px-6 sm:px-8 py-4">
               {NAV_LINKS.map((link) => {
                 const active = isActive(link.href);
                 return (

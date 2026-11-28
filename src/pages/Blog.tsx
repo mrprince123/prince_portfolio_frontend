@@ -201,10 +201,23 @@ const Blog = () => {
   return (
     <>
       <Seo
-        title="Blog | Insights & Tech Articles by Prince Kumar Sahni"
-        description="Read insightful blogs and in-depth articles by Prince Kumar Sahni on software engineering, system design, programming, and technology trends."
+        title="Engineering Blog & System Design Guides | Prince Kumar Sahni"
+        description="In-depth technical guides, API architecture blueprints, and distributed systems tutorials written by Software Engineer Prince Kumar Sahni."
         url="https://princesahni.com/blog"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Blog",
+          "System Design Tutorials",
+          "API Gateway Architecture",
+          "Distributed Systems Guide",
+          "Idempotent APIs",
+          "Model Context Protocol",
+          "Claude 3.7 Sonnet Reasoning",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+        ]}
       />
 
       <section className="container mx-auto px-6 py-16">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, Clock, Heart, ArrowLeft, Share2, User } from "lucide-react";
+import { Seo } from "@/components/seo";
 import { useToast } from "@/hooks/use-toast";
 import { useResource } from "@/hooks/useResource";
 import { Prose } from "@/components/ui/primitives/Prose";
@@ -85,7 +86,47 @@ const BlogDetail = () => {
   }
 
   return (
-    <section className="container mx-auto max-w-3xl px-6 py-16">
+    <>
+      <Seo
+        title={`${post.title} | Prince Kumar Sahni`}
+        description={post.description || post.title}
+        url={`https://princesahni.com/blog/${slug}`}
+        image={post.coverImage || "https://princesahni.com/og-images/princesahni-logo.png"}
+        type="article"
+        publishedTime={post.createdAt}
+        modifiedTime={post.updatedAt || post.createdAt}
+        author={post.author || "Prince Kumar Sahni"}
+        tags={post.tags?.map((t) => t.name)}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${slug}` },
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.description,
+          "image": post.coverImage || "https://princesahni.com/og-images/princesahni-logo.png",
+          "datePublished": post.createdAt,
+          "dateModified": post.updatedAt || post.createdAt,
+          "author": {
+            "@type": "Person",
+            "name": post.author || "Prince Kumar Sahni",
+            "url": "https://princesahni.com",
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Prince Kumar Sahni",
+            "url": "https://princesahni.com",
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://princesahni.com/blog/${slug}`,
+          },
+        }}
+      />
+      <section className="container mx-auto max-w-3xl px-6 py-16">
       {/* Back Button */}
       <Button asChild variant="ghost" className="mb-8">
         <Link to="/blog">
@@ -207,6 +248,7 @@ const BlogDetail = () => {
         </Button>
       </div>
     </section>
+  </>
   );
 };
 

@@ -7,10 +7,27 @@ import ReadyToShipSection from "@/components/sections/ReadyToShipSection";
 const Home = () => (
   <>
     <Seo
-      title="Prince Kumar Sahni | Software Engineer"
-      description="Portfolio of Prince Kumar Sahni — Software Engineer building scalable backend systems, enterprise e-commerce solutions, and pragmatic AI workflows."
+      title="Prince Kumar Sahni | Software Engineer & Systems Architect"
+      description="Official portfolio of Prince Kumar Sahni — Software Engineer building scalable distributed backends, high-performance web applications, and pragmatic AI workflows."
       url="https://princesahni.com"
       image="https://princesahni.com/og-images/princesahni-logo.png"
+      keywords={[
+        "Prince Kumar Sahni",
+        "Prince Sahni",
+        "mrprince123",
+        "Software Engineer",
+        "Full Stack Developer",
+        "Backend Architect",
+        "Distributed Systems",
+        "TypeScript",
+        "Node.js",
+        "Python",
+        "FastAPI",
+        "React",
+        "Docker",
+        "New Delhi",
+      ]}
+      breadcrumbs={[{ name: "Home", path: "/" }]}
     />
 
     {/* Section 1: Hero */}
