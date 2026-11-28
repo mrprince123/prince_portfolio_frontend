@@ -71,10 +71,20 @@ const Contact = () => {
   return (
     <>
       <Seo
-        title="Contact | Prince Kumar Sahni - Software Engineer"
-        description="Get in touch with Prince Kumar Sahni for software engineering roles, project inquiries, or technical consultations."
+        title="Contact Prince Kumar Sahni | Hire Software Engineer"
+        description="Get in touch with Prince Kumar Sahni for software engineering roles, backend consulting, distributed system architecture, or technical partnerships."
         url="https://princesahni.com/contact"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Contact Prince Kumar Sahni",
+          "Hire Prince Sahni",
+          "Hire Software Engineer New Delhi",
+          "Software Engineering Consultation",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
       />
 
       <div className="py-16 md:py-24">

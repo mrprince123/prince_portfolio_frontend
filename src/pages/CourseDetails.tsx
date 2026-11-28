@@ -12,6 +12,7 @@ import {
   ChevronRight,
   Calendar,
 } from "lucide-react";
+import { Seo } from "@/components/seo";
 import { useResource } from "@/hooks/useResource";
 import { Prose } from "@/components/ui/primitives/Prose";
 import { Button } from "@/components/ui/primitives/Button";
@@ -154,6 +155,29 @@ const CourseDetails = () => {
 
   return (
     <div className="relative">
+      <Seo
+        title={`${course.title} | Prince Kumar Sahni Courses`}
+        description={course.description || course.title}
+        url={`https://princesahni.com/courses/${slug}`}
+        image={course.coverImage || "https://princesahni.com/og-images/princesahni-logo.png"}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Courses", path: "/courses" },
+          { name: course.title, path: `/courses/${slug}` },
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": course.title,
+          "description": course.description,
+          "provider": {
+            "@type": "Person",
+            "name": "Prince Kumar Sahni",
+            "url": "https://princesahni.com",
+          },
+          "educationalLevel": course.level,
+        }}
+      />
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">

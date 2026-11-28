@@ -12,7 +12,7 @@ const socials = [
 
 const Footer = () => (
   <footer className="border-t border-border">
-    <div className="container mx-auto px-6 py-14">
+    <div className="container-page py-14">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr,1fr,1fr]">
         {/* Brand */}
         <div className="max-w-xs">

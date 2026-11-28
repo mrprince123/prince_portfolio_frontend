@@ -2,11 +2,12 @@ import { useState, useMemo } from "react";
 import { Search, Calendar, Clock, ArrowUpRight, BookOpen, X } from "lucide-react";
 import { Seo } from "@/components/seo";
 import { useResource } from "@/hooks/useResource";
-import { personalInfo } from "@/data/portfolioData";
+import { personalInfo, mockArticles } from "@/data/portfolioData";
 import { SectionHeader } from "@/components/ui/primitives/SectionHeader";
 import { Reveal } from "@/components/ui/primitives/Reveal";
 
 interface ArticleItem {
+  _id?: string;
   id?: number | string;
   title: string;
   description: string;
@@ -18,76 +19,7 @@ interface ArticleItem {
   readTime?: string;
 }
 
-const fallbackArticles: ArticleItem[] = [
-  {
-    id: 1,
-    title: "The Future of React: Server Components and Concurrent Features",
-    description:
-      "Exploring how React Server Components (RSC), Suspense boundaries, and concurrent rendering are redefining full-stack mental models.",
-    publishedAt: "2024-02-20",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["React", "JavaScript", "Frontend"],
-    featured: true,
-    readTime: "5 min read",
-  },
-  {
-    id: 2,
-    title: "Mastering Node.js Streams for Efficient High-Throughput Data Handling",
-    description:
-      "A deep dive into Node.js streams, pipeline utilities, backpressure handling, and memory-safe processing without blocking the event loop.",
-    publishedAt: "2024-01-15",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["Node.js", "Backend", "Performance"],
-    featured: true,
-    readTime: "7 min read",
-  },
-  {
-    id: 3,
-    title: "Microservices Architecture: Pragmatic Boundaries & Event Logs",
-    description:
-      "Understanding service boundaries, event-driven decoupling with Kafka/RabbitMQ, and operational trade-offs for scalable backends.",
-    publishedAt: "2023-12-10",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["Microservices", "System Design", "Backend"],
-    featured: true,
-    readTime: "8 min read",
-  },
-  {
-    id: 4,
-    title: "Mastering TypeScript: Advanced Type Gymnastics & Strict Clean Code",
-    description:
-      "Conditional types, mapped types, template literal types, and enterprise patterns for building maintainable large-scale applications.",
-    publishedAt: "2023-11-28",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["TypeScript", "Frontend", "Clean Code"],
-    featured: false,
-    readTime: "6 min read",
-  },
-  {
-    id: 5,
-    title: "Python FastAPI: Designing Production-Grade Async REST APIs",
-    description:
-      "How to leverage Pydantic models, async event loops, automatic OpenAPI docs, and dependency injection in FastAPI.",
-    publishedAt: "2023-10-15",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["Python", "FastAPI", "APIs"],
-    featured: false,
-    readTime: "6 min read",
-  },
-  {
-    id: 6,
-    title: "Redis Caching Strategies: Eliminating Stampedes & Invalidation Bugs",
-    description:
-      "Cache-aside vs write-through, probabilistic early expiration (XFetch), and Redis clustering under peak production traffic.",
-    publishedAt: "2023-09-02",
-    articleLink: `${personalInfo.medium}`,
-    tags: ["Redis", "Caching", "Databases"],
-    featured: true,
-    readTime: "7 min read",
-  },
-];
-
-const FILTER_TAGS = ["All", "React", "TypeScript", "Node.js", "Backend", "Microservices"];
+const FILTER_TAGS = ["All", "AI", "Docker", "System Design", "Microservices", "Android"];
 
 const Articles = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -96,17 +28,22 @@ const Articles = () => {
   const { data: rawArticles } = useResource<ArticleItem[]>(
     ["articles"],
     import.meta.env.VITE_ARTICLE_URL,
-    { fallback: fallbackArticles, timeoutMs: 3000 }
+    { fallback: mockArticles, timeoutMs: 3000 }
   );
 
-  const articles = Array.isArray(rawArticles) && rawArticles.length > 0 ? rawArticles : fallbackArticles;
+  // Filter ONLY Prince's real Medium articles
+  const articles = useMemo(() => {
+    const list = Array.isArray(rawArticles) && rawArticles.length > 0 ? rawArticles : mockArticles;
+    const mediumOnly = list.filter((a) => a.articleLink && a.articleLink.includes("medium.com"));
+    return mediumOnly.length > 0 ? mediumOnly : mockArticles;
+  }, [rawArticles]);
 
   // Filtered by Tag + Search Query
   const filtered = useMemo(() => {
     return articles.filter((article) => {
       const matchesTag =
         selectedTag === "All" ||
-        article.tags?.some((t) => t.toLowerCase() === selectedTag.toLowerCase());
+        article.tags?.some((t) => t.toLowerCase().includes(selectedTag.toLowerCase()));
 
       const query = searchQuery.trim().toLowerCase();
       const matchesSearch =
@@ -122,10 +59,24 @@ const Articles = () => {
   return (
     <>
       <Seo
-        title="Articles | Prince Kumar Sahni - Software Engineer"
-        description="Technical essays, system design guides, and software engineering deep dives by Prince Kumar Sahni."
+        title="Technical Articles & Medium Publications | Prince Kumar Sahni"
+        description="Deep-dive technical essays and system design breakdowns by Prince Kumar Sahni on Medium, covering AI engineering, Docker, microservices, and system architecture."
         url="https://princesahni.com/articles"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Articles",
+          "Prince Sahni Medium",
+          "mrprince123 medium",
+          "System Design Articles",
+          "Docker Made Simple",
+          "Microservices vs Monolith",
+          "Vibe Coding",
+          "Android Jetpack Compose",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Articles", path: "/articles" },
+        ]}
       />
 
       <div className="py-16 md:py-24">
@@ -133,9 +84,9 @@ const Articles = () => {
           {/* Page Header */}
           <SectionHeader
             eyebrow="Articles &amp; Essays"
-            title="Technical writing &amp;"
+            title="Medium articles &amp;"
             highlight="engineering guides"
-            subtitle="Deep dives into web performance, distributed systems, modern TypeScript, and pragmatic AI engineering."
+            subtitle="Deep dives into AI workflows, system architecture, microservices, Linux tools, and Android development published on Medium."
           />
 
           {/* Search & Tag Filter Bar */}
@@ -188,7 +139,7 @@ const Articles = () => {
             )}
           </div>
 
-          {/* Articles Grid */}
+          {/* Articles Grid with Visible Thumbnails */}
           {filtered.length === 0 ? (
             <div className="mt-16 text-center py-16 rounded-2xl border border-dashed border-border bg-card/40">
               <p className="font-display text-lg font-bold text-foreground">
@@ -213,40 +164,59 @@ const Articles = () => {
                 const link = article.articleLink || personalInfo.medium;
 
                 return (
-                  <Reveal key={article.id ?? index} delay={index * 0.06}>
+                  <Reveal key={article._id ?? article.id ?? index} delay={index * 0.05}>
                     <a
                       href={link}
                       target="_blank"
                       rel="noreferrer"
-                      className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md"
+                      className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-md"
                     >
                       <div>
-                        {/* Meta */}
-                        <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="h-3.5 w-3.5 text-primary" />
-                            {article.publishedAt || "Recent"}
-                          </span>
-                          <span className="flex items-center gap-1 rounded-full bg-secondary px-2.5 py-0.5 font-medium">
-                            <Clock className="h-3 w-3" />
-                            {article.readTime || "5 min read"}
-                          </span>
+                        {/* Article Thumbnail Image */}
+                        {article.coverImage && (
+                          <div className="relative aspect-[16/9] w-full overflow-hidden bg-muted">
+                            <img
+                              src={article.coverImage}
+                              alt={article.title}
+                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                              loading="lazy"
+                            />
+                            <div className="absolute top-3 right-3">
+                              <span className="flex items-center gap-1 rounded-full bg-background/90 backdrop-blur-md px-2.5 py-1 text-[11px] font-semibold text-foreground border border-border/60 shadow-sm">
+                                <Clock className="h-3 w-3 text-primary" />
+                                {article.readTime || "5 min read"}
+                              </span>
+                            </div>
+                          </div>
+                        )}
+
+                        <div className="p-5 sm:p-6">
+                          {/* Meta */}
+                          <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="h-3.5 w-3.5 text-primary" />
+                              {article.publishedAt || "Recent"}
+                            </span>
+                            <span className="font-bold text-foreground flex items-center gap-1">
+                              <span className="text-primary font-black">M</span> Medium
+                            </span>
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                            {article.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                            {article.description}
+                          </p>
                         </div>
-
-                        {/* Title */}
-                        <h3 className="font-display text-lg font-bold text-foreground group-hover:text-primary transition-colors leading-snug line-clamp-2">
-                          {article.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                          {article.description}
-                        </p>
                       </div>
 
                       {/* Card Bottom: Tags + Arrow */}
-                      <div className="mt-6 border-t border-border pt-4">
-                        <div className="flex items-center justify-between">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0">
+                        <div className="border-t border-border pt-3.5 flex items-center justify-between">
                           <div className="flex flex-wrap gap-1.5">
                             {article.tags?.slice(0, 2).map((tag) => (
                               <span

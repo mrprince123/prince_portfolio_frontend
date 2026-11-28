@@ -18,7 +18,7 @@
   body {
     @apply bg-background text-foreground antialiased;
     overflow-x: hidden;
-    font-family: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'Geist', system-ui, -apple-system, sans-serif;
   }
 
   ::-webkit-scrollbar { width: 5px; }
@@ -38,18 +38,18 @@
 }
 
 @layer components {
-  /* Typography — Manrope for headings, Inter for body */
+  /* Typography — Vercel Geist */
   .font-display {
-    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+    font-family: 'Geist', system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.025em;
   }
-  .font-mono { font-family: 'Space Mono', ui-monospace, monospace; }
-  .font-body  { font-family: 'Inter', system-ui, sans-serif; }
+  .font-mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+  .font-body  { font-family: 'Geist', system-ui, sans-serif; }
 
-  /* Section layouts - 60% screen width on desktop (max-w-6xl = 1152px) */
+  /* Section layouts - around 70% screen width on desktop */
   .section-container {
-    @apply mx-auto max-w-6xl px-6 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-[1360px] xl:max-w-[70vw] px-6 sm:px-8 lg:px-10;
   }
 
   /* Divider line pattern used by tararoutray */
@@ -111,6 +111,34 @@
   }
 
   .container-page {
-    @apply mx-auto max-w-6xl px-6 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-[1360px] xl:max-w-[70vw] px-6 sm:px-8 lg:px-10;
   }
 }
+
+@keyframes hero-float-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.6deg);
+  }
+}
+
+@keyframes hero-float-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(7px) rotate(-0.6deg);
+  }
+}
+
+.animate-hero-float-1 {
+  animation: hero-float-1 4.5s ease-in-out infinite;
+}
+
+.animate-hero-float-2 {
+  animation: hero-float-2 5.5s ease-in-out infinite;
+}
+
+

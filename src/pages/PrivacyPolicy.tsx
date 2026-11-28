@@ -59,6 +59,10 @@ export const PrivacyPolicy = () => {
         description="Privacy policy and data protection practices for Prince Kumar Sahni's portfolio website and personal AI publishing platform."
         url="https://princesahni.com/privacy"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Privacy Policy", path: "/privacy" },
+        ]}
       />
 
       <section className="container mx-auto max-w-4xl px-6 py-16">

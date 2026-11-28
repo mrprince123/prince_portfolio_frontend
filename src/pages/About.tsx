@@ -53,10 +53,22 @@ const OPTIMIZE_FOR = [
 const About = () => (
   <>
     <Seo
-      title="About | Prince Kumar Sahni - Software Engineer"
-      description="Learn more about Prince Kumar Sahni, a passionate Software Engineer dedicated to building scalable, secure, and high-performing applications."
+      title="About Prince Kumar Sahni | Software Engineer — AI + Python"
+      description="Learn about Prince Kumar Sahni — Software Engineer specializing in AI + Python Development, autonomous AI agents, RAG pipelines, and scalable distributed backends."
       url="https://princesahni.com/about"
       image="https://princesahni.com/og-images/princesahni-logo.png"
+      keywords={[
+        "About Prince Kumar Sahni",
+        "Prince Sahni background",
+        "Software Engineer career",
+        "Software Engineer AI Python",
+        "AI Agent Python Developer",
+        "mrprince123",
+      ]}
+      breadcrumbs={[
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+      ]}
     />
 
     <div className="py-16 md:py-24">
@@ -66,7 +78,7 @@ const About = () => (
           eyebrow="About Me"
           title="About"
           highlight={personalInfo.name}
-          subtitle="Software Engineer focused on building scalable web products, resilient APIs, and intuitive user experiences."
+          subtitle="Software Engineer focused on AI + Python Development, building production AI agents, resilient APIs, and intuitive user experiences."
         />
 
         {/* Hero Profile Grid */}
@@ -80,9 +92,8 @@ const About = () => (
                   <span className="font-semibold text-foreground">
                     {personalInfo.name}
                   </span>
-                  , a Software Engineer based in {personalInfo.location}. Over the past few years,
-                  I&apos;ve engineered everything from Android mobile applications to
-                  production full-stack platforms, always prioritizing performance, reliability, and usability.
+                  , a <strong className="font-semibold text-foreground">Software Engineer</strong> based in {personalInfo.location}, with a primary focus on <strong className="font-semibold text-foreground">AI + Python Development</strong>. Over the past few years,
+                  I&apos;ve engineered everything from autonomous AI agent pipelines and RAG architectures to scalable distributed backends and production full-stack platforms, always prioritizing performance, reliability, and usability.
                 </p>
                 <p>
                   {personalInfo.bioExtended}
@@ -122,7 +133,7 @@ const About = () => (
                     Focus
                   </p>
                   <p className="mt-0.5 text-sm font-bold text-foreground">
-                    Full-Stack · Cloud
+                    AI + Python Development
                   </p>
                 </div>
               </div>
@@ -155,7 +166,7 @@ const About = () => (
                 <div className="aspect-[4/5] overflow-hidden rounded-xl bg-muted">
                   <img
                     src={portrait}
-                    alt={personalInfo.name}
+                    alt={`${personalInfo.name} - Software Engineer & Systems Architect`}
                     width={500}
                     height={625}
                     loading="lazy"

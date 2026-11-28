@@ -86,10 +86,25 @@ const Projects = () => {
   return (
     <>
       <Seo
-        title="Apps & Products | Prince Kumar Sahni - Software Engineer"
-        description="Production apps, developer utilities, and AI platforms built by Prince Kumar Sahni."
-        url="https://princesahni.com/apps"
+        title="Software Projects & Apps | Prince Kumar Sahni"
+        description="Production applications, developer tools, AI workflows, and cloud backends engineered by Prince Kumar Sahni. Explore codebases, tech stacks, and live deployments."
+        url="https://princesahni.com/projects"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Projects",
+          "Prince Sahni Apps",
+          "Software Engineering Portfolio",
+          "Thor AI",
+          "CodeRev",
+          "Fine Browser",
+          "Full Stack Projects",
+          "React",
+          "Node.js",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Projects", path: "/projects" },
+        ]}
       />
 
       <div className="relative min-h-screen py-16 md:py-24 overflow-hidden">

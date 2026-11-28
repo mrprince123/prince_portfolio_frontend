@@ -183,10 +183,21 @@ const Courses = () => {
   return (
     <>
       <Seo
-        title="Courses | Learn with Prince Kumar Sahni"
-        description="Learn programming, software engineering, and modern development practices with Prince Kumar Sahni through high-quality, practical courses."
+        title="Engineering Courses & Masterclasses | Prince Kumar Sahni"
+        description="Master scalable software engineering, distributed system design, cloud-native Kubernetes, and Golang with deep-dive courses by Prince Kumar Sahni."
         url="https://princesahni.com/courses"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Courses",
+          "System Design Course",
+          "Scalable Architecture Masterclass",
+          "Golang for Scalable Systems",
+          "Cloud Native Kubernetes",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Courses", path: "/courses" },
+        ]}
       />
 
       <section className="container mx-auto px-6 py-16">

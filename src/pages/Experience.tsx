@@ -9,10 +9,23 @@ const Experience = () => {
   return (
     <>
       <Seo
-        title="Experience | Prince Kumar Sahni - Software Engineer"
-        description="Career history, engineering leadership, and work experience of Prince Kumar Sahni at Webkul Software, Chetu Inc, and Webbocket."
+        title="Work Experience & Engineering Career | Prince Kumar Sahni"
+        description="Career history, engineering leadership, and production deliverables of Prince Kumar Sahni across distributed backend architectures and scalable full-stack applications."
         url="https://princesahni.com/experience"
         image="https://princesahni.com/og-images/princesahni-logo.png"
+        keywords={[
+          "Prince Kumar Sahni Experience",
+          "Prince Sahni Career",
+          "Software Engineer Experience",
+          "Backend Lead",
+          "Webkul Software",
+          "Chetu Inc",
+          "Software Engineering Track Record",
+        ]}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Experience", path: "/experience" },
+        ]}
       />
 
       <div className="py-16 md:py-24">
